@@ -17,8 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://dkff8jyph5rjn"
-GlobalScene="*uid://dyixaalbvmh7y"
+Global="*uid://dyixaalbvmh7y"
 PictureData="*uid://djng1bb0jb75s"
 
 [display]

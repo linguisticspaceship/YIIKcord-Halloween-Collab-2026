@@ -16,7 +16,7 @@ const dist_rng_max = 4
 @onready var player = $"../Player"
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	GlobalScene.play_sound("jumpscare")
+	Global.play_sound("jumpscare")
 	in_sight = true
 	
 

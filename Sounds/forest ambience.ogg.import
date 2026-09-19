@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brmvqa54hd1d"
+path="res://.godot/imported/forest ambience.ogg-2ccec6ffa9640ff9c43e1693c4214ffa.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/forest ambience.ogg"
+dest_files=["res://.godot/imported/forest ambience.ogg-2ccec6ffa9640ff9c43e1693c4214ffa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

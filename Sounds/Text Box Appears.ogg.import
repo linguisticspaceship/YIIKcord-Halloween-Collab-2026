@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cj7scai76s5xi"
+path="res://.godot/imported/Text Box Appears.ogg-4652ad8379e0191f136b51ef8c688929.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Text Box Appears.ogg"
+dest_files=["res://.godot/imported/Text Box Appears.ogg-4652ad8379e0191f136b51ef8c688929.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -13,3 +13,5 @@ script = ExtResource("1_uavi6")
 
 [node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=902908802]
 max_polyphony = 8
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1030538803]

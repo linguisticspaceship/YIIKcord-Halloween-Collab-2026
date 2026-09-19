@@ -36,7 +36,8 @@ func movement_pos():
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-	else:
+		footstep_sfx()
+	else: # Slow down to 0
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed) 
 
@@ -51,6 +52,18 @@ func movement_rot(event: InputEvent):
 	
 	if event is InputEventMouseMotion: 
 		rotate_y(-event.relative.x * mouse_sensitivity)
+		
+func footstep_sfx():
+	if Global.get_sound("grass"):
+		print("Grass loaded")
+	if !Global.get_sound("grass"):
+		print("Not playing grass SFX!")
+	
+	if !Global.get_sound("grass"):
+		if randi_range(0,10) == 10:
+			print("BOOM")
+			Global.play_sound("grass")
+	
 
 func pointer_change():
 	match mouse_state:
