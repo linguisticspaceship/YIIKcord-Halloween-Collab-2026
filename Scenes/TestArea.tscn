@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cjknx73fk8wew"]
+
+[ext_resource type="PackedScene" uid="uid://cvn6o2b7kwa64" path="res://Prefabs/Player.tscn" id="1_sn5ql"]
+[ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="2_q1sgv"]
+[ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="3_q1sgv"]
+[ext_resource type="PackedScene" uid="uid://bxrjhqetmj6xo" path="res://Prefabs/roryCat.tscn" id="4_o23y2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ogq8d"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q1sgv"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
+
+[node name="TestArea" type="Node3D" unique_id=733483550]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1767720595]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 14.481981, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=548564682]
+
+[node name="Plane" type="MeshInstance3D" parent="StaticBody3D" unique_id=1721418589]
+mesh = SubResource("PlaneMesh_ogq8d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1037876880]
+shape = SubResource("ConcavePolygonShape3D_q1sgv")
+
+[node name="Player" parent="." unique_id=1614152096 instance=ExtResource("1_sn5ql")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3466706, 1, 0)
+
+[node name="Collectable" parent="." unique_id=1879330903 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.8285065, 2.138722, 7.454274)
+
+[node name="Collectable2" parent="." unique_id=211595135 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.3639326, 2.2877123, 1.4634142)
+
+[node name="Collectable3" parent="." unique_id=1677058386 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.4511766, 2.0050783, -4.924201)
+
+[node name="Collectable4" parent="." unique_id=1274246904 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.129606, 2.299763, -1.5921392)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=400971515]
+transform = Transform3D(0.82031965, -0.23490919, 0.5214339, 0, 0.9117487, 0.41074845, -0.57190526, -0.33694503, 0.7479254, 0, 5.4477205, 0)
+light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
+shadow_enabled = true
+
+[node name="Models" type="Node3D" parent="." unique_id=229439960]
+
+[node name="tree" parent="Models" unique_id=685681442 instance=ExtResource("3_q1sgv")]
+transform = Transform3D(-0.18479504, 0, 0.98277706, 0, 1, 0, -0.98277706, 0, -0.18479504, -1.9556031, -0.38596368, 3.9631283)
+
+[node name="tree2" parent="Models" unique_id=2070075794 instance=ExtResource("3_q1sgv")]
+transform = Transform3D(0.95985514, 0, 0.2804963, 0, 1, 0, -0.2804963, 0, 0.95985514, -5.135036, -0.30085087, -3.4368842)
+
+[node name="tree3" parent="Models" unique_id=1494481433 instance=ExtResource("3_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2730227, -0.5124694, -5.1640472)
+
+[node name="RoryCat" parent="." unique_id=2144193776 instance=ExtResource("4_o23y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1318293, 0.9, -4.4921074)

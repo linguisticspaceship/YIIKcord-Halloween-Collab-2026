@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxrjhqetmj6xo"]
+
+[ext_resource type="Script" uid="uid://dq5rmdjwvup5h" path="res://Prefabs/RoryCat.gd" id="1_4eq6u"]
+[ext_resource type="Texture2D" uid="uid://fxhqyxebmgqr" path="res://Sprites/Cursor Hover.png" id="1_7q0i6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uc4v"]
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ceoa"]
+albedo_texture = ExtResource("1_7q0i6")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_65581"]
+material = SubResource("StandardMaterial3D_3ceoa")
+height = 1.8
+
+[node name="RoryCat" type="RigidBody3D" unique_id=2144193776]
+mass = 6666.0
+freeze = true
+script = ExtResource("1_4eq6u")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1806306419]
+shape = SubResource("CapsuleShape3D_4uc4v")
+debug_color = Color(0.99999183, 0.29451048, 0.43624315, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1909896623]
+mesh = SubResource("CapsuleMesh_65581")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=854850043]
+aabb = AABB(-0.31840485, -0.200792, -0.09939604, 0.6368097, 0.401584, 0.19879209)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

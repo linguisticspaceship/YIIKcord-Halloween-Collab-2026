@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dyixaalbvmh7y"]
+
+[ext_resource type="Script" uid="uid://dj00dvgldmxny" path="res://Scenes/global.gd" id="1_qm544"]
+[ext_resource type="Script" uid="uid://dni0egj0tmtjl" path="res://Scripts/game_controller.gd" id="1_uavi6"]
+
+[node name="Global" type="Node" unique_id=426290056]
+script = ExtResource("1_qm544")
+
+[node name="Game Controller" type="Node" parent="." unique_id=1928734327]
+script = ExtResource("1_uavi6")
+
+[node name="Global Script" type="Node" parent="." unique_id=1070926624]
+
+[node name="Sounds" type="AudioStreamPlayer" parent="." unique_id=902908802]
+max_polyphony = 8

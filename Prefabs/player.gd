@@ -1,0 +1,70 @@
+extends CharacterBody3D
+
+var speed = 0 # Current speed
+const speed_walk = 4
+const speed_sprint = 8
+var sprinting = false
+const fall_acceleration = 30
+
+var mouse_sensitivity = 0.01 # MOVE TO SETTINGS
+enum { MOUSE_IDLE, MOUSE_HOVER }
+var mouse_state = MOUSE_IDLE
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _process(delta: float) -> void:
+	# Gravity
+	if not is_on_floor():
+		velocity.y = velocity.y - (fall_acceleration * delta)
+	
+	movement_pos()
+	pointer_change()
+	
+func _input(event: InputEvent) -> void:
+	movement_rot(event)
+	
+func movement_pos():
+	if Input.is_action_pressed("Sprint"):
+		speed = speed_sprint
+	else:
+		speed = speed_walk
+	
+	var input_dir = Input.get_vector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # EXPERIMENT: remove normalized
+
+	if direction:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed) 
+
+	move_and_slide()
+	# Wall collision
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+	
+func movement_rot(event: InputEvent):
+	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+		return
+	
+	if event is InputEventMouseMotion: 
+		rotate_y(-event.relative.x * mouse_sensitivity)
+
+func pointer_change():
+	match mouse_state:
+		MOUSE_IDLE:
+			$UI/Container/Pointer.texture = load("res://Sprites/Cursor.png")
+		MOUSE_HOVER:
+			$UI/Container/Pointer.texture = load("res://Sprites/Cursor Hover.png")
+
+func _on_player_grab_area_entered(area: Area3D) -> void:
+	if area.get_parent().is_in_group("Collectable"):
+		mouse_state = MOUSE_HOVER
+		area.get_parent().get_node("AnimationPlayer").play("Pulse")
+
+func _on_player_grab_area_exited(area: Area3D) -> void:
+	if area.get_parent().is_in_group("Collectable"):
+		mouse_state = MOUSE_IDLE
+		area.get_parent().get_node("AnimationPlayer").play("RESET")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cvn6o2b7kwa64"]
+
+[ext_resource type="Script" uid="uid://iodraetkg1f3" path="res://Prefabs/player.gd" id="1_um8lo"]
+[ext_resource type="Texture2D" uid="uid://b1hctqcoow7rg" path="res://Sprites/Cursor.png" id="2_x3d5u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x3d5u"]
+height = 1.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(0.2, 0.15, 2.5633926)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b43ah"]
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=1614152096]
+script = ExtResource("1_um8lo")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1499743544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Player Collision" type="CollisionShape3D" parent="." unique_id=70056274]
+shape = SubResource("CapsuleShape3D_x3d5u")
+debug_color = Color(0.99999183, 0.29451048, 0.43624315, 1)
+
+[node name="PlayerGrab" type="Area3D" parent="." unique_id=1403848645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.5832782)
+
+[node name="Grab Collision" type="CollisionShape3D" parent="PlayerGrab" unique_id=2136660148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25041795)
+shape = SubResource("BoxShape3D_yf5fn")
+debug_color = Color(0.8410432, 0.3819484, 1.92523e-07, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2049038913]
+mesh = SubResource("CapsuleMesh_b43ah")
+
+[node name="UI" type="Control" parent="." unique_id=302106220]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Container" type="Container" parent="UI" unique_id=647052690]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pointer" type="TextureRect" parent="UI/Container" unique_id=1157071435]
+layout_mode = 2
+texture = ExtResource("2_x3d5u")
+
+[connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
+[connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]
