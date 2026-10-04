@@ -54,14 +54,13 @@ func movement_rot(event: InputEvent):
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		
 func footstep_sfx():
-	if Global.get_sound("grass"):
-		print("Grass loaded")
-	if !Global.get_sound("grass"):
-		print("Not playing grass SFX!")
+	#if Global.get_sound("grass"):
+	#	print("Grass loaded")
+	#if !Global.get_sound("grass"):
+	#	print("Not playing grass SFX!")
 	
 	if !Global.get_sound("grass"):
 		if randi_range(0,10) == 10:
-			print("BOOM")
 			Global.play_sound("grass")
 	
 
@@ -81,3 +80,7 @@ func _on_player_grab_area_exited(area: Area3D) -> void:
 	if area.get_parent().is_in_group("Collectable"):
 		mouse_state = MOUSE_IDLE
 		area.get_parent().get_node("AnimationPlayer").play("RESET")
+
+
+func _on_pagecounter_timer_timeout() -> void:
+	$UI/PageCounter.visible = false

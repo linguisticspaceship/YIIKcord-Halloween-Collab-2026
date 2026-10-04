@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cmg1krm7w50ky" path="res://Prefabs/audio generic.gd" id="1_bnlnh"]
 
 [node name="AudioGeneric" type="AudioStreamPlayer" unique_id=2139563428]
+volume_db = 2.0
 script = ExtResource("1_bnlnh")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
