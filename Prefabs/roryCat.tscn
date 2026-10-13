@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://bxrjhqetmj6xo"]
 
 [ext_resource type="Script" uid="uid://dq5rmdjwvup5h" path="res://Prefabs/RoryCat.gd" id="1_4eq6u"]
-[ext_resource type="Texture2D" uid="uid://fxhqyxebmgqr" path="res://Sprites/Cursor Hover.png" id="1_7q0i6"]
+[ext_resource type="ArrayMesh" uid="uid://bq7te88vjt02l" path="res://Models/FBX/RoryCat.obj" id="2_7q0i6"]
+[ext_resource type="Texture2D" uid="uid://mejruoul0ij0" path="res://Texture/RoryCatEvil.png" id="3_4eq6u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uc4v"]
 height = 1.8
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ceoa"]
-albedo_texture = ExtResource("1_7q0i6")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7q0i6"]
+albedo_texture = ExtResource("3_4eq6u")
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_65581"]
-material = SubResource("StandardMaterial3D_3ceoa")
-height = 1.8
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 1.108241
 
-[node name="RoryCat" type="RigidBody3D" unique_id=2144193776]
-mass = 6666.0
-freeze = true
+[node name="RoryCat" type="CharacterBody3D" unique_id=1903923049]
 script = ExtResource("1_4eq6u")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1806306419]
@@ -23,10 +21,20 @@ shape = SubResource("CapsuleShape3D_4uc4v")
 debug_color = Color(0.99999183, 0.29451048, 0.43624315, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1909896623]
-mesh = SubResource("CapsuleMesh_65581")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.8052848, 0)
+mesh = ExtResource("2_7q0i6")
+surface_material_override/0 = SubResource("StandardMaterial3D_7q0i6")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=854850043]
 aabb = AABB(-0.31840485, -0.200792, -0.09939604, 0.6368097, 0.401584, 0.19879209)
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1319827503]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1909400138]
+
+[node name="KillSphere" type="CollisionShape3D" parent="Area3D" unique_id=1467208983]
+shape = SubResource("SphereShape3D_g4v7s")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_killsphere_entered"]

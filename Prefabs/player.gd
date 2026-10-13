@@ -17,12 +17,26 @@ func _process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity.y = velocity.y - (fall_acceleration * delta)
+		
+		
+
 	
 	movement_pos()
 	pointer_change()
 	
+	# TODO: If in kill state, execute this.
+	#look_at_rorycat()
+	
+func look_at_rorycat():
+	var rory_cat = get_node("/root/TestArea/RoryCat")
+	#look_at(Vector3(rory_cat.position.x, rory_cat.position.y, rory_cat.position.z))
+
+	var trans = transform.looking_at( rory_cat.transform.origin, Vector3.UP )
+	self.transform = self.transform.interpolate_with(trans, 40 * get_process_delta_time())
+	
 func _input(event: InputEvent) -> void:
 	movement_rot(event)
+	
 	
 func movement_pos():
 	if Input.is_action_pressed("Sprint"):

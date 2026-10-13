@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cvn6o2b7kwa64"]
 
 [ext_resource type="Script" uid="uid://iodraetkg1f3" path="res://Prefabs/player.gd" id="1_um8lo"]
+[ext_resource type="ArrayMesh" uid="uid://bq7te88vjt02l" path="res://Models/FBX/RoryCat.obj" id="2_b43ah"]
 [ext_resource type="Texture2D" uid="uid://b1hctqcoow7rg" path="res://Sprites/Cursor.png" id="2_x3d5u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x3d5u"]
@@ -8,9 +9,6 @@ height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(0.2, 0.15, 2.5633926)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_b43ah"]
-height = 1.8
 
 [node name="Player" type="CharacterBody3D" unique_id=1614152096]
 script = ExtResource("1_um8lo")
@@ -26,6 +24,12 @@ current = true
 shape = SubResource("CapsuleShape3D_x3d5u")
 debug_color = Color(0.99999183, 0.29451048, 0.43624315, 1)
 
+[node name="PlayerHitbox" type="Area3D" parent="." unique_id=420389475]
+
+[node name="Hitbox" type="CollisionShape3D" parent="PlayerHitbox" unique_id=538348043]
+shape = SubResource("CapsuleShape3D_x3d5u")
+debug_color = Color(0.99999183, 0.29451048, 0.43624315, 1)
+
 [node name="PlayerGrab" type="Area3D" parent="." unique_id=1403848645]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.5832782)
 
@@ -35,7 +39,10 @@ shape = SubResource("BoxShape3D_yf5fn")
 debug_color = Color(0.8410432, 0.3819484, 1.92523e-07, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2049038913]
-mesh = SubResource("CapsuleMesh_b43ah")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.8, 0)
+cast_shadow = 0
+visibility_range_begin = 2.0
+mesh = ExtResource("2_b43ah")
 
 [node name="UI" type="Control" parent="." unique_id=302106220]
 layout_mode = 3

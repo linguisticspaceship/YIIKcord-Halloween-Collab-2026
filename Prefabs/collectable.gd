@@ -11,7 +11,7 @@ func _ready() -> void:
 	material.albedo_texture = load(PictureData.list[random_pic]["path"])
 	
 func _process(_delta: float) -> void:
-	if hovered && Input.is_action_pressed("Interact"):
+	if hovered && Input.is_action_just_pressed("Interact"):
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
 		Global.page_counter_show( PictureData.list[random_pic]["author"] )
