@@ -43,22 +43,22 @@ func movement_pos():
 
 	move_and_slide()
 	# Wall collision
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
+	#for i in get_slide_collision_count():
+	#	var collision = get_slide_collision(i)
 	
 func movement_rot(event: InputEvent):
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		return
 	
 	if event is InputEventMouseMotion: 
+		# Horizontal
 		rotate_y(-event.relative.x * mouse_sensitivity)
+		# Vertical
+		$Camera3D.rotate_x(-event.relative.y * mouse_sensitivity)
+		var vertical_max = 55
+		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(vertical_max), deg_to_rad(vertical_max))
 		
 func footstep_sfx():
-	#if Global.get_sound("grass"):
-	#	print("Grass loaded")
-	#if !Global.get_sound("grass"):
-	#	print("Not playing grass SFX!")
-	
 	if !Global.get_sound("grass"):
 		if randi_range(0,10) == 10:
 			Global.play_sound("grass")
@@ -83,4 +83,4 @@ func _on_player_grab_area_exited(area: Area3D) -> void:
 
 
 func _on_pagecounter_timer_timeout() -> void:
-	$UI/PageCounter.visible = false
+	$UI/Collect.visible = false

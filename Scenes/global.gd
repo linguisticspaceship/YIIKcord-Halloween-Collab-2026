@@ -20,11 +20,12 @@ var sound_list = {
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
 }
 
-# Maybe move this to player script idk
-func page_counter_show():
-	$Player/UI/PageCounter.visible = true
-	$Player/UI/PageCounter.text = str(gamecont.pages_collected) + "/" + str(gamecont.page_goal) + " Pages"
-	$Player/UI/PageCounter/Timer.start()
+# Maybe move this to player script? idk
+func page_counter_show(author=""):
+	$Player/UI/Collect.visible = true
+	$Player/UI/Collect/PageCounter.text = str(gamecont.pages_collected) + "/" + str(gamecont.page_goal) + " Pages"
+	$Player/UI/Collect/Author.text = author
+	$Player/UI/Collect/Timer.start()
 
 func _process(_delta: float) -> void:
 	if debug_mode:
