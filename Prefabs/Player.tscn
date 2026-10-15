@@ -3,12 +3,20 @@
 [ext_resource type="Script" uid="uid://iodraetkg1f3" path="res://Prefabs/player.gd" id="1_um8lo"]
 [ext_resource type="ArrayMesh" uid="uid://bq7te88vjt02l" path="res://Models/FBX/RoryCat.obj" id="2_b43ah"]
 [ext_resource type="Texture2D" uid="uid://b1hctqcoow7rg" path="res://Sprites/Cursor.png" id="2_x3d5u"]
+[ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="4_shmu5"]
+[ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_vxq8l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x3d5u"]
 height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(0.2, 0.15, 2.5633926)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gg3t4"]
+shader = ExtResource("4_vxq8l")
+shader_parameter/motion = Vector2(10, 111)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
 
 [node name="Player" type="CharacterBody3D" unique_id=1614152096]
 script = ExtResource("1_um8lo")
@@ -68,6 +76,20 @@ grow_vertical = 2
 layout_mode = 2
 texture = ExtResource("2_x3d5u")
 
+[node name="DEBUGINFO" type="Control" parent="UI/Container" unique_id=1507742002]
+visible = false
+layout_mode = 2
+
+[node name="DebugText" type="RichTextLabel" parent="UI/Container/DEBUGINFO" unique_id=1571568335]
+layout_mode = 1
+offset_left = -544.0
+offset_top = -292.0
+offset_right = 32.0
+offset_bottom = 172.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+text = "Weekend Woman"
+
 [node name="Collect" type="Control" parent="UI" unique_id=136823205]
 visible = false
 anchors_preset = 0
@@ -118,6 +140,15 @@ vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="UI/Collect" unique_id=1397257438]
 wait_time = 4.0
+
+[node name="Static" type="TextureRect" parent="UI" unique_id=1966251843]
+modulate = Color(1, 1, 1, 0)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_gg3t4")
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 657.0
+texture = ExtResource("4_shmu5")
 
 [connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
 [connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]

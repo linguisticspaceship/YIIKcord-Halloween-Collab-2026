@@ -10,6 +10,9 @@ var mouse_sensitivity = 0.01 # MOVE TO SETTINGS
 enum { MOUSE_IDLE, MOUSE_HOVER }
 var mouse_state = MOUSE_IDLE
 
+var alive = true
+var godmode = true # DEBUG
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -17,15 +20,36 @@ func _process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
 		velocity.y = velocity.y - (fall_acceleration * delta)
-		
-		
-
 	
-	movement_pos()
+	if alive:
+		movement_pos()
 	pointer_change()
 	
-	# TODO: If in kill state, execute this.
-	#look_at_rorycat()
+	if Global.debug_mode:
+		var test = "WHATEVER"
+		
+		$UI/Container/DEBUGINFO.visible = true
+		$UI/Container/DEBUGINFO/DebugText.text = "
+		[Debug]
+		RespawnTime = " + test + "\n"
+		"TEST"
+	
+	
+func set_static(opacity=0.0):
+	if godmode:
+		return
+	
+	opacity = clamp(opacity, 0.0, 0.3)
+	$UI/Static.set_modulate( Color(1.0, 1.0, 1.0, opacity) )
+	
+func kill_me(): # Executed by RoryCat object
+	if godmode:
+		print("Prevented death!")
+		return
+
+	alive = false
+	speed = 0
+	look_at_rorycat()
 	
 func look_at_rorycat():
 	var rory_cat = get_node("/root/TestArea/RoryCat")
