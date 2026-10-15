@@ -87,6 +87,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3801556, 0.5, 2.556182)
 [node name="Collectable5" parent="RandomSpawns" unique_id=1447807924 instance=ExtResource("2_q1sgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5986366, 0.5, 2.3860006)
 
+[node name="Collectable6" parent="RandomSpawns" unique_id=895565478 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6543124, 1.456463, -5.811684)
+
+[node name="Collectable7" parent="RandomSpawns" unique_id=2040163195 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.257641, 1.456463, -5.811684)
+
+[node name="Collectable8" parent="RandomSpawns" unique_id=734300259 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.509253, 1.456463, -5.811684)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=99654636]
 environment = SubResource("Environment_yf5fn")
 

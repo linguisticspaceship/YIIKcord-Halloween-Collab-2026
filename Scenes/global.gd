@@ -29,7 +29,25 @@ func page_counter_show(author=""):
 
 func _process(_delta: float) -> void:
 	if debug_mode:
-		debug_cam() # Press 5 to toggle bird view
+		debug_functions()
+		
+		
+var debug_respawntime = 0
+var debug_despawntime = 0
+var debug_roryactive = false
+func debug_functions():
+	debug_cam() # Press 5 to toggle bird view
+		
+	# Player UI
+	var test = "WHATEVER"
+		
+	$Player/UI/Container/DEBUGINFO.visible = true
+	$Player/UI/Container/DEBUGINFO/DebugText.text = "
+	[Debug]
+	CatActive = "   + str(debug_roryactive) + "
+	RespawnTime = " + str(snapped(debug_respawntime,0.01)) + "
+	DespawnTime = " + str(snapped(debug_despawntime,0.01)) + "
+	"
 
 func debug_cam():
 	if Input.is_action_just_pressed("DebugCam"):

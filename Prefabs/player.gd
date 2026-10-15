@@ -11,7 +11,7 @@ enum { MOUSE_IDLE, MOUSE_HOVER }
 var mouse_state = MOUSE_IDLE
 
 var alive = true
-var godmode = true # DEBUG
+var godmode = false # DEBUG
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -25,14 +25,6 @@ func _process(delta: float) -> void:
 		movement_pos()
 	pointer_change()
 	
-	if Global.debug_mode:
-		var test = "WHATEVER"
-		
-		$UI/Container/DEBUGINFO.visible = true
-		$UI/Container/DEBUGINFO/DebugText.text = "
-		[Debug]
-		RespawnTime = " + test + "\n"
-		"TEST"
 	
 	
 func set_static(opacity=0.0):
