@@ -2,16 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="2_2abcd"]
 
-[sub_resource type="GDScript" id="GDScript_1kbp3"]
-script/source = "extends Node3D
-
-var pages_max = 4
-
-func _ready() -> void:
-	
-"
-
 [node name="PageSpawnLocation" type="Node3D" unique_id=1344654769]
-script = SubResource("GDScript_1kbp3")
 
 [node name="Collectable" parent="." unique_id=1879330903 instance=ExtResource("2_2abcd")]

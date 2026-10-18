@@ -60,11 +60,13 @@ func spawn():
 	position = player.position + Vector3(cos(angle), 0, -sin(angle)) * dist
 	position.y = 0.9 # TODO: Make RoryCat snap to floor rather than do this manually.
 	
-func _process(delta: float) -> void:
-	# Debug
-	Global.debug_respawntime = respawn_timer
-	Global.debug_despawntime = despawn_timer
-	Global.debug_roryactive = active
+func spawn_and_despawn_timer():
+	var delta = get_process_delta_time()
+	
+	if Global.gamecont.pages_collected == 0:
+		despawn_timer = 0
+		respawn_timer = 0
+		active = false
 	
 	if active:
 		visible = true
@@ -87,6 +89,13 @@ func _process(delta: float) -> void:
 			despawn_timer = 0
 			spawn()
 
+func _process(delta: float) -> void:
+	# Debug
+	Global.debug_respawntime = respawn_timer
+	Global.debug_despawntime = despawn_timer
+	Global.debug_roryactive = active
+	
+	spawn_and_despawn_timer()
 
 	staring_mechanics()
 		
