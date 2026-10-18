@@ -35,6 +35,12 @@ aabb = AABB(-0.31840485, -0.200792, -0.09939604, 0.6368097, 0.401584, 0.19879209
 [node name="KillSphere" type="CollisionShape3D" parent="Area3D" unique_id=1467208983]
 shape = SubResource("SphereShape3D_g4v7s")
 
+[node name="Area3D2" type="Area3D" parent="." unique_id=967691936]
+
+[node name="KillSphere" type="CollisionShape3D" parent="Area3D2" unique_id=1127448655]
+shape = SubResource("SphereShape3D_g4v7s")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_killsphere_entered"]
+[connection signal="area_entered" from="Area3D2" to="." method="_on_area_3d_killsphere_entered"]
