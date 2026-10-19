@@ -13,7 +13,7 @@ config_version=5
 config/name="YIIKcord Halloween 2026"
 run/main_scene="uid://cjknx73fk8wew"
 config/features=PackedStringArray("4.7", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://boaxl7nhd27vd"
 
 [autoload]
 
@@ -24,6 +24,10 @@ PictureData="*uid://djng1bb0jb75s"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/scatter/plugin.cfg")
 
 [input]
 

@@ -63,11 +63,6 @@ func spawn():
 func spawn_and_despawn_timer():
 	var delta = get_process_delta_time()
 	
-	if Global.gamecont.pages_collected == 0:
-		despawn_timer = 0
-		respawn_timer = 0
-		active = false
-	
 	if active:
 		visible = true
 		$Collision.disabled = false
@@ -94,6 +89,15 @@ func _process(delta: float) -> void:
 	Global.debug_respawntime = respawn_timer
 	Global.debug_despawntime = despawn_timer
 	Global.debug_roryactive = active
+	
+	# Inactive until page 1
+	if Global.gamecont.pages_collected == 0:
+		despawn_timer = 0
+		respawn_timer = 0
+		active = false
+		$Collision.disabled = true
+		$Area3D.monitoring = false
+		#return
 	
 	spawn_and_despawn_timer()
 
