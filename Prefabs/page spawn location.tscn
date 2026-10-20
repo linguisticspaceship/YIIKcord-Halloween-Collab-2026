@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://djsc40tnvxos1"]
-
-[ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="2_2abcd"]
-
-[node name="PageSpawnLocation" type="Node3D" unique_id=1344654769]
-
-[node name="Collectable" parent="." unique_id=1879330903 instance=ExtResource("2_2abcd")]

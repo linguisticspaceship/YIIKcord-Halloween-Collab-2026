@@ -1,15 +1,27 @@
 [gd_scene format=3 uid="uid://cjknx73fk8wew"]
 
 [ext_resource type="Texture2D" uid="uid://caepn1vpkre7a" path="res://Texture/Grass.png" id="1_6rtga"]
+[ext_resource type="Script" uid="uid://ba8jou0xje0c7" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_jv0wi"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="2_q1sgv"]
+[ext_resource type="Script" uid="uid://dx7e7heldjwmg" path="res://addons/proton_scatter/src/scatter_shape.gd" id="2_ua4vs"]
+[ext_resource type="Script" uid="uid://devkng6iaf5do" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="3_j0bdh"]
+[ext_resource type="Script" uid="uid://b5s7ggmsi8g5u" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="3_s8o2c"]
 [ext_resource type="PackedScene" uid="uid://cgbc8iq071gf3" path="res://Models/pumpkinlantern.tscn" id="4_6rtga"]
 [ext_resource type="PackedScene" uid="uid://bxrjhqetmj6xo" path="res://Prefabs/roryCat.tscn" id="4_o23y2"]
+[ext_resource type="Script" uid="uid://gjjh4mw1wn51" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="4_v3rbd"]
 [ext_resource type="Script" uid="uid://dxobv0aoys8vv" path="res://Prefabs/RandomSpawns.gd" id="5_m0ru2"]
+[ext_resource type="Script" uid="uid://dc4rwlje6dfca" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="6_3awjc"]
 [ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="7_18a41"]
+[ext_resource type="Script" uid="uid://it6ja2wjneak" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="7_gk8ot"]
 [ext_resource type="PackedScene" uid="uid://be0f3d1mt3kk2" path="res://Models/PicketFence.fbx" id="8_fxcl4"]
 [ext_resource type="PackedScene" uid="uid://ljnvg21whrve" path="res://Models/Grave1.fbx" id="9_lc3fp"]
 [ext_resource type="PackedScene" uid="uid://cboj55smifryg" path="res://Models/Grave2.fbx" id="10_l40aj"]
 [ext_resource type="PackedScene" uid="uid://c3dhkd5xcfnri" path="res://Models/Grave3.fbx" id="11_m71ey"]
+[ext_resource type="Script" uid="uid://dgqq1tf8prx5s" path="res://addons/proton_scatter/src/scatter.gd" id="14_j0bdh"]
+[ext_resource type="Script" uid="uid://c85i0481q4uog" path="res://addons/proton_scatter/src/scatter_item.gd" id="15_vmv1f"]
+[ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="20_jv0wi"]
+[ext_resource type="PackedScene" uid="uid://fba2ad1hx0wa" path="res://Models/trailer2.fbx" id="21_v3rbd"]
+[ext_resource type="PackedScene" uid="uid://d2wqjohegiu5w" path="res://Models/trailer3.fbx" id="22_g3xr5"]
 
 [sub_resource type="GDScript" id="GDScript_o23y2"]
 script/source = "extends Node3D
@@ -17,6 +29,34 @@ script/source = "extends Node3D
 func _ready() -> void:
 	Global.play_sound(\"forest\",true,-24.0)
 "
+
+[sub_resource type="Resource" id="Resource_cyx4m"]
+script = ExtResource("4_v3rbd")
+amount = 75
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_ufxn3"]
+script = ExtResource("6_3awjc")
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+restrict_height = true
+
+[sub_resource type="Resource" id="Resource_g8mr2"]
+script = ExtResource("7_gk8ot")
+ray_direction = Vector3(0, 0, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+
+[sub_resource type="Resource" id="Resource_mhonu"]
+script = ExtResource("2_jv0wi")
+stack = Array[ExtResource("3_s8o2c")]([SubResource("Resource_cyx4m"), SubResource("Resource_ufxn3"), SubResource("Resource_g8mr2")])
+
+[sub_resource type="Resource" id="Resource_s8o2c"]
+script = ExtResource("3_j0bdh")
+size = Vector3(20.831337, 4.2717876, 81.67435)
+metadata/_custom_type_script = "uid://devkng6iaf5do"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_18a41"]
 panorama = ExtResource("7_18a41")
@@ -42,6 +82,15 @@ size = Vector2(80, 80)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l40aj"]
 data = PackedVector3Array(40, 0, 40, -40, 0, 40, 40, 0, -40, -40, 0, 40, -40, 0, -40, 40, 0, -40)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8o2c"]
+albedo_texture = ExtResource("20_jv0wi")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_s8o2c")
+top_radius = 13.005859
+bottom_radius = 13.005859
+height = 0.001
+
 [node name="TestArea" type="Node3D" unique_id=733483550]
 script = SubResource("GDScript_o23y2")
 
@@ -52,38 +101,30 @@ shadow_enabled = true
 
 [node name="Trees" type="Node3D" parent="." unique_id=229439960]
 
+[node name="ProtonScatter" type="Node3D" parent="Trees" unique_id=279095528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.00914, -0.048688814, -18.959396)
+script = ExtResource("14_j0bdh")
+render_mode = 1
+modifier_stack = SubResource("Resource_mhonu")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Trees/ProtonScatter" unique_id=254297087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288939, 0.5741997, -0.5203152)
+script = ExtResource("15_vmv1f")
+source_ignore_rotation = false
+path = "uid://b8cvu5qs82b3g"
+
+[node name="ScatterShape" type="Node3D" parent="Trees/ProtonScatter" unique_id=621758389]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -12.299507, 0, 20.086075)
+script = ExtResource("2_ua4vs")
+shape = SubResource("Resource_s8o2c")
+
 [node name="RoryCat" parent="." unique_id=2144193776 instance=ExtResource("4_o23y2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1318293, 0.9, -4.4921074)
 
 [node name="PumpkinLantern" parent="." unique_id=782657648 instance=ExtResource("4_6rtga")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.2663746, 0.05572784, 3.8689747)
-
-[node name="RandomSpawns" type="Node3D" parent="." unique_id=11178423]
-script = ExtResource("5_m0ru2")
-
-[node name="Collectable" parent="RandomSpawns" unique_id=1879330903 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2252891, 1.456463, -5.811684)
-
-[node name="Collectable2" parent="RandomSpawns" unique_id=887134679 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0571594, 1.5371249, -4.0158663)
-
-[node name="Collectable3" parent="RandomSpawns" unique_id=892832240 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9393442, 0.6395507, 3.3930862)
-
-[node name="Collectable4" parent="RandomSpawns" unique_id=1176103702 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3801556, 0.5, 2.556182)
-
-[node name="Collectable5" parent="RandomSpawns" unique_id=1447807924 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5986366, 0.5, 2.3860006)
-
-[node name="Collectable6" parent="RandomSpawns" unique_id=895565478 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, 0.50051224)
-
-[node name="Collectable7" parent="RandomSpawns" unique_id=2040163195 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1989028, 0.81240964, 4.6339393)
-
-[node name="Collectable8" parent="RandomSpawns" unique_id=734300259 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.712384, 0.9462693, -3.5415642)
+transform = Transform3D(0.42833054, 0, 0.9036221, 0, 1, 0, -0.9036221, 0, 0.42833054, 0.2663746, 0.05572784, 3.8689747)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=99654636]
 environment = SubResource("Environment_yf5fn")
@@ -112,60 +153,113 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 6.339042, 0.2, 6)
 [node name="PicketFence2" parent="Fence" unique_id=376780717 instance=ExtResource("8_fxcl4")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.93, 0.2, 6)
 
-[node name="Graveyard" type="Node3D" parent="." unique_id=39562938]
+[node name="Graveyard Area" type="Node3D" parent="." unique_id=39562938]
 
-[node name="Graves" type="Node3D" parent="Graveyard" unique_id=140021504]
+[node name="Graves" type="Node3D" parent="Graveyard Area" unique_id=140021504]
 
-[node name="Grave1" parent="Graveyard/Graves" unique_id=2117094711 instance=ExtResource("9_lc3fp")]
+[node name="Grave1" parent="Graveyard Area/Graves" unique_id=2117094711 instance=ExtResource("9_lc3fp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5246644, 0, 0, 0, 0.5, 1.6, 0.032, 4.8)
 
-[node name="Grave2" parent="Graveyard/Graves" unique_id=1071148084 instance=ExtResource("10_l40aj")]
+[node name="Grave2" parent="Graveyard Area/Graves" unique_id=1071148084 instance=ExtResource("10_l40aj")]
 transform = Transform3D(0.76248926, 0, 0, 0, 0.55010825, 0, 0, 0, 0.5, 3.2033653, 0, 4.8)
 
-[node name="Grave3" parent="Graveyard/Graves" unique_id=283455460 instance=ExtResource("11_m71ey")]
+[node name="Grave3" parent="Graveyard Area/Graves" unique_id=283455460 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.49977034, 0, 0.015152531, 0, 0.52621317, 0, -0.015152531, 0, 0.49977034, 5.081, 0, 4.8)
 
-[node name="Grave4" parent="Graveyard/Graves" unique_id=1922208679 instance=ExtResource("9_lc3fp")]
+[node name="Grave4" parent="Graveyard Area/Graves" unique_id=1922208679 instance=ExtResource("9_lc3fp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.50899065, 0, 0, 0, 0.5, 7.2204313, 0.032, 4.8)
 
-[node name="Grave5" parent="Graveyard/Graves" unique_id=965493654 instance=ExtResource("10_l40aj")]
+[node name="Grave5" parent="Graveyard Area/Graves" unique_id=965493654 instance=ExtResource("10_l40aj")]
 transform = Transform3D(0.49875218, 0, 0.0353028, 0, 0.5918013, 0, -0.0353028, 0, 0.49875218, 8.823797, 0, 4.8)
 
-[node name="Grave6" parent="Graveyard/Graves" unique_id=712436027 instance=ExtResource("11_m71ey")]
+[node name="Grave6" parent="Graveyard Area/Graves" unique_id=712436027 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.701431, 0, 4.8)
 
-[node name="Grave7" parent="Graveyard/Graves" unique_id=126313020 instance=ExtResource("9_lc3fp")]
+[node name="Grave7" parent="Graveyard Area/Graves" unique_id=126313020 instance=ExtResource("9_lc3fp")]
 transform = Transform3D(0.59159374, 0, 0, 0, 0.63167393, 0, 0, 0, 0.5, 1.6, 0.032, 0.66410065)
 
-[node name="Grave9" parent="Graveyard/Graves" unique_id=1215777794 instance=ExtResource("11_m71ey")]
+[node name="Grave9" parent="Graveyard Area/Graves" unique_id=1215777794 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5503125, 0, 0, 0, 0.5, 5.081, 0, 0.66410065)
 
-[node name="Grave10" parent="Graveyard/Graves" unique_id=1457726530 instance=ExtResource("9_lc3fp")]
+[node name="Grave10" parent="Graveyard Area/Graves" unique_id=1457726530 instance=ExtResource("9_lc3fp")]
 transform = Transform3D(0.5, 0, 0, 0, 0.45873967, 0, 0, 0, 0.5, 7.2204313, 0.032, 0.66410065)
 
-[node name="Grave11" parent="Graveyard/Graves" unique_id=436317433 instance=ExtResource("10_l40aj")]
+[node name="Grave11" parent="Graveyard Area/Graves" unique_id=436317433 instance=ExtResource("10_l40aj")]
 transform = Transform3D(0.49823266, 0, -0.04200257, 0, 0.568289, 0, 0.04200257, 0, 0.49823266, 8.823797, 0, 0.66410065)
 
-[node name="Grave12" parent="Graveyard/Graves" unique_id=294731863 instance=ExtResource("11_m71ey")]
+[node name="Grave12" parent="Graveyard Area/Graves" unique_id=294731863 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.5, 0, 0, 0, 0.4755307, 0, 0, 0, 0.5, 10.701431, 0, 0.66410065)
 
-[node name="Grave13" parent="Graveyard/Graves" unique_id=1757202314 instance=ExtResource("9_lc3fp")]
+[node name="Grave13" parent="Graveyard Area/Graves" unique_id=1757202314 instance=ExtResource("9_lc3fp")]
 transform = Transform3D(0.49955314, 0, -0.021134235, 0, 0.53523177, 0, 0.021134235, 0, 0.49955314, 1.6, 0.032, -3.3834982)
 
-[node name="Grave14" parent="Graveyard/Graves" unique_id=1853476945 instance=ExtResource("10_l40aj")]
+[node name="Grave14" parent="Graveyard Area/Graves" unique_id=1853476945 instance=ExtResource("10_l40aj")]
 transform = Transform3D(0.5, 0, 0, 0, 0.45988426, 0, 0, 0, 0.5, 3.2033653, 0, -3.3834982)
 
-[node name="Grave15" parent="Graveyard/Graves" unique_id=1636662698 instance=ExtResource("11_m71ey")]
+[node name="Grave15" parent="Graveyard Area/Graves" unique_id=1636662698 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.5, 0, 0, 0, 0.53278816, 0, 0, 0, 0.5, 5.081, 0, -3.3834982)
 
-[node name="Grave17" parent="Graveyard/Graves" unique_id=1080076870 instance=ExtResource("10_l40aj")]
+[node name="Grave17" parent="Graveyard Area/Graves" unique_id=1080076870 instance=ExtResource("10_l40aj")]
 transform = Transform3D(0.49918106, 0, 0.028605267, 0, 0.4541263, 0, -0.028605267, 0, 0.49918106, 8.823797, 0, -3.3834982)
 
-[node name="Grave18" parent="Graveyard/Graves" unique_id=2083084803 instance=ExtResource("11_m71ey")]
+[node name="Grave18" parent="Graveyard Area/Graves" unique_id=2083084803 instance=ExtResource("11_m71ey")]
 transform = Transform3D(0.5, 0, 0, 0, 0.6356597, 0, 0, 0, 0.5, 10.701431, 0, -3.3834982)
 
-[node name="PumpkinLantern2" parent="Graveyard" unique_id=1179383238 instance=ExtResource("4_6rtga")]
-transform = Transform3D(0.29538265, 0, 0.955379, 0, 1, 0, -0.955379, 0, 0.29538265, 0.43307954, 0.011702716, -0.52381563)
+[node name="PumpkinLantern2" parent="Graveyard Area" unique_id=1179383238 instance=ExtResource("4_6rtga")]
+transform = Transform3D(0.019347921, 0, 0.99981284, 0, 1, 0, -0.99981284, 0, 0.019347921, 0.43307954, 0.011702716, -0.52381563)
 
-[node name="PumpkinLantern3" parent="Graveyard" unique_id=1098017600 instance=ExtResource("4_6rtga")]
+[node name="PumpkinLantern3" parent="Graveyard Area" unique_id=1098017600 instance=ExtResource("4_6rtga")]
 transform = Transform3D(-0.5711463, 0, 0.82084846, 0, 1, 0, -0.82084846, 0, -0.5711463, 12.436007, 0.011702716, -4.2340627)
+
+[node name="Path" type="MeshInstance3D" parent="Graveyard Area" unique_id=598160816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79593, 0, 0)
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="Trailer Park" type="Node3D" parent="." unique_id=273068533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.498322, 0, 0)
+
+[node name="Path" type="MeshInstance3D" parent="Trailer Park" unique_id=2145049205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9343739, 0, 0)
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="trailer3" parent="Trailer Park" unique_id=1170425239 instance=ExtResource("21_v3rbd")]
+transform = Transform3D(-0.9986441, 0, 0.05205724, 0, 1, 0, -0.05205724, 0, -0.9986441, -6.023224, 0, 6.56995)
+
+[node name="trailer2" parent="Trailer Park" unique_id=144394869 instance=ExtResource("21_v3rbd")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 3.6073208, 0, -5.644079)
+
+[node name="trailer4" parent="Trailer Park" unique_id=1089609800 instance=ExtResource("22_g3xr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.348679, 0, -7.906048)
+
+[node name="PumpkinLantern2" parent="Trailer Park" unique_id=391079953 instance=ExtResource("4_6rtga")]
+transform = Transform3D(-0.12987839, 0, -0.99152994, 0, 1, 0, 0.99152994, 0, -0.12987839, 3.0145912, 0.027861834, -2.7938712)
+
+[node name="Spawns" type="Node3D" parent="Trailer Park" unique_id=958275046]
+script = ExtResource("5_m0ru2")
+
+[node name="PumpkinLantern" parent="Trailer Park" unique_id=1337909228 instance=ExtResource("4_6rtga")]
+transform = Transform3D(-0.009174501, 0, 0.9999579, 0, 1, 0, -0.9999579, 0, -0.009174501, -3.7117004, -0.04407072, 4.2563415)
+
+[node name="Spawns" type="Node3D" parent="." unique_id=11178423]
+script = ExtResource("5_m0ru2")
+
+[node name="Collectable" parent="Spawns" unique_id=1879330903 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.483503, 1.640234, 4.795553)
+
+[node name="Collectable3" parent="Spawns" unique_id=572016387 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.650684, 1.3435345, -6.083615)
+
+[node name="Collectable6" parent="Spawns" unique_id=895565478 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, 0.50051224)
+
+[node name="Collectable7" parent="Spawns" unique_id=2040163195 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1989028, 0.81240964, 4.6339393)
+
+[node name="Collectable8" parent="Spawns" unique_id=734300259 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.712384, 0.9462693, -3.5415642)
+
+[node name="PumpkinLantern2" parent="." unique_id=1945169434 instance=ExtResource("4_6rtga")]
+transform = Transform3D(0.22107239, 0, -0.9752574, 0, 1, 0, 0.9752574, 0, 0.22107239, -37.70682, 0.027861834, -5.7430563)
+
+[node name="Collectable" parent="." unique_id=80775454 instance=ExtResource("2_q1sgv")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, -23.175686, 1.6445925, -4.0719333)

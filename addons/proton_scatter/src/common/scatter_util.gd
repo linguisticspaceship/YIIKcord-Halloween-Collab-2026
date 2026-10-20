@@ -4,11 +4,6 @@ extends Node
 # utility functions are written here (only the functions that don't disturb
 # reading the core code, mostly data validation and other verbose checks).
 
-
-const ProtonScatter := preload("../scatter.gd")
-const ProtonScatterItem := preload("../scatter_item.gd")
-const ModifierStack := preload("../stack/modifier_stack.gd")
-
 ### SCATTER UTILITY FUNCTIONS ###
 
 
@@ -27,7 +22,7 @@ static func ensure_output_root_exists(s: ProtonScatter) -> void:
 	# Some conditions are not met, cleanup and recreate the root
 	if s.output_root:
 		if s.has_node(NodePath(s.output_root.name)):
-			s.remove_node(s.output_root.name)
+			s.remove_child(s.output_root)
 		s.output_root.queue_free()
 		s.output_root = null
 
@@ -81,6 +76,15 @@ static func get_or_create_multimesh(item: ProtonScatterItem, count: int) -> Mult
 		mmi.set_owner(item_root.owner)
 	if not mmi.multimesh:
 		mmi.multimesh = MultiMesh.new()
+		if item.custom_script:
+			mmi.multimesh.use_colors = true
+			mmi.multimesh.use_custom_data = true
+			mmi.set_script(item.custom_script)
+	elif not item.custom_script:
+		# We should reset the use_* props of the multimesh, which fails if instance_count > 0.
+		mmi.multimesh.instance_count = 0
+		mmi.multimesh.use_colors = false
+		mmi.multimesh.use_custom_data = false
 
 	var mesh_instance: MeshInstance3D = get_merged_meshes_from(item)
 	if not mesh_instance:
@@ -98,9 +102,11 @@ static func get_or_create_multimesh(item: ProtonScatterItem, count: int) -> Mult
 	mmi.visibility_range_begin_margin 	= item.visibility_range_begin_margin
 	mmi.visibility_range_end 			= item.visibility_range_end
 	mmi.visibility_range_end_margin 	= item.visibility_range_end_margin
-	mmi.visibility_range_fade_mode 		= item.visibility_range_fade_mode
+	mmi.visibility_range_fade_mode 		= item.visibility_range_fade_mode as GeometryInstance3D.VisibilityRangeFadeMode
+	mmi.layers = item.visibility_layers
 
 	mmi.multimesh.instance_count = count
+	copy_instance_shader_parameters(mesh_instance, mmi)
 
 	mesh_instance.queue_free()
 
@@ -113,7 +119,7 @@ static func get_or_create_multimesh_chunk(item: ProtonScatterItem,
 										count: int)\
 										 -> MultiMeshInstance3D:
 	var item_root := get_or_create_item_root(item)
-	var chunk_name = "MultiMeshInstance3D" + "_%s_%s_%s"%[index.x, index.y, index.z]
+	var chunk_name: String = "MultiMeshInstance3D" + "_%s_%s_%s"%[index.x, index.y, index.z]
 	var mmi: MultiMeshInstance3D = item_root.get_node_or_null(chunk_name)
 	if not mesh_instance:
 		return
@@ -128,6 +134,15 @@ static func get_or_create_multimesh_chunk(item: ProtonScatterItem,
 
 	if not mmi.multimesh:
 		mmi.multimesh = MultiMesh.new()
+		if item.custom_script:
+			mmi.multimesh.use_colors = true
+			mmi.multimesh.use_custom_data = true
+			mmi.set_script(item.custom_script)
+	elif not item.custom_script:
+		# We should reset the use_* props of the multimesh, which fails if instance_count > 0.
+		mmi.multimesh.instance_count = 0
+		mmi.multimesh.use_colors = false
+		mmi.multimesh.use_custom_data = false
 
 	mmi.position = Vector3.ZERO
 	mmi.material_override = get_final_material(item, mesh_instance)
@@ -141,9 +156,11 @@ static func get_or_create_multimesh_chunk(item: ProtonScatterItem,
 	mmi.visibility_range_begin_margin 	= item.visibility_range_begin_margin
 	mmi.visibility_range_end 			= item.visibility_range_end
 	mmi.visibility_range_end_margin 	= item.visibility_range_end_margin
-	mmi.visibility_range_fade_mode 		= item.visibility_range_fade_mode
+	mmi.visibility_range_fade_mode 		= item.visibility_range_fade_mode as GeometryInstance3D.VisibilityRangeFadeMode
+	mmi.layers = item.visibility_layers
 
 	mmi.multimesh.instance_count = count
+	copy_instance_shader_parameters(mesh_instance, mmi)
 
 	return mmi
 
@@ -162,11 +179,12 @@ static func get_or_create_particles(item: ProtonScatterItem) -> GPUParticles3D:
 	var mesh_instance: MeshInstance3D = get_merged_meshes_from(item)
 	if not mesh_instance:
 		return
-	
+
 	particles.material_override = get_final_material(item, mesh_instance)
 	particles.set_draw_pass_mesh(0, mesh_instance.mesh)
 	particles.position = Vector3.ZERO
 	particles.local_coords = true
+	particles.layers = item.visibility_layers
 
 	# Use the user provided material if it exists.
 	var process_material: Material = item.override_process_material
@@ -174,10 +192,10 @@ static func get_or_create_particles(item: ProtonScatterItem) -> GPUParticles3D:
 	# Or load the default one if there's nothing.
 	if not process_material:
 		process_material = ShaderMaterial.new()
-		process_material.shader = preload("../particles/static.gdshader")
+		(process_material as ShaderMaterial).shader = preload("../particles/static.gdshader")
 
 	if process_material is ShaderMaterial:
-		process_material.set_shader_parameter("global_transform", item_root.get_global_transform())
+		(process_material as ShaderMaterial).set_shader_parameter("global_transform", item_root.get_global_transform())
 
 	particles.set_process_material(process_material)
 
@@ -202,18 +220,21 @@ static func get_or_create_particles(item: ProtonScatterItem) -> GPUParticles3D:
 # So instead, when a child change, it notifies the parent Scatter node through
 # this method.
 static func request_parent_to_rebuild(node: Node, deferred := true) -> void:
-	var parent = node.get_parent()
+	var parent: Node = node.get_parent()
 	if not parent or not parent.is_inside_tree():
 		return
 
 	if parent and parent is ProtonScatter:
-		if not parent.is_ready:
+		var scatter_parent: ProtonScatter = parent
+		if not scatter_parent.is_ready:
+			return
+		if not scatter_parent.enable_updates_in_game and not Engine.is_editor_hint():
 			return
 
 		if deferred:
-			parent.rebuild.call_deferred(true)
+			scatter_parent.rebuild.call_deferred(true)
 		else:
-			parent.rebuild(true)
+			scatter_parent.rebuild(true)
 
 
 ### MESH UTILITY ###
@@ -221,7 +242,7 @@ static func request_parent_to_rebuild(node: Node, deferred := true) -> void:
 # Recursively search for all MeshInstances3D in the node's children and
 # returns them all in an array. If node is a MeshInstance, it will also be
 # added to the array
-static func get_all_mesh_instances_from(node: Node3D) -> Array[MeshInstance3D]:
+static func get_all_mesh_instances_from(node: Node) -> Array[MeshInstance3D]:
 	var res: Array[MeshInstance3D] = []
 
 	if node is MeshInstance3D:
@@ -236,13 +257,13 @@ static func get_all_mesh_instances_from(node: Node3D) -> Array[MeshInstance3D]:
 static func get_final_material(item: ProtonScatterItem, mi: MeshInstance3D) -> Material:
 	if item.override_material:
 		return item.override_material
-	
+
 	if mi.material_override:
 		return mi.material_override
-	
+
 	if mi.get_surface_override_material(0):
 		return mi.get_surface_override_material(0)
-	
+
 	return null
 
 
@@ -263,7 +284,7 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 	if not item:
 		return null
 
-	var source: Node = item.get_item()
+	var source: Node3D = item.get_item()
 	if not is_instance_valid(source):
 		return null
 
@@ -275,28 +296,28 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 
 	if mesh_instances.is_empty():
 		return null
-	
+
 	# If there's only one mesh instance we can reuse it directly if the materials allow it.
 	if mesh_instances.size() == 1:
 		# Duplicate the meshinstance, not the mesh resource
 		var mi: MeshInstance3D = mesh_instances[0].duplicate()
-		
+		copy_instance_shader_parameters(mesh_instances[0], mi)
+
 		# MI uses a material override, all surface materials will be ignored
 		if mi.material_override:
 			return mi
-		
+
 		var surface_overrides_count := 0
 		for i in mi.get_surface_override_material_count():
 			if mi.get_surface_override_material(i):
 				surface_overrides_count += 1
-		
+
 		# If there's one material override or less, no duplicate mesh is required.
 		if surface_overrides_count <= 1:
 			return mi
 
-
 	# Helper lambdas
-	var get_material_for_surface = func (mi: MeshInstance3D, idx: int) -> Material:
+	var get_material_for_surface: Callable = func (mi: MeshInstance3D, idx: int) -> Material:
 		if mi.get_material_override():
 			return mi.get_material_override()
 
@@ -304,7 +325,7 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 			return mi.get_surface_override_material(idx)
 
 		if mi.mesh is PrimitiveMesh:
-			return mi.mesh.get_material()
+			return (mi.mesh as PrimitiveMesh).material
 
 		return mi.mesh.surface_get_material(idx)
 
@@ -321,7 +342,7 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 			continue # Should not happen
 
 		# Update the total surface count
-		var surface_count = mi.mesh.get_surface_count()
+		var surface_count: int = mi.mesh.get_surface_count()
 		total_surfaces += surface_count
 
 		# Store surfaces in the material indexed dictionary
@@ -339,22 +360,23 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 	# Less than 8 surfaces, merge in a single MeshInstance
 	# ------
 	if total_surfaces <= 8:
-		var mesh := ImporterMesh.new()
+		var multi_surfaces_mesh := ImporterMesh.new()
 
 		for mi in mesh_instances:
 			var inverse_transform := mi.transform.affine_inverse()
 
 			for surface_index in mi.mesh.get_surface_count():
 				# Retrieve surface data
-				var primitive_type = Mesh.PRIMITIVE_TRIANGLES
-				var format = 0
+				var primitive_type := Mesh.PRIMITIVE_TRIANGLES
+				var format: int = 0
 				var arrays := mi.mesh.surface_get_arrays(surface_index)
 				if mi.mesh is ArrayMesh:
-					primitive_type = mi.mesh.surface_get_primitive_type(surface_index)
-					format = mi.mesh.surface_get_format(surface_index) # Preserve custom data format
+					var array_mesh: ArrayMesh = mi.mesh
+					primitive_type = array_mesh.surface_get_primitive_type(surface_index)
+					format = array_mesh.surface_get_format(surface_index) # Preserve custom data format
 
 				# Update vertex position based on MeshInstance transform
-				var vertex_count = arrays[ArrayMesh.ARRAY_VERTEX].size()
+				var vertex_count: int = arrays[ArrayMesh.ARRAY_VERTEX].size()
 				var vertex: Vector3
 				for index in vertex_count:
 					vertex = arrays[ArrayMesh.ARRAY_VERTEX][index] * inverse_transform
@@ -364,14 +386,14 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 				var material: Material = get_material_for_surface.call(mi, surface_index)
 
 				# Store updated surface data in the new mesh
-				mesh.add_surface(primitive_type, arrays, [], {}, material, "", format)
+				multi_surfaces_mesh.add_surface(primitive_type, arrays, [], {}, material, "", format)
 
 		if item.lod_generate:
-			mesh.generate_lods(item.lod_merge_angle, item.lod_split_angle, [])
+			multi_surfaces_mesh.generate_lods(item.lod_merge_angle, item.lod_split_angle, [])
 
-		var instance := MeshInstance3D.new()
-		instance.mesh = mesh.get_mesh()
-		return instance
+		var multi_surfaces_instance := MeshInstance3D.new()
+		multi_surfaces_instance.mesh = multi_surfaces_mesh.get_mesh()
+		return multi_surfaces_instance
 
 	# ------
 	# Too many surfaces and materials, merge everything in a single one.
@@ -382,32 +404,31 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 		var surface_tool := SurfaceTool.new()
 		surface_tool.begin(Mesh.PRIMITIVE_TRIANGLES)
 
-		for mi in mesh_instances:
-			var mesh : Mesh = mi.mesh
-			for surface_i in mesh.get_surface_count():
-				surface_tool.append_from(mesh, surface_i, mi.transform)
+		for mi: MeshInstance3D in mesh_instances:
+			for surface_i in mi.mesh.get_surface_count():
+				surface_tool.append_from(mi.mesh, surface_i, mi.transform)
 
-		var mesh := ImporterMesh.new()
-		mesh.add_surface(surface_tool.get_primitive_type(), surface_tool.commit_to_arrays())
+		var single_surface_mesh := ImporterMesh.new()
+		single_surface_mesh.add_surface(surface_tool.get_primitive_type(), surface_tool.commit_to_arrays())
 
 		if item.lod_generate:
-			mesh.generate_lods(item.lod_merge_angle, item.lod_split_angle, [])
+			single_surface_mesh.generate_lods(item.lod_merge_angle, item.lod_split_angle, [])
 
-		var instance = MeshInstance3D.new()
-		instance.mesh = mesh.get_mesh()
-		return instance
+		var single_surface_instance := MeshInstance3D.new()
+		single_surface_instance.mesh = single_surface_mesh.get_mesh()
+		return single_surface_instance
 
 	# ------
 	# Merge surfaces grouped by their materials
 	# ------
 	var mesh := ImporterMesh.new()
 
-	for material in surfaces_map.keys():
+	for material: Material in surfaces_map.keys():
 		var surface_tool := SurfaceTool.new()
 		surface_tool.begin(Mesh.PRIMITIVE_TRIANGLES)
 
 		var surfaces: Array = surfaces_map[material]
-		for data in surfaces:
+		for data: Dictionary in surfaces:
 			var idx: int = data["surface"]
 			var mi: MeshInstance3D = data["mesh_instance"]
 
@@ -427,7 +448,7 @@ static func get_merged_meshes_from(item: ProtonScatterItem) -> MeshInstance3D:
 	return instance
 
 
-static func get_all_static_bodies_from(node: Node3D) -> Array[StaticBody3D]:
+static func get_all_static_bodies_from(node: Node) -> Array[StaticBody3D]:
 	var res: Array[StaticBody3D] = []
 
 	if node is StaticBody3D:
@@ -454,13 +475,14 @@ static func get_collision_data(item: ProtonScatterItem) -> StaticBody3D:
 			if child is CollisionShape3D:
 				# Don't use reparent() here or the child transform gets reset.
 				body.remove_child(child)
+				child.owner = null
 				static_body.add_child(child)
 
 	source.queue_free()
 	return static_body
 
 
-static func set_owner_recursive(node: Node, new_owner) -> void:
+static func set_owner_recursive(node: Node, new_owner: Node) -> void:
 	node.set_owner(new_owner)
 
 	if not node.get_scene_file_path().is_empty():
@@ -470,10 +492,34 @@ static func set_owner_recursive(node: Node, new_owner) -> void:
 		set_owner_recursive(c, new_owner)
 
 
-static func get_aabb_from_transforms(transforms : Array) -> AABB:
+static func get_aabb_from_transforms(transforms: Array) -> AABB:
 	if transforms.size() < 1:
 		return AABB(Vector3.ZERO, Vector3.ZERO)
-	var aabb = AABB(transforms[0].origin, Vector3.ZERO)
-	for t in transforms:
+	var aabb := AABB(transforms[0].origin, Vector3.ZERO)
+	for t: Transform3D in transforms:
 		aabb = aabb.expand(t.origin)
 	return aabb
+
+
+static func set_visibility_layers(node: Node, layers: int) -> void:
+	if node is VisualInstance3D:
+		(node as VisualInstance3D).layers = layers
+	for child in node.get_children():
+		set_visibility_layers(child, layers)
+
+
+## This assumes both instances shares the same uniforms, but doesn't actually
+## check if the copy is valid or not.
+static func copy_instance_shader_parameters(source: GeometryInstance3D, target: GeometryInstance3D) -> void:
+	const SHADER_PARAMETER_PREFIX := &"instance_shader_parameters/"
+	for property: Dictionary in source.get_property_list():
+		var p_name: String = property["name"]
+		if not p_name.begins_with(SHADER_PARAMETER_PREFIX):
+			continue
+		var uniform_name: String = p_name.trim_prefix(SHADER_PARAMETER_PREFIX)
+		if uniform_name.is_empty():
+			continue
+		var value: Variant = source.get_instance_shader_parameter(uniform_name)
+		if value == null:
+			continue
+		target.set_instance_shader_parameter(uniform_name, value)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvn6o2b7kwa64"]
 
 [ext_resource type="Script" uid="uid://iodraetkg1f3" path="res://Prefabs/player.gd" id="1_um8lo"]
-[ext_resource type="ArrayMesh" path="res://Models/FBX/RoryCat.obj" id="2_b43ah"]
+[ext_resource type="ArrayMesh" uid="uid://bq7te88vjt02l" path="res://Models/FBX Source/RoryCat.obj" id="2_b43ah"]
 [ext_resource type="Texture2D" uid="uid://b1hctqcoow7rg" path="res://Sprites/Cursor.png" id="2_x3d5u"]
 [ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="4_shmu5"]
 [ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_vxq8l"]

@@ -11,24 +11,23 @@ extends RefCounted
 # An instance of this class is passed to the modifiers during a rebuild.
 
 
-const ProtonScatter := preload("../scatter.gd")
-const ProtonScatterShape := preload("../scatter_shape.gd")
-const BaseShape := preload("../shapes/base_shape.gd")
 const Bounds := preload("../common/bounds.gd")
 
 
 class DomainShapeInfo:
 	var node: Node3D
-	var shape: BaseShape
+	var shape: ProtonScatterBaseShape
 
 	func is_point_inside(point: Vector3, local: bool) -> bool:
 		var t: Transform3D
-		t = node.get_transform() if local else node.get_global_transform()
-		return shape.is_point_inside(point, t)
+		if is_instance_valid(node):
+			t = node.get_transform() if local else node.get_global_transform()
+			return shape.is_point_inside(point, t)
+		else:
+			return false
 
 	func get_corners_global() -> Array:
 		return shape.get_corners_global(node.get_global_transform())
-
 
 # A polygon made of one outer boundary and one or multiple holes (inner polygons)
 class ComplexPolygon:
@@ -184,14 +183,12 @@ func compute_edges() -> void:
 			# merge them and go the next iteration.
 			var full_overlap = false
 			for ip1 in p1.inner:
-				var res = Geometry2D.clip_polygons(p2.outer, ip1)
-				if res.is_empty():
+				if Geometry2D.clip_polygons(p2.outer, ip1).is_empty():
 					full_overlap = true
 					break
 
 			for ip2 in p2.inner:
-				var res = Geometry2D.clip_polygons(p1.outer, ip2)
-				if res.is_empty():
+				if Geometry2D.clip_polygons(p1.outer, ip2).is_empty():
 					full_overlap = true
 					break
 
