@@ -3,8 +3,10 @@ extends Node
 var pages_max = 8
 var current = 0
 
+@export var collectables : Array[Node]
+
 func _ready() -> void:
-	var list = get_children()
+	var list = collectables #get_children()
 	randomize()
 	list.shuffle()
 	
