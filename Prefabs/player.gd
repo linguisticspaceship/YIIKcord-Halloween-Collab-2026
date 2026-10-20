@@ -13,6 +13,8 @@ var mouse_state = MOUSE_IDLE
 var alive = true
 var godmode = false # DEBUG
 
+var SpawnScript : Node
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -24,9 +26,7 @@ func _process(delta: float) -> void:
 	if alive:
 		movement_pos()
 	pointer_change()
-	
-	
-	
+
 func set_static(opacity=0.0):
 	if godmode:
 		return
@@ -41,14 +41,14 @@ func kill_me(): # Executed by RoryCat object
 
 	alive = false
 	speed = 0
-	look_at_rorycat()
+	look_at_rorycat(40)
 	
-func look_at_rorycat():
+func look_at_rorycat(strength = 40):
 	var rory_cat = get_node("/root/TestArea/RoryCat")
 	#look_at(Vector3(rory_cat.position.x, rory_cat.position.y, rory_cat.position.z))
 
 	var trans = transform.looking_at( rory_cat.transform.origin, Vector3.UP )
-	self.transform = self.transform.interpolate_with(trans, 40 * get_process_delta_time())
+	self.transform = self.transform.interpolate_with(trans, strength * get_process_delta_time())
 	
 func _input(event: InputEvent) -> void:
 	movement_rot(event)

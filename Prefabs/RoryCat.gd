@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 var active = false # If he is in field or not
 
+var page_percent = 0
+
 # Rory Cat will spawn in, then when not stared at for a while will despawn. Then respawn later.
 var despawn_timer = 0
 var despawn_goal = 5 # Seconds before despawn
@@ -42,8 +44,9 @@ func staring_mechanics():
 		speed_desired = 0
 		despawn_timer = 0
 		stare_meter = move_toward(stare_meter, stare_max, get_process_delta_time())
+		player.look_at_rorycat(1 + (page_percent * 0.1))
+		print(1 + (page_percent * 0.1))
 	if not in_sight:
-		var page_percent = float(Global.gamecont.pages_collected) / float(Global.gamecont.page_goal) * 100
 		# 60 is a slow speed.
 		speed_desired = spd_walk * page_percent # As pages go up, faster we go.
 		#print(speed_desired)
@@ -89,6 +92,8 @@ func _process(delta: float) -> void:
 	Global.debug_respawntime = respawn_timer
 	Global.debug_despawntime = despawn_timer
 	Global.debug_roryactive = active
+	
+	page_percent = float(Global.gamecont.pages_collected) / float(Global.gamecont.page_goal) * 100
 	
 	# Inactive until page 1
 	if Global.gamecont.pages_collected == 0:

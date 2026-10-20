@@ -26,7 +26,7 @@ mesh = ExtResource("2_4eq6u")
 surface_material_override/0 = SubResource("StandardMaterial3D_7q0i6")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=854850043]
-aabb = AABB(-0.31840485, -0.200792, -0.09939604, 0.6368097, 0.401584, 0.19879209)
+aabb = AABB(-0.06537672, -0.12546954, -0.052512452, 0.13075344, 0.25093907, 0.105024904)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1319827503]
 
@@ -34,6 +34,12 @@ aabb = AABB(-0.31840485, -0.200792, -0.09939604, 0.6368097, 0.401584, 0.19879209
 
 [node name="KillSphere" type="CollisionShape3D" parent="Area3D" unique_id=1467208983]
 shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1434684847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002719283, 1.2387092, 0)
+light_color = Color(0.5176471, 0.4, 0.18039216, 1)
+light_energy = 2.0
+omni_range = 3.2050898
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

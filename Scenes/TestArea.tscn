@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://cjknx73fk8wew"]
 
+[ext_resource type="ArrayOccluder3D" uid="uid://dp3uh35f6033k" path="res://Scenes/TestArea.occ" id="1_3awjc"]
 [ext_resource type="Texture2D" uid="uid://caepn1vpkre7a" path="res://Texture/Grass.png" id="1_6rtga"]
+[ext_resource type="Script" uid="uid://cmhdp62q5p17a" path="res://Scripts/PlayerRandomSpawn.gd" id="1_g3xr5"]
 [ext_resource type="Script" uid="uid://ba8jou0xje0c7" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_jv0wi"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="2_q1sgv"]
 [ext_resource type="Script" uid="uid://dx7e7heldjwmg" path="res://addons/proton_scatter/src/scatter_shape.gd" id="2_ua4vs"]
-[ext_resource type="Script" uid="uid://devkng6iaf5do" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="3_j0bdh"]
 [ext_resource type="Script" uid="uid://b5s7ggmsi8g5u" path="res://addons/proton_scatter/src/modifiers/base_modifier.gd" id="3_s8o2c"]
 [ext_resource type="PackedScene" uid="uid://cgbc8iq071gf3" path="res://Models/pumpkinlantern.tscn" id="4_6rtga"]
 [ext_resource type="PackedScene" uid="uid://bxrjhqetmj6xo" path="res://Prefabs/roryCat.tscn" id="4_o23y2"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ljnvg21whrve" path="res://Models/Grave1.fbx" id="9_lc3fp"]
 [ext_resource type="PackedScene" uid="uid://cboj55smifryg" path="res://Models/Grave2.fbx" id="10_l40aj"]
 [ext_resource type="PackedScene" uid="uid://c3dhkd5xcfnri" path="res://Models/Grave3.fbx" id="11_m71ey"]
+[ext_resource type="Script" uid="uid://stwgokpcvk0m" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="13_3awjc"]
 [ext_resource type="Script" uid="uid://dgqq1tf8prx5s" path="res://addons/proton_scatter/src/scatter.gd" id="14_j0bdh"]
 [ext_resource type="Script" uid="uid://c85i0481q4uog" path="res://addons/proton_scatter/src/scatter_item.gd" id="15_vmv1f"]
 [ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="20_jv0wi"]
@@ -39,34 +41,82 @@ sky_material = SubResource("PanoramaSkyMaterial_18a41")
 [sub_resource type="Environment" id="Environment_yf5fn"]
 background_mode = 2
 sky = SubResource("Sky_57qmd")
+ambient_light_sky_contribution = 0.0
 
-[sub_resource type="Resource" id="Resource_cyx4m"]
+[sub_resource type="Resource" id="Resource_g3xr5"]
 script = ExtResource("4_v3rbd")
-amount = 75
+amount = 1875
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_ufxn3"]
+[sub_resource type="Resource" id="Resource_3awjc"]
 script = ExtResource("6_3awjc")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_g8mr2"]
+[sub_resource type="Resource" id="Resource_cyx4m"]
 script = ExtResource("7_gk8ot")
 ray_direction = Vector3(0, 0, 0)
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_mhonu"]
+[sub_resource type="Resource" id="Resource_b58pl"]
 script = ExtResource("2_jv0wi")
-stack = Array[ExtResource("3_s8o2c")]([SubResource("Resource_cyx4m"), SubResource("Resource_ufxn3"), SubResource("Resource_g8mr2")])
+stack = Array[ExtResource("3_s8o2c")]([SubResource("Resource_g3xr5"), SubResource("Resource_3awjc"), SubResource("Resource_cyx4m")])
 
-[sub_resource type="Resource" id="Resource_s8o2c"]
-script = ExtResource("3_j0bdh")
-size = Vector3(57.106712, 4.2717876, 81.67435)
-metadata/_custom_type_script = "uid://devkng6iaf5do"
+[sub_resource type="Curve3D" id="Curve3D_3awjc"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -44.10916, -1.9818544e-06, 48.3647, 0, 0, 0, 0, 0, 0, 3.2046738, -1.9818544e-06, 101.0679, 0, 0, 0, 0, 0, 0, 32.742683, -1.9818544e-06, 114.91229, 0, 0, 0, 0, 0, 0, 37.172325, -1.9818544e-06, 199.33392, 0, 0, 0, 0, 0, 0, 60.85637, -1.9818544e-06, 200.19244, 0, 0, 0, 0, 0, 0, 56.329712, -1.9818544e-06, -65.4968, 0, 0, 0, 0, 0, 0, -52.28058, -1.9818544e-06, -64.47378, 0, 0, 0, 0, 0, 0, -49.238823, -1.9818544e-06, -1.1128693, 0, 0, 0, 0, 0, 0, -63.271194, -1.9818544e-06, 22.855331),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="Resource" id="Resource_qelbf"]
+script = ExtResource("13_3awjc")
+curve = SubResource("Curve3D_3awjc")
+metadata/_custom_type_script = "uid://stwgokpcvk0m"
+
+[sub_resource type="Curve3D" id="Curve3D_g3xr5"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -64.12303, -1.9818544e-06, 85.26218, 0, 0, 0, 0, 0, 0, 36.001564, -1.9818544e-06, 162.15651, 0, 0, 0, 0, 0, 0, 36.459686, -1.9818544e-06, 193.7395, 0, 0, 0, 0, 0, 0, -240.92087, -1.9818544e-06, 195.61322, 0, 0, 0, 0, 0, 0, -241.05362, -1.9818544e-06, 115.77205, 0, 0, 0, 0, 0, 0, -240.85542, -1.9818544e-06, 16.002525, 0, 0, 0, 0, 0, 0, -196.00378, -1.9818544e-06, 47.322083, 0, 0, 0, 0, 0, 0, -176.08688, -1.9818544e-06, 93.844055, 0, 0, 0, 0, 0, 0, -159.25598, -1.9818544e-06, 112.90321, 0, 0, 0, 0, 0, 0, -126.31295, -1.9818544e-06, 95.604355, 0, 0, 0, 0, 0, 0, -97.71576, -1.9818544e-06, 95.33052),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 11
+
+[sub_resource type="Resource" id="Resource_gk8ot"]
+script = ExtResource("13_3awjc")
+curve = SubResource("Curve3D_g3xr5")
+metadata/_custom_type_script = "uid://stwgokpcvk0m"
+
+[sub_resource type="Curve3D" id="Curve3D_gk8ot"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -133.75104, -1.9818544e-06, 76.46091, 0, 0, 0, 0, 0, 0, -66.37819, -1.9818544e-06, 59.6593, 0, 0, 0, 0, 0, 0, -45.864853, -1.9818544e-06, 46.21324, 0, 0, 0, 0, 0, 0, -62.736336, -1.9818544e-06, 23.398209, 0, 0, 0, 0, 0, 0, -89.16763, -1.9818544e-06, 9.127808, 0, 0, 0, 0, 0, 0, -177.11098, -1.9818544e-06, 26.221931),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Resource" id="Resource_b0o5v"]
+script = ExtResource("13_3awjc")
+curve = SubResource("Curve3D_gk8ot")
+metadata/_custom_type_script = "uid://stwgokpcvk0m"
+
+[sub_resource type="Curve3D" id="Curve3D_cyx4m"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -222.22444, -1.9818544e-06, 27.67331, 0, 0, 0, 0, 0, 0, -241.01146, -1.9818544e-06, 15.176376, 0, 0, 0, 0, 0, 0, -242.12926, -1.9818544e-06, -64.01834, 0, 0, 0, 0, 0, 0, -53.022476, -1.9818544e-06, -63.506134, 0, 0, 0, 0, 0, 0, -50.895386, -1.9818544e-06, -18.885952, 0, 0, 0, 0, 0, 0, -135.04442, -1.9818544e-06, -18.120308, 0, 0, 0, 0, 0, 0, -169.3248, -1.9818544e-06, 1.5471611, 0, 0, 0, 0, 0, 0, -193.45442, -1.9818544e-06, 5.1745377),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Resource" id="Resource_6uvv1"]
+script = ExtResource("13_3awjc")
+curve = SubResource("Curve3D_cyx4m")
+metadata/_custom_type_script = "uid://stwgokpcvk0m"
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_g4v7s"]
 vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
@@ -77,10 +127,10 @@ albedo_texture = ExtResource("1_6rtga")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ogq8d"]
 material = SubResource("StandardMaterial3D_m0mnl")
-size = Vector2(180, 180)
+size = Vector2(300, 260)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v3rbd"]
-data = PackedVector3Array(90, 0, 90, -90, 0, 90, 90, 0, -90, -90, 0, 90, -90, 0, -90, 90, 0, -90)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g3xr5"]
+data = PackedVector3Array(150, 0, 130, -150, 0, 130, 150, 0, -130, -150, 0, 130, -150, 0, -130, 150, 0, -130)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8o2c"]
 albedo_texture = ExtResource("20_jv0wi")
@@ -91,11 +141,40 @@ top_radius = 13.005859
 bottom_radius = 13.005859
 height = 0.001
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_v3rbd"]
+material = SubResource("StandardMaterial3D_s8o2c")
+top_radius = 3.2573242
+bottom_radius = 3.2573242
+height = 0.001
+
 [node name="TestArea" type="Node3D" unique_id=733483550]
 script = SubResource("GDScript_o23y2")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=2133705661]
+occluder = ExtResource("1_3awjc")
+
+[node name="PageSpawnScript" type="Node" parent="." unique_id=1966535308 node_paths=PackedStringArray("collectables")]
+script = ExtResource("5_m0ru2")
+collectables = [NodePath("../Areas/Graveyard Area/Collectables/Collectable6"), NodePath("../Areas/Graveyard Area/Collectables/Collectable7"), NodePath("../Areas/Graveyard Area/Collectables/Collectable8"), NodePath("../Areas/Trailer Park/Collectables/Collectable"), NodePath("../Areas/Trailer Park/Collectables/Collectable3"), NodePath("../Areas/Trailer Park/Collectables/Collectable2")]
+
+[node name="Player Spawnpoints" type="Node3D" parent="." unique_id=855502399]
+script = ExtResource("1_g3xr5")
+
+[node name="Node3D" type="Marker3D" parent="Player Spawnpoints" unique_id=597458473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6848984, 1, -7.1170683)
+
+[node name="Node3D2" type="Marker3D" parent="Player Spawnpoints" unique_id=420337754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.53763, 1, 21.392773)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=400971515]
-transform = Transform3D(0.82031965, -0.23490919, 0.5214339, 0, 0.9117487, 0.41074845, -0.57190526, -0.33694503, 0.7479254, 0, 5.4477205, 0)
+transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
+light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
+light_energy = 0.04
+shadow_enabled = true
+
+[node name="Fullbright" type="DirectionalLight3D" parent="." unique_id=532318763]
+transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
+visible = false
 light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
 shadow_enabled = true
 
@@ -105,43 +184,56 @@ environment = SubResource("Environment_yf5fn")
 [node name="RoryCat" parent="." unique_id=2144193776 instance=ExtResource("4_o23y2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1318293, 0.9, -4.4921074)
 
-[node name="RandomSpawns" type="Node3D" parent="." unique_id=11178423 node_paths=PackedStringArray("collectables")]
-script = ExtResource("5_m0ru2")
-collectables = [NodePath("../Areas/Graveyard Area/Collectables/Collectable6"), NodePath("../Areas/Graveyard Area/Collectables/Collectable7"), NodePath("../Areas/Graveyard Area/Collectables/Collectable8"), NodePath("../Areas/Trailer Park/Collectables/Collectable"), NodePath("../Areas/Trailer Park/Collectables/Collectable3"), NodePath("../Areas/Trailer Park/Collectables/Collectable2")]
-
 [node name="Trees" type="Node3D" parent="." unique_id=229439960]
 
 [node name="ProtonScatter" type="Node3D" parent="Trees" unique_id=279095528]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.00914, -0.048688814, -18.959396)
 script = ExtResource("14_j0bdh")
 render_mode = 1
-modifier_stack = SubResource("Resource_mhonu")
+modifier_stack = SubResource("Resource_b58pl")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
-[node name="ScatterShape" type="Node3D" parent="Trees/ProtonScatter" unique_id=621758389]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 24.91069, 0, 20.086075)
+[node name="ScatterShape3" type="Node3D" parent="Trees/ProtonScatter" unique_id=645140164]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 31.735565, 0, 20.401703)
 script = ExtResource("2_ua4vs")
-shape = SubResource("Resource_s8o2c")
+shape = SubResource("Resource_qelbf")
+
+[node name="ScatterShape4" type="Node3D" parent="Trees/ProtonScatter" unique_id=767009324]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 31.735565, 0, 20.401703)
+script = ExtResource("2_ua4vs")
+shape = SubResource("Resource_gk8ot")
+
+[node name="ScatterShape5" type="Node3D" parent="Trees/ProtonScatter" unique_id=1892692800]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 31.735565, 0, 20.401703)
+script = ExtResource("2_ua4vs")
+shape = SubResource("Resource_b0o5v")
+
+[node name="ScatterShape6" type="Node3D" parent="Trees/ProtonScatter" unique_id=1555167549]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 31.735565, 0, 20.401703)
+script = ExtResource("2_ua4vs")
+shape = SubResource("Resource_6uvv1")
 
 [node name="ScatterItem" type="Node3D" parent="Trees/ProtonScatter" unique_id=254297087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.288939, 0.5741997, -0.5203152)
 script = ExtResource("15_vmv1f")
 source_ignore_rotation = false
-path = "uid://b8cvu5qs82b3g"
+path = "uid://djw2srkg5rvxk"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=586053468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.8185406, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.814976, 4.8185406, 66.943504)
 navigation_mesh = SubResource("NavigationMesh_g4v7s")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1450008306]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8185406, 0)
 
 [node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=1721418589]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.533638, 0, 0)
 mesh = SubResource("PlaneMesh_ogq8d")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=2026821270]
-shape = SubResource("ConcavePolygonShape3D_v3rbd")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=2046810551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.533638, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_g3xr5")
 
 [node name="Fence" type="Node3D" parent="." unique_id=1304876655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.361296)
@@ -233,8 +325,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1989028, 0.81240964, 4.6339
 [node name="Collectable8" parent="Areas/Graveyard Area/Collectables" unique_id=734300259 instance=ExtResource("2_q1sgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.712384, 0.9462693, -3.5415642)
 
+[node name="Pizza Area" type="Node3D" parent="Areas" unique_id=1872110682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.465088, 0, 0)
+
+[node name="Path" type="MeshInstance3D" parent="Areas/Pizza Area" unique_id=220629680]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="PumpkinLantern" parent="Areas/Pizza Area" unique_id=391079953 instance=ExtResource("4_6rtga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+
 [node name="Trailer Park" type="Node3D" parent="Areas" unique_id=273068533]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.498322, 0, 0)
+transform = Transform3D(0.79615355, 0, 0.6050947, 0, 1, 0, -0.6050947, 0, 0.79615355, -119.62568, 0, 24.459496)
 
 [node name="Path" type="MeshInstance3D" parent="Areas/Trailer Park" unique_id=2145049205]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9343739, 0, 0)
@@ -249,7 +350,7 @@ transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.965
 [node name="trailer4" parent="Areas/Trailer Park" unique_id=1089609800 instance=ExtResource("22_g3xr5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.348679, 0, -7.906048)
 
-[node name="PumpkinLantern2" parent="Areas/Trailer Park" unique_id=391079953 instance=ExtResource("4_6rtga")]
+[node name="PumpkinLantern2" parent="Areas/Trailer Park" unique_id=2030381761 instance=ExtResource("4_6rtga")]
 transform = Transform3D(-0.12987839, 0, -0.99152994, 0, 1, 0, 0.99152994, 0, -0.12987839, 3.0145912, 0.027861834, -2.7938712)
 
 [node name="Spawns" type="Node3D" parent="Areas/Trailer Park" unique_id=958275046]
@@ -271,3 +372,318 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.088699, 1.3435345, -6.083
 
 [node name="Collectable2" parent="Areas/Trailer Park/Collectables" unique_id=716306133 instance=ExtResource("2_q1sgv")]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 2.3862972, 1.6445925, -4.0719333)
+
+[node name="777" type="Node3D" parent="Areas" unique_id=1046785872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.85998, -3.8146973e-06, 86.42641)
+
+[node name="Path" type="MeshInstance3D" parent="Areas/777" unique_id=2016186513]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="PumpkinLantern" parent="Areas/777" unique_id=1009296277 instance=ExtResource("4_6rtga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+
+[node name="Overpass" type="Node3D" parent="Areas" unique_id=744932030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.638763, -3.8146973e-06, 72.658165)
+
+[node name="Path" type="MeshInstance3D" parent="Areas/Overpass" unique_id=1767315163]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="PumpkinLantern" parent="Areas/Overpass" unique_id=1832044329 instance=ExtResource("4_6rtga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+
+[node name="Water Tower" type="Node3D" parent="Areas" unique_id=265248576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.627884, -3.8146973e-06, 124.76657)
+
+[node name="Path" type="MeshInstance3D" parent="Areas/Water Tower" unique_id=1685785830]
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="PumpkinLantern" parent="Areas/Water Tower" unique_id=1698077098 instance=ExtResource("4_6rtga")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+
+[node name="Paths" type="Node3D" parent="." unique_id=1121556633]
+
+[node name="Grave to Pizza" type="Node3D" parent="Paths" unique_id=220215715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29167, 0, -1.3726234)
+
+[node name="Path" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=1074270773]
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=2137537698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6084747, 0, 2.8867745)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path3" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=1125204257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4575195, 0, 0.72169185)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path4" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=1338847749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028244, 0, 2.1650805)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path5" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=726013680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.799826, 0, 0.24056244)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path6" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=419020114]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -38.09073, 0, 2.405643)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path7" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=215963532]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -34.482254, 0, -0.4811312)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path8" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=2080314434]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.633211, 0, 1.6839519)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path9" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=429512146]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.062487, 0, 0.24056351)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path10" type="MeshInstance3D" parent="Paths/Grave to Pizza" unique_id=1521239967]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.290907, 0, 2.165082)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Grave to Trailer Park" type="Node3D" parent="Paths" unique_id=235996331]
+transform = Transform3D(0.9157878, 0, 0.40166235, 0, 1, 0, -0.40166235, 0, 0.9157878, -74.41153, 0, 1.9180012)
+
+[node name="Path" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=1329716496]
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=348298700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6084747, 0, 2.8867745)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path3" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=134410869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4575195, 0, 0.72169185)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path4" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=45012993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028244, 0, 2.1650805)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path5" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=522207866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.799826, 0, 0.24056244)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path6" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=1346021819]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -38.09073, 0, 2.405643)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path7" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=1106232135]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -34.482254, 0, -0.4811312)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path8" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=1023208191]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.633211, 0, 1.6839519)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path9" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=940470524]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.062487, 0, 0.24056351)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path10" type="MeshInstance3D" parent="Paths/Grave to Trailer Park" unique_id=764263739]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.290907, 0, 2.165082)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Trailer Park to 777" type="Node3D" parent="Paths" unique_id=595407457]
+transform = Transform3D(0.55394006, 0, -0.8325567, 0, 1, 0, 0.8325567, 0, 0.55394006, -93.69492, 3.8146973e-06, 69.8961)
+
+[node name="Path" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=1229961157]
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=437802326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6084747, 0, 2.8867745)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path3" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=480703495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4575195, 0, 0.72169185)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path4" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=2057856171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028244, 0, 2.1650805)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path5" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=622608313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.799826, 0, 0.24056244)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path6" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=1536658562]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -38.09073, 0, 2.405643)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path7" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=2082427793]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -34.482254, 0, -0.4811312)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path8" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=870695486]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.633211, 0, 1.6839519)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path9" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=168003293]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.062487, 0, 0.24056351)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path10" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=1627500579]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.290907, 0, 2.165082)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path11" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=968226743]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 25.383724, 0, -0.57483673)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path12" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=1098998862]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 21.775246, 0, 2.311943)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path13" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=1846372648]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 17.926205, 0, 0.14685059)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path14" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=731465205]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 13.355476, 0, 1.5902405)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path15" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=250545899]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 8.583889, 0, -0.3342743)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path16" type="MeshInstance3D" parent="Paths/Trailer Park to 777" unique_id=787863627]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 4.0928154, 0, 1.5902557)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="777 to Overpass" type="Node3D" parent="Paths" unique_id=1059041068]
+transform = Transform3D(0.9799724, 0, 0.19913454, 0, 1, 0, -0.19913454, 0, 0.9799724, -29.653862, 3.8146973e-06, 80.146515)
+
+[node name="Path" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=2031303326]
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=77289044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6084747, 0, 2.8867745)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path3" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=11375280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4575195, 0, 0.72169185)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path4" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1775413014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028244, 0, 2.1650805)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path5" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1528920803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.799826, 0, 0.24056244)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path6" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=821138181]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -38.09073, 0, 2.405643)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path7" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1371806220]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -34.482254, 0, -0.4811312)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path8" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=2004111246]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.633211, 0, 1.6839519)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path9" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1122302655]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.062487, 0, 0.24056351)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path10" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1324164962]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.290907, 0, 2.165082)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path11" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=943661422]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 25.40583, 0, -0.4833603)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path12" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1387603193]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 21.75215, 0, 2.3460083)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path13" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1160444949]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 17.937832, 0, 0.12030792)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path14" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=602043485]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 13.344847, 0, 1.4912338)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path17" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=627858069]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 42.770256, 0, -0.78263855)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path18" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1914904346]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 39.116573, 0, 2.04673)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path19" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1970612941]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 35.302258, 0, -0.17897797)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path20" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1515016727]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 30.70927, 0, 1.1919556)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path15" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=1422165356]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 8.583889, 0, -0.3342743)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path16" type="MeshInstance3D" parent="Paths/777 to Overpass" unique_id=273234962]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 4.0928154, 0, 1.5902557)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Overpass to Water Tower" type="Node3D" parent="Paths" unique_id=1761484183]
+transform = Transform3D(0.7300726, 0, -0.6833699, 0, 1, 0, 0.6833699, 0, 0.7300726, 63.447903, 3.8146973e-06, 104.77655)
+
+[node name="Path" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1789301437]
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1105946151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6084747, 0, 2.8867745)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path3" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=166135292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4575195, 0, 0.72169185)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path4" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1634813880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.028244, 0, 2.1650805)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path5" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=779125345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.799826, 0, 0.24056244)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path7" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1102458901]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -34.482254, 0, -0.4811312)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path8" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1940875244]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -30.633211, 0, 1.6839519)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path9" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=998645655]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.062487, 0, 0.24056351)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path10" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1244022562]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -21.290907, 0, 2.165082)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path13" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1983214471]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 17.937832, 0, 0.12030792)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path14" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1131776663]
+transform = Transform3D(0.9998751, 0, -0.01581493, 0, 1, 0, 0.01581493, 0, 0.9998751, 13.344847, 0, 1.4912338)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path15" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=541691799]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 8.583889, 0, -0.3342743)
+mesh = SubResource("CylinderMesh_v3rbd")
+
+[node name="Path16" type="MeshInstance3D" parent="Paths/Overpass to Water Tower" unique_id=1637986037]
+transform = Transform3D(-1, 0, 8.940697e-08, 0, 1, 0, -8.940697e-08, 0, -1, 4.0928154, 0, 1.5902557)
+mesh = SubResource("CylinderMesh_v3rbd")

@@ -13,6 +13,8 @@ config_version=5
 config/name="YIIKcord Halloween 2026"
 run/main_scene="uid://cjknx73fk8wew"
 config/features=PackedStringArray("4.7", "Mobile")
+boot_splash/bg_color=Color(0.23408955, 0.0064881095, 0.28041354, 1)
+boot_splash/image="uid://c0fflwixnugfi"
 config/icon="uid://boaxl7nhd27vd"
 
 [autoload]
@@ -27,7 +29,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg", "res://addons/scatter/plugin.cfg")
+enabled=PackedStringArray("res://addons/proton_scatter/plugin.cfg")
 
 [input]
 
@@ -76,3 +78,5 @@ DebugCam={
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+anti_aliasing/quality/use_debanding=true
+occlusion_culling/use_occlusion_culling=true
