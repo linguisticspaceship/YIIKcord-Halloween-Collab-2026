@@ -43,7 +43,7 @@ func kill_me(): # Executed by RoryCat object
 	speed = 0
 	look_at_rorycat(40)
 	
-func look_at_rorycat(strength = 40):
+func look_at_rorycat(strength=40):
 	var rory_cat = get_node("/root/TestArea/RoryCat")
 	#look_at(Vector3(rory_cat.position.x, rory_cat.position.y, rory_cat.position.z))
 
@@ -113,4 +113,5 @@ func _on_player_grab_area_exited(area: Area3D) -> void:
 
 
 func _on_pagecounter_timer_timeout() -> void:
-	$UI/Collect.visible = false
+	$UI/Collect/AnimationPlayer.play("Hide")
+	$UI/Collect/Timer.stop()

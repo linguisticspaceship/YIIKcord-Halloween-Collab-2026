@@ -20,17 +20,45 @@ var sound_list = {
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
 }
 
+var save_current = { } # What is currently loaded in save data
+
+# Save Data
+func save_game():
+	var save_file = FileAccess.open("user://yiikcord_halloween_2026.save", FileAccess.WRITE)
+	
+	var json_string = JSON.stringify( save() )
+	
+	save_file.store_line(json_string)
+
+func save():
+	var save_dict = {
+		"settings" = {
+			"mouse_speed" = 999
+		},
+		"gallery_collected" = {
+			
+		}
+	}
+	save_dict["gallery_collected"]["BRUH_PIC"] = true
+	return save_dict
+
 # Maybe move this to player script? idk
 func page_counter_show(author=""):
-	$Player/UI/Collect.visible = true
+	#$Player/UI/Collect.visible = true
+	$Player/UI/Collect/AnimationPlayer.speed_scale = 2.0
+	$Player/UI/Collect/AnimationPlayer.play("Show")
 	$Player/UI/Collect/PageCounter.text = str(gamecont.pages_collected) + "/" + str(gamecont.page_goal) + " Pages"
 	$Player/UI/Collect/Author.text = author
 	$Player/UI/Collect/Timer.start()
+
+func _ready() -> void:
+	save_game()
 
 func _process(_delta: float) -> void:
 	if debug_mode:
 		debug_functions()
 		
+	print( save() )
 		
 var debug_respawntime = 0
 var debug_despawntime = 0

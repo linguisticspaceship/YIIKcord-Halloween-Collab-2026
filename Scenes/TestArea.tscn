@@ -174,7 +174,6 @@ shadow_enabled = true
 
 [node name="Fullbright" type="DirectionalLight3D" parent="." unique_id=532318763]
 transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
-visible = false
 light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
 shadow_enabled = true
 

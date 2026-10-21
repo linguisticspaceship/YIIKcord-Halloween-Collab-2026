@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if hovered && Input.is_action_just_pressed("Interact"):
+		$"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture".texture = material.albedo_texture
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
 		Global.page_counter_show( PictureData.list[random_pic]["author"] )

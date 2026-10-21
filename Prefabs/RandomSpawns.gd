@@ -5,6 +5,8 @@ var current = 0
 
 @export var collectables : Array[Node]
 
+var random_pic = PictureData.list.keys()[randi() % PictureData.list.size()]
+
 func _ready() -> void:
 	var list = collectables #get_children()
 	randomize()
@@ -15,3 +17,6 @@ func _ready() -> void:
 			print(current)
 			remove_child(x)
 		current += 1
+
+	### WIP
+	print ( (PictureData.list[random_pic]["path"]) )

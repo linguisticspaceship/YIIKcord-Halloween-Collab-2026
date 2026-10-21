@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://do5li8fqmlfs1"]
+
+[sub_resource type="GDScript" id="GDScript_fxgfl"]
+script/source = "extends Node3D
+
+@onready var texture = load(\"res://Sprites/Fanart/alex eats mic.png\")
+
+var speed = 3
+
+func _process(delta: float) -> void:
+	$Mesh.mesh.material.albedo_texture = texture
+	$Mesh.rotation.y += (speed * delta)
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74d72"]
+load_path = "res://.godot/imported/nameless drawing final.png-5ca0566b698d806ea2022b29549313f1.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn0o3"]
+resource_local_to_scene = true
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_74d72")
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_u4bul"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_fn0o3")
+
+[node name="SpinningPicture" type="Node3D" unique_id=2026834283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
+script = SubResource("GDScript_fxgfl")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=523713715]
+mesh = SubResource("QuadMesh_u4bul")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=934370059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+projection = 1
+size = 1.1
