@@ -6,6 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://do5li8fqmlfs1" path="res://Prefabs/SpinningPicture.tscn" id="4_gg3t4"]
 [ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="4_shmu5"]
 [ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_vxq8l"]
+[ext_resource type="Shader" uid="uid://be3f7et2tlod" path="res://Shaders/PSX.gdshader" id="7_javds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_javds"]
+render_priority = 0
+shader = ExtResource("7_javds")
+shader_parameter/enable_fog = false
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/noise_color = Color(0, 0, 0, 1)
+shader_parameter/fog_distance = 6000.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = true
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.2000000095
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4v7s"]
+material = SubResource("ShaderMaterial_javds")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x3d5u"]
 height = 1.8
@@ -182,6 +203,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -0.47103786)
 light_color = Color(0.9999985, 0.99337715, 0.64033276, 1)
 spot_range = 25.0
 spot_angle = 37.065506
+
+[node name="Shader" type="MeshInstance3D" parent="Camera3D" unique_id=1787609365]
+mesh = SubResource("QuadMesh_g4v7s")
 
 [node name="Player Collision" type="CollisionShape3D" parent="." unique_id=70056274]
 shape = SubResource("CapsuleShape3D_x3d5u")
