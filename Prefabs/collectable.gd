@@ -1,6 +1,7 @@
 extends Node3D
 
-@onready var material = $MeshInstance3D.mesh.material
+@onready var material_front = $MeshInstance3DFront.mesh.material
+@onready var material_back = $MeshInstance3DBack.mesh.material
 
 var hovered = false # If mouse on me.
 
@@ -8,11 +9,14 @@ var random_pic = PictureData.list.keys()[randi() % PictureData.list.size()]
 
 func _ready() -> void:
 	#randomize()
-	material.albedo_texture = load(PictureData.list[random_pic]["path"])
+	material_front.albedo_texture = load(PictureData.list[random_pic]["path"])
+	material_back.albedo_texture = material_front.albedo_texture
 	
 func _process(_delta: float) -> void:
 	if hovered && Input.is_action_just_pressed("Interact"):
-		$"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture".texture = material.albedo_texture
+		Global.save("gallery_unlocked",random_pic,true)
+		
+		$"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture".texture = material_front.albedo_texture
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
 		Global.page_counter_show( PictureData.list[random_pic]["author"] )

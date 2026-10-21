@@ -2,8 +2,9 @@ extends Node
 
 var list : Dictionary = {
 	"Example": {
-		"path": "res://Sprites/Fanart/alex eats mic.png",
-		"author": "linguisticspaceship"
+		"path": "res://Sprites/Fanart/Rory_Hallowiin_Costume_by_Flesh_Smoothie.png",
+		"author": "Flesh Smoothie",
+		"link": "https://fleshsmoothie.itch.io/",
 	},
 	"Example 2": {
 		"path": "res://Sprites/Fanart/Bella drinks honey barrel.png",

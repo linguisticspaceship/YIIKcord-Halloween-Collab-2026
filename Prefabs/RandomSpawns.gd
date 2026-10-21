@@ -19,4 +19,4 @@ func _ready() -> void:
 		current += 1
 
 	### WIP
-	print ( (PictureData.list[random_pic]["path"]) )
+	print ( "TEST: ", (PictureData.list[random_pic]["path"]) )

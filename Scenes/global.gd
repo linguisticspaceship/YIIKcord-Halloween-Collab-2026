@@ -20,27 +20,10 @@ var sound_list = {
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
 }
 
+var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
 
-# Save Data
-func save_game():
-	var save_file = FileAccess.open("user://yiikcord_halloween_2026.save", FileAccess.WRITE)
-	
-	var json_string = JSON.stringify( save() )
-	
-	save_file.store_line(json_string)
 
-func save():
-	var save_dict = {
-		"settings" = {
-			"mouse_speed" = 999
-		},
-		"gallery_collected" = {
-			
-		}
-	}
-	save_dict["gallery_collected"]["BRUH_PIC"] = true
-	return save_dict
 
 # Maybe move this to player script? idk
 func page_counter_show(author=""):
@@ -51,14 +34,51 @@ func page_counter_show(author=""):
 	$Player/UI/Collect/Author.text = author
 	$Player/UI/Collect/Timer.start()
 
+# Saves current data to save file
+func save_to_file():
+	var save_file = FileAccess.open(save_filepath, FileAccess.WRITE)
+
+	var json_string = JSON.stringify( save_current )
+	
+	save_file.store_line(json_string)
+
+# Load data from file (We run this on startup)
+func load_from_file():	
+	# If data file doesn't exist
+	if not FileAccess.file_exists(save_filepath):
+		print("No save file detected.")
+		return
+		
+	var save_file = FileAccess.open(save_filepath, FileAccess.READ)
+	
+	var json_string = save_file.get_line()
+	
+	# If data is blank
+	if JSON.parse_string(json_string) == null:
+		save_current = {}
+		print("Data file is blank, fixing.")
+		return
+	
+	save_current = JSON.parse_string(json_string)
+
+# Saves group and key to the "current" save file.
+# Example: save("gallery_unlocked","LSTest1",true)
+func save(group="test_group",key="test_key",value=true):
+	if not save_current.has(group):
+		save_current[group] = {}
+	save_current[group][key] = value
+	
+	save_to_file()
+
 func _ready() -> void:
-	save_game()
+	
+	load_from_file()
 
 func _process(_delta: float) -> void:
 	if debug_mode:
 		debug_functions()
 		
-	print( save() )
+	#############print( save() )
 		
 var debug_respawntime = 0
 var debug_despawntime = 0
