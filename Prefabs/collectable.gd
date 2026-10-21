@@ -5,11 +5,27 @@ extends Node3D
 
 var hovered = false # If mouse on me.
 
-var random_pic = PictureData.list.keys()[randi() % PictureData.list.size()]
+var pic_selected = "" #PictureData.list.keys()[randi() % PictureData.list.size()]
+
+func select_picture():
+	# Randomizes the "seed" of which pics appear
+	var picdata_copy = PictureData.list.keys()
+	picdata_copy.shuffle()
+	
+	for x in picdata_copy:
+		if Global.read("gallery_unlocked",x) == false && x not in Global.gamecont.pictures_current:
+			Global.gamecont.pictures_current.append(x)
+			return x
+	
+	# This never seems to happen??? The game seems to work well without it, anyway
+	print("ALL IMAGES FOUND! Using random picture.")
+	return PictureData.list.keys()[randi() % PictureData.list.size()] # Random picture
 
 func _ready() -> void:
+	pic_selected = select_picture()
+	
 	#randomize()
-	material_front.albedo_texture = load(PictureData.list[random_pic]["path"])
+	material_front.albedo_texture = load(PictureData.list[pic_selected]["path"])
 	material_back.albedo_texture = material_front.albedo_texture
 	
 	# Resize mesh depending on image size
@@ -21,12 +37,12 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if hovered && Input.is_action_just_pressed("Interact"):
-		Global.save("gallery_unlocked",random_pic,true)
+		Global.save("gallery_unlocked",pic_selected,true)
 		
 		$"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture".texture = material_front.albedo_texture
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
-		Global.page_counter_show( PictureData.list[random_pic]["author"] )
+		Global.page_counter_show( PictureData.list[pic_selected]["author"] )
 		queue_free()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwf52j2nnq843"]
 
 [ext_resource type="Script" uid="uid://ds5bxdbfqrho2" path="res://Prefabs/collectable.gd" id="1_w51u4"]
-[ext_resource type="Texture2D" uid="uid://cumhddk6xnlpw" path="res://Sprites/Fanart/nameless drawing final.png" id="2_w51u4"]
+[ext_resource type="Texture2D" uid="uid://h8jha123rvn3" path="res://Sprites/Fanart/Null.png" id="2_w51u4"]
 
 [sub_resource type="Animation" id="Animation_w51u4"]
 resource_name = "Pulse"
@@ -40,12 +40,9 @@ _data = {
 &"RESET": SubResource("Animation_mso17")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_w51u4"]
-load_path = "res://.godot/imported/nameless drawing final.png-5ca0566b698d806ea2022b29549313f1.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mso17"]
 resource_local_to_scene = true
-albedo_texture = SubResource("CompressedTexture2D_w51u4")
+albedo_texture = ExtResource("2_w51u4")
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0

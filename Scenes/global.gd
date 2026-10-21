@@ -23,8 +23,6 @@ var sound_list = {
 var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
 
-
-
 # Maybe move this to player script? idk
 func page_counter_show(author=""):
 	#$Player/UI/Collect.visible = true
@@ -55,7 +53,7 @@ func load_from_file():
 	
 	# If data is blank
 	if JSON.parse_string(json_string) == null:
-		save_current = {}
+		save_current = { }
 		print("Data file is blank, fixing.")
 		return
 	
@@ -65,7 +63,7 @@ func load_from_file():
 # Example: save("gallery_unlocked","LSTest1",true)
 func save(group="test_group",key="test_key",value=true):
 	if not save_current.has(group):
-		save_current[group] = {}
+		save_current[group] = { }
 	save_current[group][key] = value
 	
 	save_to_file()
@@ -77,26 +75,15 @@ func read(group="test_group",key="test_key"):
 	if not save_current[group].has(group): # Key not found
 		return false
 	
-	var result = save_current[group][key]
-	return result
+	return save_current[group][key]
 
 func _ready() -> void:
 	
 	load_from_file()
-
-	for x in PictureData.list:
-		if read("gallery_unlocked",x):
-			print(x," is unlocked")
-
-	
-	if read("gallery_unlocked","Example") == true:
-		print("YO")
 	
 func _process(_delta: float) -> void:
 	if debug_mode:
 		debug_functions()
-		
-	#############print( save() )
 		
 var debug_respawntime = 0
 var debug_despawntime = 0

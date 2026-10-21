@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c31ew2n727wwa"]
+
+[ext_resource type="Texture2D" uid="uid://caepn1vpkre7a" path="res://Texture/Grass.png" id="1_bhm8u"]
+[ext_resource type="Script" uid="uid://dxobv0aoys8vv" path="res://Prefabs/RandomSpawns.gd" id="2_ujyaq"]
+[ext_resource type="Script" uid="uid://cmhdp62q5p17a" path="res://Scripts/PlayerRandomSpawn.gd" id="3_oy2kj"]
+[ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="4_sa0i8"]
+[ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="5_oy2kj"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5ms4e"]
+vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0mnl"]
+albedo_texture = ExtResource("1_bhm8u")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_shgkq"]
+material = SubResource("StandardMaterial3D_m0mnl")
+size = Vector2(25, 25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bhm8u"]
+data = PackedVector3Array(12.5, 0, 12.5, -12.5, 0, 12.5, 12.5, 0, -12.5, -12.5, 0, 12.5, -12.5, 0, -12.5, 12.5, 0, -12.5)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rdb2v"]
+panorama = ExtResource("4_sa0i8")
+
+[sub_resource type="Sky" id="Sky_57qmd"]
+sky_material = SubResource("PanoramaSkyMaterial_rdb2v")
+
+[sub_resource type="Environment" id="Environment_43uqb"]
+background_mode = 2
+sky = SubResource("Sky_57qmd")
+ambient_light_sky_contribution = 0.0
+
+[node name="TestLevel" type="Node3D" unique_id=1264861514]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2087212629]
+navigation_mesh = SubResource("NavigationMesh_5ms4e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=852839445]
+
+[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=256544555]
+mesh = SubResource("PlaneMesh_shgkq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=688279150]
+shape = SubResource("ConcavePolygonShape3D_bhm8u")
+
+[node name="PageSpawnScript" type="Node" parent="." unique_id=1504496478 node_paths=PackedStringArray("collectables")]
+script = ExtResource("2_ujyaq")
+collectables = [NodePath("../Collectables/Collectable6"), NodePath("../Collectables/Collectable9"), NodePath("../Collectables/Collectable10"), NodePath("../Collectables/Collectable11"), NodePath("../Collectables/Collectable12"), NodePath("../Collectables/Collectable13"), NodePath("../Collectables/Collectable7"), NodePath("../Collectables/Collectable8")]
+
+[node name="Player Spawnpoints" type="Node3D" parent="." unique_id=1531910764]
+script = ExtResource("3_oy2kj")
+
+[node name="Node3D" type="Marker3D" parent="Player Spawnpoints" unique_id=762674362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Fullbright" type="DirectionalLight3D" parent="." unique_id=461370612]
+transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
+light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
+shadow_enabled = true
+
+[node name="Skybox" type="WorldEnvironment" parent="." unique_id=1739852629]
+environment = SubResource("Environment_43uqb")
+
+[node name="Collectables" type="Node3D" parent="." unique_id=1493528475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.548937, 0, 0)
+
+[node name="Collectable6" parent="Collectables" unique_id=1879330903 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, 0.50051224)
+
+[node name="Collectable9" parent="Collectables" unique_id=172190763 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1380644, 0.9798007, 0.50051224)
+
+[node name="Collectable10" parent="Collectables" unique_id=742071891 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3226724, 0.9798007, 0.50051224)
+
+[node name="Collectable11" parent="Collectables" unique_id=1971057518 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.160475, 0.9798007, 0.50051224)
+
+[node name="Collectable12" parent="Collectables" unique_id=1615915826 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, 0.50051224)
+
+[node name="Collectable13" parent="Collectables" unique_id=514546261 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, 0.50051224)
+
+[node name="Collectable7" parent="Collectables" unique_id=1066650247 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1989028, 0.81240964, 4.6339393)
+
+[node name="Collectable8" parent="Collectables" unique_id=353215449 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.712384, 0.9462693, -3.5415642)
