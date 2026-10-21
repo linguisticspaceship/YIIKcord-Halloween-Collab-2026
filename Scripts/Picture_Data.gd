@@ -1,14 +1,14 @@
 extends Node
 
 var list : Dictionary = {
-	"Example": {
+	"FleshSmoothie_1": {
 		"path": "res://Sprites/Fanart/Rory_Hallowiin_Costume_by_Flesh_Smoothie.png",
 		"author": "Flesh Smoothie",
 		"link": "https://fleshsmoothie.itch.io/",
 	},
-	"Example 2": {
-		"path": "res://Sprites/Fanart/Bella drinks honey barrel.png",
-		"author": "linguisticspaceship"
+	"jinx_1": {
+		"path": "res://Sprites/Fanart/Untitled1395_20261021130057.png",
+		"author": "jinx"
 	},
 	"Example 3": {
 		"path": "res://Sprites/Fanart/gothic entity pizza final.png",

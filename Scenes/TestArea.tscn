@@ -364,13 +364,13 @@ transform = Transform3D(0.22107239, 0, -0.9752574, 0, 1, 0, 0.9752574, 0, 0.2210
 [node name="Collectables" type="Node3D" parent="Areas/Trailer Park" unique_id=647824901]
 
 [node name="Collectable" parent="Areas/Trailer Park/Collectables" unique_id=1879330903 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.921522, 1.640234, 4.795553)
+transform = Transform3D(0.99939084, 0, -0.034899496, 0, 1, 0, 0.034899496, 0, 0.99939084, -4.921522, 1.640234, 4.795553)
 
 [node name="Collectable3" parent="Areas/Trailer Park/Collectables" unique_id=1014686012 instance=ExtResource("2_q1sgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.088699, 1.3435345, -6.083615)
 
 [node name="Collectable2" parent="Areas/Trailer Park/Collectables" unique_id=716306133 instance=ExtResource("2_q1sgv")]
-transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 2.3862972, 1.6445925, -4.0719333)
+transform = Transform3D(0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.9659258, 2.3862972, 1.6445925, -4.0719333)
 
 [node name="777" type="Node3D" parent="Areas" unique_id=1046785872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.85998, -3.8146973e-06, 86.42641)

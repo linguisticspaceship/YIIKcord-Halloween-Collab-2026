@@ -70,10 +70,28 @@ func save(group="test_group",key="test_key",value=true):
 	
 	save_to_file()
 
+# Reads group and key and returns the value.
+func read(group="test_group",key="test_key"):
+	if not save_current.has(group): # Group not found
+		return false
+	if not save_current[group].has(group): # Key not found
+		return false
+	
+	var result = save_current[group][key]
+	return result
+
 func _ready() -> void:
 	
 	load_from_file()
 
+	for x in PictureData.list:
+		if read("gallery_unlocked",x):
+			print(x," is unlocked")
+
+	
+	if read("gallery_unlocked","Example") == true:
+		print("YO")
+	
 func _process(_delta: float) -> void:
 	if debug_mode:
 		debug_functions()
