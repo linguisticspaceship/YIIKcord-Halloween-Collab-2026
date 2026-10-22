@@ -57,8 +57,10 @@ func _input(event: InputEvent) -> void:
 func movement_pos():
 	if Input.is_action_pressed("Sprint"):
 		speed = speed_sprint
+		sprinting = true
 	else:
 		speed = speed_walk
+		sprinting = false
 	
 	var input_dir = Input.get_vector("MoveLeft", "MoveRight", "MoveForward", "MoveBackward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # EXPERIMENT: remove normalized
@@ -89,11 +91,19 @@ func movement_rot(event: InputEvent):
 		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(vertical_max), deg_to_rad(vertical_max))
 		
 func footstep_sfx():
-	if !Global.get_sound("grass"):
-		if randi_range(0,10) == 10:
-			Global.play_sound("grass")
+	#var chance = 20 # Amount of numbers to be drawn in RNG
+	const timer_walk = 0.7 # Seconds before allowed to play SFX again
+	const timer_sprint = 0.3 # Ditto
 	
+	if !sprinting:
+		$FootstepSFXTimer.wait_time = timer_walk
+	if sprinting:
+		$FootstepSFXTimer.wait_time = timer_sprint
 
+	if $FootstepSFXTimer.is_stopped():		
+		$FootstepSFXTimer.start()
+		Global.play_sound("footstep_dirt")
+	
 func pointer_change():
 	match mouse_state:
 		MOUSE_IDLE:

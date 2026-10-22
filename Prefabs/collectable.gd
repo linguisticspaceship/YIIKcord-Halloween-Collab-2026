@@ -5,7 +5,7 @@ extends Node3D
 
 var hovered = false # If mouse on me.
 
-var pic_selected = "" #PictureData.list.keys()[randi() % PictureData.list.size()]
+var pic_selected = ""
 
 func select_picture():
 	# Randomizes the "seed" of which pics appear

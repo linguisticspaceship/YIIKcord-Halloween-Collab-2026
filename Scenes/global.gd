@@ -9,12 +9,13 @@ var debug_mode = true
 # If multiple filenames are listed, one will be selected randomly.
 var sound_list = {
 	"jumpscare": "res://Sounds/Jumpscare.ogg",
-	"grass": [
-		"res://Sounds/Grass_1.ogg",
-		"res://Sounds/Grass_2.ogg",
-		"res://Sounds/Grass_3.ogg",
-		"res://Sounds/Grass_4.ogg",
-		"res://Sounds/Grass_5.ogg",
+	"footstep_dirt": [
+		"res://Sounds/footstep_dirt_1.ogg",
+		"res://Sounds/footstep_dirt_2.ogg",
+		"res://Sounds/footstep_dirt_3.ogg",
+		"res://Sounds/footstep_dirt_4.ogg",
+		"res://Sounds/footstep_dirt_5.ogg",
+		"res://Sounds/footstep_dirt_6.ogg",
 	],
 	"forest": "res://Sounds/forest ambience.ogg",
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",

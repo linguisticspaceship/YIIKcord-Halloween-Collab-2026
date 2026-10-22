@@ -347,6 +347,10 @@ offset_right = 1153.0
 offset_bottom = 657.0
 texture = ExtResource("4_shmu5")
 
+[node name="FootstepSFXTimer" type="Timer" parent="." unique_id=1059493894]
+wait_time = 55.0
+one_shot = true
+
 [connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
 [connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]
 [connection signal="timeout" from="UI/Collect/Timer" to="." method="_on_pagecounter_timer_timeout"]
