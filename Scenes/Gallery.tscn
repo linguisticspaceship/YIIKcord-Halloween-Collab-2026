@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dms5kdhkqb0qm"]
+
+[sub_resource type="GDScript" id="GDScript_16w0o"]
+script/source = "@tool
+extends Control
+
+@export_tool_button(\"Populate Container\",\"Callable\") var populate_container = _ready
+
+var GalleryPicture = preload(\"res://Prefabs/GalleryPicture.tscn\")
+
+func _ready() -> void:
+	
+	for x in $\"ScrollContainer/BoxContainer\".get_children():
+		x.queue_free()
+	
+	for x in PictureData.list:
+		
+		var GalleryPicture_temp = GalleryPicture.instantiate()
+		if Global.read(\"gallery_unlocked\",x) == false: # Pic locked
+			GalleryPicture_temp.texture = load(\"res://Sprites/Fanart/Null.png\") ### PLACEHOLDER
+		else: # Pic unlocked
+			GalleryPicture_temp.texture = load(PictureData.list[x][\"path\"])
+		$\"ScrollContainer/BoxContainer\".add_child(GalleryPicture_temp)
+"
+
+[node name="Gallery" type="Control" unique_id=1988902750]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_16w0o")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1531912874]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+follow_focus = true
+draw_focus_border = true
+tile_scroll_hint = true
+
+[node name="BoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=894961337]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(288, 0)
+theme_override_constants/separation = 24
+alignment = 1

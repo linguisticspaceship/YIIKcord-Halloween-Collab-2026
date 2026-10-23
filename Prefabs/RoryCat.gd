@@ -109,6 +109,9 @@ func _process(delta: float) -> void:
 	staring_mechanics()
 		
 func _physics_process(delta: float) -> void:
+	if get_node_or_null("/root/Global/Player") == null:
+		return
+	
 	$MeshInstance3D.look_at(player.global_position, Vector3.UP, true)
 	# Prevents from looking up or down
 	$MeshInstance3D.rotation.x = 0

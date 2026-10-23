@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
@@ -23,6 +24,17 @@ var sound_list = {
 
 var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
+
+func player_enable():
+	$"Player".process_mode = PROCESS_MODE_PAUSABLE
+	$"Player".visible = true
+	$"Player/UI".visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func player_disable():
+	$"Player".process_mode = PROCESS_MODE_DISABLED
+	$"Player".visible = false
+	$"Player/UI".visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Maybe move this to player script? idk
 func page_counter_show(author=""):
@@ -73,7 +85,7 @@ func save(group="test_group",key="test_key",value=true):
 func read(group="test_group",key="test_key"):
 	if not save_current.has(group): # Group not found
 		return false
-	if not save_current[group].has(group): # Key not found
+	if not save_current[group].has(key): # Key not found
 		return false
 	
 	return save_current[group][key]
@@ -81,6 +93,8 @@ func read(group="test_group",key="test_key"):
 func _ready() -> void:
 	
 	load_from_file()
+	
+	player_disable()
 	
 func _process(_delta: float) -> void:
 	if debug_mode:
@@ -93,17 +107,19 @@ func debug_functions():
 	debug_cam() # Press 5 to toggle bird view
 		
 	# Player UI
-	var test = "WHATEVER"
-		
-	$Player/UI/Container/DEBUGINFO.visible = true
-	$Player/UI/Container/DEBUGINFO/DebugText.text = "
-	[Debug]
-	CatActive = "   + str(debug_roryactive) + "
-	RespawnTime = " + str(snapped(debug_respawntime,0.01)) + "
-	DespawnTime = " + str(snapped(debug_despawntime,0.01)) + "
-	"
+	if get_node_or_null("/root/Global/Player"):
+		$Player/UI/Container/DEBUGINFO.visible = true
+		$Player/UI/Container/DEBUGINFO/DebugText.text = "
+		[Debug]
+		CatActive = "   + str(debug_roryactive) + "
+		RespawnTime = " + str(snapped(debug_respawntime,0.01)) + "
+		DespawnTime = " + str(snapped(debug_despawntime,0.01)) + "
+		"
 
 func debug_cam():
+	if Engine.is_editor_hint():
+		return
+	
 	if Input.is_action_just_pressed("DebugCam"):
 		if $Player/DEBUGCAM.current:
 			$Player/DEBUGCAM.current = false

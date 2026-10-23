@@ -15,4 +15,4 @@ script = ExtResource("1_uavi6")
 [node name="Current Audio" type="Node" parent="." unique_id=1286779757]
 
 [node name="Player" parent="." unique_id=1614152096 instance=ExtResource("3_qm544")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3466706, 1, 0)
+process_mode = 4

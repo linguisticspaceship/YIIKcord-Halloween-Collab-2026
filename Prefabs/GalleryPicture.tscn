@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c4tb83llc66id"]
+
+[ext_resource type="Texture2D" uid="uid://cpfpwb6enfhhx" path="res://Sprites/Fanart/Rory_Hallowiin_Costume_by_Flesh_Smoothie.png" id="1_52mac"]
+
+[node name="GalleryPicture" type="TextureRect" unique_id=373611981]
+custom_maximum_size = Vector2(576, 576)
+offset_right = 512.0
+offset_bottom = 512.0
+texture = ExtResource("1_52mac")
+stretch_mode = 5
