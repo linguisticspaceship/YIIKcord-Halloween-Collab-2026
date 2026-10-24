@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqd2ki3wluh3g"]
 
 [ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="1_4hxq3"]
+[ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_flfri"]
 
 [sub_resource type="GDScript" id="GDScript_fv8yg"]
 script/source = "extends HSlider
@@ -23,7 +24,8 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1093613455]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=707884901]
+modulate = Color(1, 0, 0, 0.84313726)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,7 +38,9 @@ offset_right = 400.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4509804, 0, 0, 0.64705884)
+texture = ExtResource("1_flfri")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1444237631]
 layout_mode = 1
@@ -69,9 +73,16 @@ script = SubResource("GDScript_fv8yg")
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=689115864 node_paths=PackedStringArray("KillNode")]
 layout_mode = 2
-text = "Return"
+text = "Return to Game
+"
 script = ExtResource("1_4hxq3")
 KillNode = NodePath("../..")
 EnablePlayer = true
+
+[node name="Exit to Main Menu" type="Button" parent="VBoxContainer" unique_id=1890983272]
+layout_mode = 2
+text = "Exit to Main Menu"
+script = ExtResource("1_4hxq3")
+SceneGoto = "res://Scenes/MainMenu.tscn"
 
 [connection signal="drag_ended" from="VBoxContainer/SensitivtySlider" to="VBoxContainer/SensitivtySlider" method="_on_drag_ended"]

@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://twl7dkfkvjyu"]
+
+[ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_p43kg"]
+[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="2_7gi3t"]
+
+[sub_resource type="GDScript" id="GDScript_7gi3t"]
+script/source = "extends Control
+
+var ButtonPrefab = load(\"res://Scenes/button_ui.tscn\")
+
+var copiedSceneGoto = \"\"
+var copiedQuitGame = \"\"
+var copiedConfirmation = \"\"
+var copiedConfirmationMessage = \"\"
+var copiedKillNode = \"\"
+var copiedEnablePlayer = \"\"
+
+func _ready() -> void:
+	var instance = ButtonPrefab.instantiate()
+	instance.SceneGoto = copiedSceneGoto
+	instance.QuitGame = copiedQuitGame
+	instance.Confirmation = copiedConfirmation
+	instance.ConfirmationMessage = copiedConfirmationMessage
+	
+	instance.KillNode = copiedKillNode
+	instance.EnablePlayer = copiedEnablePlayer
+"
+
+[node name="ButtonConfirmation" type="Control" unique_id=1008100791]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_7gi3t")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=436025072]
+modulate = Color(1, 0, 0, 0.84313726)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p43kg")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1279357776]
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 55.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1583288897]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+text = "Are you sure?????"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1885807318]
+layout_mode = 2
+alignment = 1
+
+[node name="Y" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1720320165]
+layout_mode = 2
+text = "Yes"
+script = ExtResource("2_7gi3t")

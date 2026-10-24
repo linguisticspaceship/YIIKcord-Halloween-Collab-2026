@@ -98,10 +98,11 @@ func read(group="test_group",key="test_key"):
 	return save_current[group][key]
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Menu") && !get_node_or_null("/root/Global/Settings"):
-		var instance = settings_prefab.instantiate()
-		add_child(instance)
-		player_disable()
+	if $"Player".visible:
+		if Input.is_action_just_pressed("Menu") && !get_node_or_null("/root/Global/Settings"):
+			var instance = settings_prefab.instantiate()
+			add_child(instance)
+			player_disable()
 
 func _ready() -> void:
 	
