@@ -15,9 +15,6 @@ var godmode = false # DEBUG
 
 var SpawnScript : Node
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -51,8 +48,10 @@ func look_at_rorycat(strength=40):
 	self.transform = self.transform.interpolate_with(trans, strength * get_process_delta_time())
 	
 func _input(event: InputEvent) -> void:
-	movement_rot(event)
+	if (Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) and event is InputEventMouseButton: 
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	movement_rot(event)
 	
 func movement_pos():
 	if Input.is_action_pressed("Sprint"):

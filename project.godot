@@ -11,10 +11,9 @@ config_version=5
 [application]
 
 config/name="YIIKcord Halloween 2026"
-run/main_scene="uid://cjknx73fk8wew"
+run/main_scene="uid://du421n1o2rft3"
 config/features=PackedStringArray("4.7", "Mobile")
 boot_splash/bg_color=Color(0.23408955, 0.0064881095, 0.28041354, 1)
-boot_splash/stretch_mode=3
 boot_splash/use_filter=false
 boot_splash/image="uid://c0fflwixnugfi"
 config/icon="uid://boaxl7nhd27vd"

@@ -30,6 +30,8 @@ script/source = "extends Node3D
 
 func _ready() -> void:
 	Global.play_sound(\"forest\",true,-24.0)
+
+	Global.player_enable()
 "
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_18a41"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://du421n1o2rft3"]
 
 [ext_resource type="Texture2D" uid="uid://cbaykic0ptb2y" path="res://Texture/Example.png" id="1_tt5f1"]
+[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="2_853f1"]
 
 [node name="MainMenu" type="Control" unique_id=591626068]
 layout_mode = 3
@@ -43,14 +44,19 @@ layout_mode = 0
 offset_right = 378.0
 offset_bottom = 58.0
 
-[node name="Button" type="Button" parent="Control/VBoxContainer" unique_id=1765661095]
+[node name="Start" type="Button" parent="Control/VBoxContainer" unique_id=1765661095]
 layout_mode = 2
 text = "Start"
+script = ExtResource("2_853f1")
+SceneGoto = "res://Scenes/MainLevel.tscn"
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer" unique_id=1450334786]
+[node name="Gallery" type="Button" parent="Control/VBoxContainer" unique_id=1450334786]
 layout_mode = 2
 text = "Gallery"
+script = ExtResource("2_853f1")
 
-[node name="Button3" type="Button" parent="Control/VBoxContainer" unique_id=2003470873]
+[node name="Quit" type="Button" parent="Control/VBoxContainer" unique_id=2003470873]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("2_853f1")
+QuitGame = true
