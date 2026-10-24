@@ -1,9 +1,13 @@
-@tool
+#@tool
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
 var debug_mode = true
 @onready var gamecont = $"Game Controller"
+
+var setting_mouse_sensitivity = 0.01
+
+var settings_prefab = load("res://Scenes/Settings.tscn")
 
 # TODO: Whenever the scene changes, delete all of the sounds in Current Audio. (Or maybe just the sounds that are set in loop mode)
 
@@ -26,10 +30,13 @@ var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
 
 func player_enable():
+	settings_reload()
+	
 	$"Player".process_mode = PROCESS_MODE_PAUSABLE
 	$"Player".visible = true
 	$"Player/UI".visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 func player_disable():
 	$"Player".process_mode = PROCESS_MODE_DISABLED
 	$"Player".visible = false
@@ -90,11 +97,23 @@ func read(group="test_group",key="test_key"):
 	
 	return save_current[group][key]
 
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Menu") && !get_node_or_null("/root/Global/Settings"):
+		var instance = settings_prefab.instantiate()
+		add_child(instance)
+		player_disable()
+
 func _ready() -> void:
 	
 	load_from_file()
 	
+	settings_reload()
+	
 	player_disable()
+	
+func settings_reload():
+	setting_mouse_sensitivity = read("settings","sensitivity")
+	$"Player".mouse_sensitivity = setting_mouse_sensitivity
 	
 func _process(_delta: float) -> void:
 	if debug_mode:
