@@ -89,11 +89,11 @@ func save(group="test_group",key="test_key",value=true):
 	save_to_file()
 
 # Reads group and key and returns the value.
-func read(group="test_group",key="test_key"):
+func read(group="test_group",key="test_key",default=false):
 	if not save_current.has(group): # Group not found
-		return false
+		return default
 	if not save_current[group].has(key): # Key not found
-		return false
+		return default
 	
 	return save_current[group][key]
 
@@ -113,7 +113,7 @@ func _ready() -> void:
 	player_disable()
 	
 func settings_reload():
-	setting_mouse_sensitivity = read("settings","sensitivity")
+	setting_mouse_sensitivity = read("settings", "sensitivity", 0.01)
 	$"Player".mouse_sensitivity = setting_mouse_sensitivity
 	
 func _process(_delta: float) -> void:

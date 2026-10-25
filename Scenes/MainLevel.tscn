@@ -30,8 +30,6 @@ script/source = "extends Node3D
 
 func _ready() -> void:
 	Global.play_sound(\"forest\",true,-24.0)
-
-	Global.player_enable()
 "
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_18a41"]
@@ -45,28 +43,28 @@ background_mode = 2
 sky = SubResource("Sky_57qmd")
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="Resource" id="Resource_3awjc"]
+[sub_resource type="Resource" id="Resource_78ltn"]
 script = ExtResource("9_jn3mb")
 amount = 1875
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_cyx4m"]
+[sub_resource type="Resource" id="Resource_l7iso"]
 script = ExtResource("10_gdmyf")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_b58pl"]
+[sub_resource type="Resource" id="Resource_ey455"]
 script = ExtResource("11_34gk8")
 ray_direction = Vector3(0, 0, 0)
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_ufxn3"]
+[sub_resource type="Resource" id="Resource_bq6f7"]
 script = ExtResource("7_e3dts")
-stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_3awjc"), SubResource("Resource_cyx4m"), SubResource("Resource_b58pl")])
+stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_78ltn"), SubResource("Resource_l7iso"), SubResource("Resource_ey455")])
 
 [sub_resource type="Curve3D" id="Curve3D_3awjc"]
 closed = true
@@ -191,7 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1318293, 0.9, -4.4921074)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.00914, -0.048688814, -18.959396)
 script = ExtResource("6_p36j5")
 render_mode = 1
-modifier_stack = SubResource("Resource_ufxn3")
+modifier_stack = SubResource("Resource_bq6f7")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

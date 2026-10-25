@@ -1,30 +1,150 @@
 [gd_scene format=3 uid="uid://do5li8fqmlfs1"]
 
+[ext_resource type="Texture2D" uid="uid://cu543iuhfbril" path="res://Sprites/Fanart/JP24E2K/frame_00_delay-0.13s.png" id="1_h8ioq"]
+[ext_resource type="Texture2D" uid="uid://b1p546uemaigc" path="res://Sprites/Fanart/JP24E2K/frame_01_delay-0.12s.png" id="2_plji5"]
+[ext_resource type="Texture2D" uid="uid://bh54t8uhujvk8" path="res://Sprites/Fanart/JP24E2K/frame_02_delay-0.13s.png" id="3_n07to"]
+[ext_resource type="Texture2D" uid="uid://dxqbqbtdud5pk" path="res://Sprites/Fanart/JP24E2K/frame_03_delay-0.12s.png" id="4_tyj4o"]
+[ext_resource type="Texture2D" uid="uid://baw7ctwcxvns0" path="res://Sprites/Fanart/JP24E2K/frame_04_delay-0.13s.png" id="5_x3mpl"]
+[ext_resource type="Texture2D" uid="uid://cwiwsrnsydrcs" path="res://Sprites/Fanart/JP24E2K/frame_05_delay-0.12s.png" id="6_xrr4g"]
+[ext_resource type="Texture2D" uid="uid://ckqk3ij7g46jt" path="res://Sprites/Fanart/JP24E2K/frame_06_delay-0.13s.png" id="7_xtrim"]
+[ext_resource type="Texture2D" uid="uid://cdcoev45yfove" path="res://Sprites/Fanart/JP24E2K/frame_07_delay-0.12s.png" id="8_6m8x1"]
+[ext_resource type="Texture2D" uid="uid://d31iqwliri804" path="res://Sprites/Fanart/JP24E2K/frame_08_delay-0.13s.png" id="9_0glw4"]
+[ext_resource type="Texture2D" uid="uid://cross456r8aug" path="res://Sprites/Fanart/JP24E2K/frame_09_delay-0.12s.png" id="10_p73ve"]
+[ext_resource type="Texture2D" uid="uid://c8wk4e8olaxdc" path="res://Sprites/Fanart/JP24E2K/frame_10_delay-0.13s.png" id="11_ycudw"]
+[ext_resource type="Texture2D" uid="uid://b28n11c5fu0eo" path="res://Sprites/Fanart/JP24E2K/frame_11_delay-0.12s.png" id="12_20udc"]
+[ext_resource type="Texture2D" uid="uid://thislknu3mwy" path="res://Sprites/Fanart/JP24E2K/frame_12_delay-0.13s.png" id="13_gbjs2"]
+[ext_resource type="Texture2D" uid="uid://c4c37smcr7dvf" path="res://Sprites/Fanart/JP24E2K/frame_13_delay-0.12s.png" id="14_kwqbd"]
+[ext_resource type="Texture2D" uid="uid://cl35bupy7nxhl" path="res://Sprites/Fanart/JP24E2K/frame_14_delay-0.13s.png" id="15_my63s"]
+[ext_resource type="Texture2D" uid="uid://dg78xcslrcec0" path="res://Sprites/Fanart/JP24E2K/frame_15_delay-0.12s.png" id="16_vlfj0"]
+[ext_resource type="Texture2D" uid="uid://cbrr2fbowe5gd" path="res://Sprites/Fanart/JP24E2K/frame_16_delay-0.13s.png" id="17_rugs7"]
+[ext_resource type="Texture2D" uid="uid://c3uuy47chdis8" path="res://Sprites/Fanart/JP24E2K/frame_17_delay-0.12s.png" id="18_yhq8r"]
+[ext_resource type="Texture2D" uid="uid://bs58tigjo6slc" path="res://Sprites/Fanart/JP24E2K/frame_18_delay-0.13s.png" id="19_saaxn"]
+[ext_resource type="Texture2D" uid="uid://tkrfofbot2se" path="res://Sprites/Fanart/JP24E2K/frame_19_delay-0.13s.png" id="20_yxexf"]
+[ext_resource type="Texture2D" uid="uid://h8jha123rvn3" path="res://Sprites/Fanart/Null.png" id="21_h2rvc"]
+
 [sub_resource type="GDScript" id="GDScript_fxgfl"]
 script/source = "extends Node3D
 
-@onready var texture = load(\"res://Sprites/Fanart/alex eats mic.png\")
+@onready var texture #= load(\"res://Sprites/Fanart/null.png\")
+# Animated properties
+var animated = false
+var animation = null
+var width = 0
+var height = 0
 
 var speed = 3
 
 func _process(delta: float) -> void:
-	$Mesh.mesh.material.albedo_texture = texture
+	if !animated:
+		$SubViewport/Sprite2D.visible = true
+		$SubViewport/AnimatedSprite2D.visible = false
+		$SubViewport/Sprite2D.texture = texture
+		$SubViewport.size = Vector2(width, height)
+		#$Mesh.mesh.material.albedo_texture = texture
+	if animated:
+		$SubViewport/Sprite2D.visible = false
+		$SubViewport/AnimatedSprite2D.visible = true
+		$SubViewport/AnimatedSprite2D.animation = animation
+		$SubViewport.size = Vector2(width, height)
+		
 	$Mesh.rotation.y += (speed * delta)
 "
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74d72"]
-load_path = "res://.godot/imported/nameless drawing final.png-5ca0566b698d806ea2022b29549313f1.s3tc.ctex"
+[sub_resource type="ViewportTexture" id="ViewportTexture_h8ioq"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn0o3"]
 resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
 cull_mode = 2
 shading_mode = 0
-albedo_texture = SubResource("CompressedTexture2D_74d72")
+albedo_texture = SubResource("ViewportTexture_h8ioq")
 disable_receive_shadows = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_u4bul"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_fn0o3")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fciho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h8ioq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_plji5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n07to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tyj4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x3mpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xrr4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xtrim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6m8x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0glw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p73ve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ycudw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_20udc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gbjs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kwqbd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_my63s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vlfj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rugs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yhq8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_saaxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_yxexf")
+}],
+"loop": 1,
+"name": &"JP24",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_h2rvc")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bedgk"]
+load_path = "res://.godot/imported/Null.png-1bdaed20f0c1ffcaa83d8c08af435337.s3tc.ctex"
 
 [node name="SpinningPicture" type="Node3D" unique_id=2026834283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
@@ -37,3 +157,20 @@ mesh = SubResource("QuadMesh_u4bul")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 projection = 1
 size = 1.1
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2106279110]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport" unique_id=625020739]
+visible = false
+sprite_frames = SubResource("SpriteFrames_fciho")
+animation = &"JP24"
+autoplay = "JP24"
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=1274921510]
+texture = SubResource("CompressedTexture2D_bedgk")
+centered = false

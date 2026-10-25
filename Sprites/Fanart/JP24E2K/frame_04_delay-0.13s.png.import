@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtepbjc6twlfo"
-path="res://.godot/imported/alex eats mic.png-2d13bb9a700fcc4def8a9147777882c7.ctex"
+uid="uid://baw7ctwcxvns0"
+path="res://.godot/imported/frame_04_delay-0.13s.png-54684fe5cd25f0653d2b15e2acbae5d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fanart/alex eats mic.png"
-dest_files=["res://.godot/imported/alex eats mic.png-2d13bb9a700fcc4def8a9147777882c7.ctex"]
+source_file="res://Sprites/Fanart/JP24E2K/frame_04_delay-0.13s.png"
+dest_files=["res://.godot/imported/frame_04_delay-0.13s.png-54684fe5cd25f0653d2b15e2acbae5d8.ctex"]
 
 [params]
 

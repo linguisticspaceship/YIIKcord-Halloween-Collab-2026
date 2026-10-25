@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtu88pw2et0he"
-path="res://.godot/imported/yiik claudio and essentia ship.png-428ba7e1693dfda99e71caeb008c2da3.ctex"
+uid="uid://cu543iuhfbril"
+path="res://.godot/imported/frame_00_delay-0.13s.png-2acd1a89827eb7ccf6215f0e01f2a273.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fanart/yiik claudio and essentia ship.png"
-dest_files=["res://.godot/imported/yiik claudio and essentia ship.png-428ba7e1693dfda99e71caeb008c2da3.ctex"]
+source_file="res://Sprites/Fanart/JP24E2K/frame_00_delay-0.13s.png"
+dest_files=["res://.godot/imported/frame_00_delay-0.13s.png-2acd1a89827eb7ccf6215f0e01f2a273.ctex"]
 
 [params]
 

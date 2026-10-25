@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2y3khcwfccgh"
-path="res://.godot/imported/scissorina.png-ffe805ff315920aff5f26f111b08a8e0.ctex"
+uid="uid://c8wk4e8olaxdc"
+path="res://.godot/imported/frame_10_delay-0.13s.png-00d3aeba2426c369e9b4b31ded32be59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fanart/scissorina.png"
-dest_files=["res://.godot/imported/scissorina.png-ffe805ff315920aff5f26f111b08a8e0.ctex"]
+source_file="res://Sprites/Fanart/JP24E2K/frame_10_delay-0.13s.png"
+dest_files=["res://.godot/imported/frame_10_delay-0.13s.png-00d3aeba2426c369e9b4b31ded32be59.ctex"]
 
 [params]
 

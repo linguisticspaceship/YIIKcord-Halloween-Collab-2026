@@ -1,11 +1,14 @@
 extends Node3D
 
-@onready var material_front = $MeshInstance3DFront.mesh.material
-@onready var material_back = $MeshInstance3DBack.mesh.material
+@onready var material = $SubViewport/Sprite2D.texture
+@onready var material_anim = $SubViewport/AnimatedSprite2D.animation
 
 var hovered = false # If mouse on me.
 
 var pic_selected = ""
+
+var texture_width
+var texture_height
 
 func select_picture():
 	# Randomizes the "seed" of which pics appear
@@ -17,29 +20,46 @@ func select_picture():
 			Global.gamecont.pictures_current.append(x)
 			return x
 	
-	# This never seems to happen??? The game seems to work well without it, anyway
+	### BUG!!! THIS TRIGGERS EVEN WHEN 1 PIC IS FOUND. 0 PICS FOUND IS FINE.
 	print("ALL IMAGES FOUND! Using random picture.")
 	return PictureData.list.keys()[randi() % PictureData.list.size()] # Random picture
 
 func _ready() -> void:
 	pic_selected = select_picture()
 	
-	#randomize()
-	material_front.albedo_texture = load(PictureData.list[pic_selected]["path"])
-	material_back.albedo_texture = material_front.albedo_texture
-	
-	# Resize mesh depending on image size
-	var texture_width = float(material_front.albedo_texture.get_width())
-	var texture_height = float(material_front.albedo_texture.get_height())
+	if PictureData.list[pic_selected].get("animated",false) == false:
+		$SubViewport/Sprite2D.texture = load(PictureData.list[pic_selected]["path"])
+		# Resize mesh depending on image size
+		texture_width = float($SubViewport/Sprite2D.texture.get_width())
+		texture_height = float($SubViewport/Sprite2D.texture.get_height())
+	if PictureData.list[pic_selected].get("animated",false) == true:
+		$SubViewport/Sprite2D.visible = false
+		$SubViewport/AnimatedSprite2D.visible = true
+		material_anim = PictureData.list[pic_selected]["path"]
+		texture_width = PictureData.list[pic_selected]["width"]
+		texture_height = PictureData.list[pic_selected]["height"]
+
 	var formula = (texture_width / texture_height) - 1
 	$MeshInstance3DFront.mesh.size.x += formula
 	$MeshInstance3DBack.mesh.size.x += formula
+	
+	$SubViewport.size = Vector2(texture_width, texture_height)
 	
 func _process(_delta: float) -> void:
 	if hovered && Input.is_action_just_pressed("Interact"):
 		Global.save("gallery_unlocked",pic_selected,true)
 		
-		$"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture".texture = material_front.albedo_texture
+		# Apply texture to spinning UI element
+		var spinningpic = $"/root/Global/Player/UI/Collect/SubViewportContainer/SubViewport/SpinningPicture"
+		spinningpic.width = texture_width
+		spinningpic.height = texture_height
+		if PictureData.list[pic_selected].get("animated",false) == false:
+			spinningpic.texture = $SubViewport/Sprite2D.texture
+			spinningpic.animated = false
+		if PictureData.list[pic_selected].get("animated",false) == true:
+			spinningpic.animated = true
+			spinningpic.animation = material_anim
+		
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
 		Global.page_counter_show( PictureData.list[pic_selected]["author"] )

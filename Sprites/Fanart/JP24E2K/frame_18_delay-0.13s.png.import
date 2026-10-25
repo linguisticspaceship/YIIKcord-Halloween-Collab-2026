@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doik4vtofe7i1"
-path="res://.godot/imported/linguisticSpaceship Essentia Ultima.png-3b37403c8462dce32c30e4889f1d429d.ctex"
+uid="uid://bs58tigjo6slc"
+path="res://.godot/imported/frame_18_delay-0.13s.png-1498578156cc6f9346f7add196c6269b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fanart/linguisticSpaceship Essentia Ultima.png"
-dest_files=["res://.godot/imported/linguisticSpaceship Essentia Ultima.png-3b37403c8462dce32c30e4889f1d429d.ctex"]
+source_file="res://Sprites/Fanart/JP24E2K/frame_18_delay-0.13s.png"
+dest_files=["res://.godot/imported/frame_18_delay-0.13s.png-1498578156cc6f9346f7add196c6269b.ctex"]
 
 [params]
 

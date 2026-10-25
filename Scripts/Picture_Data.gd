@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 var list : Dictionary = {
@@ -9,27 +8,31 @@ var list : Dictionary = {
 	},
 	"jinx_1": {
 		"path": "res://Sprites/Fanart/Untitled1395_20261021130057.png",
-		"author": "jinx"
+		"author": "jinx",
 	},
-	"Example 3": {
-		"path": "res://Sprites/Fanart/gothic entity pizza final.png",
-		"author": "linguisticspaceship"
+	"goat_1": {
+		"path": "res://Sprites/Fanart/cfr2025657aa61aws3.png",
+		"author": "shinglebup",
 	},
-	"Example 4": {
-		"path": "res://Sprites/Fanart/linguisticSpaceship Essentia Ultima.png",
-		"author": "linguisticspaceship"
+	"carrie_1": {
+		"path": "res://Sprites/Fanart/3587_sin_titulo_20261021202045.png",
+		"author": "carriemancer",
 	},
-	"Example 5": {
-		"path": "res://Sprites/Fanart/nameless drawing final.png",
-		"author": "linguisticspaceship"
+	"lilbert_1": {
+		"path": "res://Sprites/Fanart/IMG_9211.jpg",
+		"author": "lilbert"
 	},
-	"Example 6": {
-		"path": "res://Sprites/Fanart/yiik claudio and essentia ship.png",
-		"author": "linguisticspaceship"
+	"jp24_1": {
+		#"path": "res://Sprites/Fanart/IMG_9211.jpg",
+		"animated": true,
+		"path": "JP24", # Animation name instead
+		"width": 1024,
+		"height": 840,
+		"author": "JP24",
 	},
-	"Example 7": {
-		"path": "res://Sprites/Fanart/scissorina.png",
-		"author": "linguisticspaceship"
+	"cowonmars_1": {
+		"path": "res://Sprites/Fanart/IMG_0438.png",
+		"author": "cowonmars"
 	},
 	"Example 8": {
 		"path": "res://Sprites/Fanart/xenanu final shot.png",

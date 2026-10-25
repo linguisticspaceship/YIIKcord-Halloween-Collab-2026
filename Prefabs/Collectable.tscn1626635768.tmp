@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://bwf52j2nnq843"]
+
+[ext_resource type="Script" uid="uid://ds5bxdbfqrho2" path="res://Prefabs/collectable.gd" id="1_w51u4"]
+[ext_resource type="Texture2D" uid="uid://h8jha123rvn3" path="res://Sprites/Fanart/Null.png" id="2_w51u4"]
+[ext_resource type="Texture2D" uid="uid://cu543iuhfbril" path="res://Sprites/Fanart/JP24E2K/frame_00_delay-0.13s.png" id="3_73gsa"]
+[ext_resource type="Texture2D" uid="uid://b1p546uemaigc" path="res://Sprites/Fanart/JP24E2K/frame_01_delay-0.12s.png" id="4_6bjsi"]
+[ext_resource type="Texture2D" uid="uid://bh54t8uhujvk8" path="res://Sprites/Fanart/JP24E2K/frame_02_delay-0.13s.png" id="5_rm7p6"]
+[ext_resource type="Texture2D" uid="uid://dxqbqbtdud5pk" path="res://Sprites/Fanart/JP24E2K/frame_03_delay-0.12s.png" id="6_eqweh"]
+[ext_resource type="Texture2D" uid="uid://baw7ctwcxvns0" path="res://Sprites/Fanart/JP24E2K/frame_04_delay-0.13s.png" id="7_i7tmf"]
+[ext_resource type="Texture2D" uid="uid://cwiwsrnsydrcs" path="res://Sprites/Fanart/JP24E2K/frame_05_delay-0.12s.png" id="8_m8krl"]
+[ext_resource type="Texture2D" uid="uid://ckqk3ij7g46jt" path="res://Sprites/Fanart/JP24E2K/frame_06_delay-0.13s.png" id="9_in5pk"]
+[ext_resource type="Texture2D" uid="uid://cdcoev45yfove" path="res://Sprites/Fanart/JP24E2K/frame_07_delay-0.12s.png" id="10_yegu6"]
+[ext_resource type="Texture2D" uid="uid://d31iqwliri804" path="res://Sprites/Fanart/JP24E2K/frame_08_delay-0.13s.png" id="11_078by"]
+[ext_resource type="Texture2D" uid="uid://cross456r8aug" path="res://Sprites/Fanart/JP24E2K/frame_09_delay-0.12s.png" id="12_2h6bj"]
+[ext_resource type="Texture2D" uid="uid://c8wk4e8olaxdc" path="res://Sprites/Fanart/JP24E2K/frame_10_delay-0.13s.png" id="13_wll54"]
+[ext_resource type="Texture2D" uid="uid://b28n11c5fu0eo" path="res://Sprites/Fanart/JP24E2K/frame_11_delay-0.12s.png" id="14_syxbh"]
+[ext_resource type="Texture2D" uid="uid://thislknu3mwy" path="res://Sprites/Fanart/JP24E2K/frame_12_delay-0.13s.png" id="15_niqri"]
+[ext_resource type="Texture2D" uid="uid://c4c37smcr7dvf" path="res://Sprites/Fanart/JP24E2K/frame_13_delay-0.12s.png" id="16_5bxaa"]
+[ext_resource type="Texture2D" uid="uid://cl35bupy7nxhl" path="res://Sprites/Fanart/JP24E2K/frame_14_delay-0.13s.png" id="17_6tw85"]
+[ext_resource type="Texture2D" uid="uid://dg78xcslrcec0" path="res://Sprites/Fanart/JP24E2K/frame_15_delay-0.12s.png" id="18_5th5q"]
+[ext_resource type="Texture2D" uid="uid://cbrr2fbowe5gd" path="res://Sprites/Fanart/JP24E2K/frame_16_delay-0.13s.png" id="19_hx1ef"]
+[ext_resource type="Texture2D" uid="uid://c3uuy47chdis8" path="res://Sprites/Fanart/JP24E2K/frame_17_delay-0.12s.png" id="20_34g30"]
+[ext_resource type="Texture2D" uid="uid://bs58tigjo6slc" path="res://Sprites/Fanart/JP24E2K/frame_18_delay-0.13s.png" id="21_5dy5g"]
+[ext_resource type="Texture2D" uid="uid://tkrfofbot2se" path="res://Sprites/Fanart/JP24E2K/frame_19_delay-0.13s.png" id="22_ar3aj"]
+
+[sub_resource type="Animation" id="Animation_w51u4"]
+resource_name = "Pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3DFront:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.1, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mso17"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3DFront:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l42sn"]
+_data = {
+&"Pulse": SubResource("Animation_w51u4"),
+&"RESET": SubResource("Animation_mso17")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6bjsi"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73gsa"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_6bjsi")
+emission_energy_multiplier = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_l42sn"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_73gsa")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_73gsa"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w51u4"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 1
+albedo_texture = SubResource("ViewportTexture_73gsa")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+uv1_scale = Vector3(-1, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_w51u4"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_w51u4")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yf5fn"]
+radius = 0.9848683
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_73gsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6bjsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rm7p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eqweh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i7tmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m8krl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_in5pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yegu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_078by")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2h6bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wll54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_syxbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_niqri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5bxaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6tw85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5th5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hx1ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_34g30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_5dy5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ar3aj")
+}],
+"loop": 1,
+"name": &"JP24",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w51u4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Collectable" type="Node3D" unique_id=1879330903 groups=["Collectable"]]
+script = ExtResource("1_w51u4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1634871530]
+libraries/ = SubResource("AnimationLibrary_l42sn")
+
+[node name="MeshInstance3DFront" type="MeshInstance3D" parent="." unique_id=335630409]
+mesh = SubResource("QuadMesh_l42sn")
+
+[node name="MeshInstance3DBack" type="MeshInstance3D" parent="." unique_id=2025823470]
+mesh = SubResource("QuadMesh_w51u4")
+
+[node name="MeshInstance3D_Back_Animated" type="MeshInstance3D" parent="." unique_id=1936038436]
+visible = false
+mesh = SubResource("QuadMesh_w51u4")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=228054286]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=77658948]
+shape = SubResource("SphereShape3D_yf5fn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=538135721]
+offset_right = 1024.0
+offset_bottom = 840.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=775742903]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=248417336]
+visible = false
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport" unique_id=1122740289]
+texture = ExtResource("2_w51u4")
+centered = false
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
