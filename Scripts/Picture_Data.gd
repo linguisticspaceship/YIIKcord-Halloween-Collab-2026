@@ -32,7 +32,8 @@ var list : Dictionary = {
 	},
 	"cowonmars_1": {
 		"path": "res://Sprites/Fanart/IMG_0438.png",
-		"author": "cowonmars"
+		"author": "cowonmars",
+		"link": "https://www.tumblr.com/cowonmars", ### ADD ME TO GAME
 	},
 	"Example 8": {
 		"path": "res://Sprites/Fanart/xenanu final shot.png",

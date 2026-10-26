@@ -46,7 +46,7 @@ shape = SubResource("ConcavePolygonShape3D_bhm8u")
 
 [node name="PageSpawnScript" type="Node" parent="." unique_id=1504496478 node_paths=PackedStringArray("collectables")]
 script = ExtResource("2_ujyaq")
-collectables = [NodePath("../Collectables/Collectable6"), NodePath("../Collectables/Collectable9"), NodePath("../Collectables/Collectable10"), NodePath("../Collectables/Collectable11"), NodePath("../Collectables/Collectable12"), NodePath("../Collectables/Collectable13"), NodePath("../Collectables/Collectable7"), NodePath("../Collectables/Collectable8")]
+collectables = [NodePath("../Collectables/Collectable6"), NodePath("../Collectables/Collectable9"), NodePath("../Collectables/Collectable10"), NodePath("../Collectables/Collectable11"), NodePath("../Collectables/Collectable12"), NodePath("../Collectables/Collectable13"), NodePath("../Collectables/Collectable7"), NodePath("../Collectables/Collectable14"), NodePath("../Collectables/Collectable15"), NodePath("../Collectables/Collectable16"), NodePath("../Collectables/Collectable17"), NodePath("../Collectables/Collectable18"), NodePath("../Collectables/Collectable8"), NodePath("../Collectables/Collectable19"), NodePath("../Collectables/Collectable20"), NodePath("../Collectables/Collectable21"), NodePath("../Collectables/Collectable22"), NodePath("../Collectables/Collectable23")]
 
 [node name="Player Spawnpoints" type="Node3D" parent="." unique_id=1531910764]
 script = ExtResource("3_oy2kj")
@@ -83,8 +83,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, 0.50051
 [node name="Collectable13" parent="Collectables" unique_id=514546261 instance=ExtResource("5_oy2kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, 0.50051224)
 
-[node name="Collectable7" parent="Collectables" unique_id=1066650247 instance=ExtResource("5_oy2kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1989028, 0.81240964, 4.6339393)
+[node name="Collectable7" parent="Collectables" unique_id=1324515158 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, 2.8614535)
 
-[node name="Collectable8" parent="Collectables" unique_id=353215449 instance=ExtResource("5_oy2kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.712384, 0.9462693, -3.5415642)
+[node name="Collectable14" parent="Collectables" unique_id=1853669791 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1380644, 0.9798007, 2.8614535)
+
+[node name="Collectable15" parent="Collectables" unique_id=1549599881 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3226724, 0.9798007, 2.8614535)
+
+[node name="Collectable16" parent="Collectables" unique_id=1867574300 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.160475, 0.9798007, 2.8614535)
+
+[node name="Collectable17" parent="Collectables" unique_id=309662975 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, 2.8614535)
+
+[node name="Collectable18" parent="Collectables" unique_id=368350820 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, 2.8614535)
+
+[node name="Collectable8" parent="Collectables" unique_id=612667777 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, -2.117721)
+
+[node name="Collectable19" parent="Collectables" unique_id=1293849387 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1380644, 0.9798007, -2.117721)
+
+[node name="Collectable20" parent="Collectables" unique_id=290223724 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3226724, 0.9798007, -2.117721)
+
+[node name="Collectable21" parent="Collectables" unique_id=926796556 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.160475, 0.9798007, -2.117721)
+
+[node name="Collectable22" parent="Collectables" unique_id=495818039 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, -2.117721)
+
+[node name="Collectable23" parent="Collectables" unique_id=1508513542 instance=ExtResource("5_oy2kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, -2.117721)

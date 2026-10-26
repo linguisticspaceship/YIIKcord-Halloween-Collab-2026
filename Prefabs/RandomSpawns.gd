@@ -14,8 +14,8 @@ func _ready() -> void:
 	
 	for x in list:
 		if current >= pages_max:
-			print(current)
-			remove_child(x)
+			print("Removing? ", x)
+			x.queue_free()
 		current += 1
 
 	### WIP

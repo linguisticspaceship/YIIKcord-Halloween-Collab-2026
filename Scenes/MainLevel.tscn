@@ -22,8 +22,11 @@
 [ext_resource type="PackedScene" uid="uid://cgbc8iq071gf3" path="res://Models/pumpkinlantern.tscn" id="20_268du"]
 [ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="21_75cn6"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="22_vyjbk"]
+[ext_resource type="PackedScene" uid="uid://cmae8vd61uvcf" path="res://Models/PizzaPasta.fbx" id="23_ey455"]
 [ext_resource type="PackedScene" uid="uid://fba2ad1hx0wa" path="res://Models/trailer2.fbx" id="23_y0w7h"]
 [ext_resource type="PackedScene" uid="uid://d2wqjohegiu5w" path="res://Models/trailer3.fbx" id="24_a8fa2"]
+[ext_resource type="PackedScene" uid="uid://bpnok356daqm5" path="res://Models/777Mart.fbx" id="25_l7iso"]
+[ext_resource type="PackedScene" uid="uid://bkab7au7ktex" path="res://Models/overpass.fbx" id="27_bq6f7"]
 
 [sub_resource type="GDScript" id="GDScript_o23y2"]
 script/source = "extends Node3D
@@ -41,6 +44,7 @@ sky_material = SubResource("PanoramaSkyMaterial_18a41")
 [sub_resource type="Environment" id="Environment_yf5fn"]
 background_mode = 2
 sky = SubResource("Sky_57qmd")
+ambient_light_color = Color(0.023529412, 0.22745098, 0.27058825, 1)
 ambient_light_sky_contribution = 0.0
 
 [sub_resource type="Resource" id="Resource_78ltn"]
@@ -155,7 +159,7 @@ occluder = ExtResource("1_78ltn")
 
 [node name="PageSpawnScript" type="Node" parent="." unique_id=1966535308 node_paths=PackedStringArray("collectables")]
 script = ExtResource("2_l7iso")
-collectables = [NodePath("../Areas/Graveyard Area/Collectables/Collectable6"), NodePath("../Areas/Graveyard Area/Collectables/Collectable7"), NodePath("../Areas/Graveyard Area/Collectables/Collectable8"), NodePath("../Areas/Trailer Park/Collectables/Collectable"), NodePath("../Areas/Trailer Park/Collectables/Collectable3"), NodePath("../Areas/Trailer Park/Collectables/Collectable2")]
+collectables = [NodePath("../Areas/Graveyard Area/Collectables/Collectable6"), NodePath("../Areas/Graveyard Area/Collectables/Collectable7"), NodePath("../Areas/Graveyard Area/Collectables/Collectable8"), NodePath("../Areas/Trailer Park/Collectables/Collectable"), NodePath("../Areas/Trailer Park/Collectables/Collectable3"), NodePath("../Areas/Trailer Park/Collectables/Collectable2"), NodePath("../Areas/Pizza Area/Collectables/Collectable2"), NodePath("../Areas/Pizza Area/Collectables/Collectable"), NodePath("../Areas/777/Collectables/Collectable"), NodePath("../Areas/777/Collectables/Collectable2"), NodePath("../Areas/Overpass/Collectables/Collectable2"), NodePath("../Areas/Overpass/Collectables/Collectable"), NodePath("../Areas/Overpass/Collectables/Collectable3")]
 
 [node name="Player Spawnpoints" type="Node3D" parent="." unique_id=855502399]
 script = ExtResource("3_ey455")
@@ -172,10 +176,11 @@ light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
 light_energy = 0.04
 shadow_enabled = true
 
-[node name="Fullbright" type="DirectionalLight3D" parent="." unique_id=532318763]
+[node name="Fullbright (EDITOR)" type="DirectionalLight3D" parent="." unique_id=532318763]
 transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
 light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
 shadow_enabled = true
+editor_only = true
 
 [node name="Skybox" type="WorldEnvironment" parent="." unique_id=99654636]
 environment = SubResource("Environment_yf5fn")
@@ -333,6 +338,17 @@ mesh = SubResource("CylinderMesh_g4v7s")
 [node name="PumpkinLantern" parent="Areas/Pizza Area" unique_id=391079953 instance=ExtResource("20_268du")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
 
+[node name="PizzaPasta" parent="Areas/Pizza Area" unique_id=1947850000 instance=ExtResource("23_ey455")]
+transform = Transform3D(-0.49969542, 0, -0.017449725, 0, 0.5, 0, 0.017449725, 0, -0.49969542, 1.8630753, 0, 9.072525)
+
+[node name="Collectables" type="Node3D" parent="Areas/Pizza Area" unique_id=1873034830]
+
+[node name="Collectable2" parent="Areas/Pizza Area/Collectables" unique_id=1825939298 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.35384, 1.5964129, 7.3966656)
+
+[node name="Collectable" parent="Areas/Pizza Area/Collectables" unique_id=1879330903 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(-0.99939084, 0, -0.03489945, 0, 1, 0, 0.03489945, 0, -0.99939084, -2.0213852, 1.3220618, 5.6780767)
+
 [node name="Trailer Park" type="Node3D" parent="Areas" unique_id=273068533]
 transform = Transform3D(0.79615355, 0, 0.6050947, 0, 1, 0, -0.6050947, 0, 0.79615355, -119.62568, 0, 24.459496)
 
@@ -363,7 +379,7 @@ transform = Transform3D(0.22107239, 0, -0.9752574, 0, 1, 0, 0.9752574, 0, 0.2210
 
 [node name="Collectables" type="Node3D" parent="Areas/Trailer Park" unique_id=647824901]
 
-[node name="Collectable" parent="Areas/Trailer Park/Collectables" unique_id=1879330903 instance=ExtResource("22_vyjbk")]
+[node name="Collectable" parent="Areas/Trailer Park/Collectables" unique_id=75644203 instance=ExtResource("22_vyjbk")]
 transform = Transform3D(0.99939084, 0, -0.034899496, 0, 1, 0, 0.034899496, 0, 0.99939084, -4.921522, 1.640234, 4.795553)
 
 [node name="Collectable3" parent="Areas/Trailer Park/Collectables" unique_id=1014686012 instance=ExtResource("22_vyjbk")]
@@ -375,11 +391,22 @@ transform = Transform3D(0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.965
 [node name="777" type="Node3D" parent="Areas" unique_id=1046785872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.85998, -3.8146973e-06, 86.42641)
 
+[node name="777Mart" parent="Areas/777" unique_id=1369010963 instance=ExtResource("25_l7iso")]
+transform = Transform3D(-0.46359196, 0, 0.18730325, 0, 0.5, 0, -0.18730325, 0, -0.46359196, -0.9714508, 0, 3.8638763)
+
 [node name="Path" type="MeshInstance3D" parent="Areas/777" unique_id=2016186513]
 mesh = SubResource("CylinderMesh_g4v7s")
 
 [node name="PumpkinLantern" parent="Areas/777" unique_id=1009296277 instance=ExtResource("20_268du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1158905, 0.027999524, -9.597549)
+
+[node name="Collectables" type="Node3D" parent="Areas/777" unique_id=1404532782]
+
+[node name="Collectable" parent="Areas/777/Collectables" unique_id=952493027 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(0.35312846, 0, 0.9355749, 0, 1, 0, -0.9355749, 0, 0.35312846, 4.052368, 1.9449525, 3.4725952)
+
+[node name="Collectable2" parent="Areas/777/Collectables" unique_id=1247196015 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(0.9225708, 0, -0.3858279, 0, 1, 0, 0.3858279, 0, 0.9225708, -3.082672, 2.1562371, -0.79499054)
 
 [node name="Overpass" type="Node3D" parent="Areas" unique_id=744932030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.638763, -3.8146973e-06, 72.658165)
@@ -389,6 +416,20 @@ mesh = SubResource("CylinderMesh_g4v7s")
 
 [node name="PumpkinLantern" parent="Areas/Overpass" unique_id=1832044329 instance=ExtResource("20_268du")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+
+[node name="overpass" parent="Areas/Overpass" unique_id=1601740460 instance=ExtResource("27_bq6f7")]
+transform = Transform3D(0.3624811, 0, -0.16913737, 0, 0.6, 0, 0.16913737, 0, 0.3624811, 35.216644, 0, 45.587738)
+
+[node name="Collectables" type="Node3D" parent="Areas/Overpass" unique_id=581054623]
+
+[node name="Collectable2" parent="Areas/Overpass/Collectables" unique_id=492142146 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(0.6972316, 0, 0.7168459, 0, 1, 0, -0.7168459, 0, 0.6972316, 6.887043, 2.2513013, 12.206055)
+
+[node name="Collectable" parent="Areas/Overpass/Collectables" unique_id=1423701807 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(0.6814582, 0, -0.73185706, 0, 1, 0, 0.73185706, 0, 0.6814582, 37.22136, 1.3262194, 21.514008)
+
+[node name="Collectable3" parent="Areas/Overpass/Collectables" unique_id=571803548 instance=ExtResource("22_vyjbk")]
+transform = Transform3D(0.9021147, 0, -0.43149644, 0, 1, 0, 0.43149644, 0, 0.9021147, 40.876564, 1.1058768, 48.711594)
 
 [node name="Water Tower" type="Node3D" parent="Areas" unique_id=265248576]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.627884, -3.8146973e-06, 124.76657)
