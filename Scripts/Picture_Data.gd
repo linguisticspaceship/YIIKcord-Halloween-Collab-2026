@@ -40,4 +40,9 @@ var list : Dictionary = {
 		"author": "Flesh Smoothie",
 		"link": "https://fleshsmoothie.itch.io/",
 	},
+	"ale_1": {
+		"path": "res://Sprites/Fanart/ale.png",
+		"author": "Rettspritee",
+		"link": "https://x.com/Rettsprite",
+	},
 }
