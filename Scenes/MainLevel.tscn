@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://d2wqjohegiu5w" path="res://Models/trailer3.fbx" id="24_a8fa2"]
 [ext_resource type="PackedScene" uid="uid://bpnok356daqm5" path="res://Models/777Mart.fbx" id="25_l7iso"]
 [ext_resource type="PackedScene" uid="uid://bkab7au7ktex" path="res://Models/overpass.fbx" id="27_bq6f7"]
+[ext_resource type="PackedScene" uid="uid://dwwmwefm2048p" path="res://Models/barrel2.fbx" id="28_ak4x0"]
+[ext_resource type="PackedScene" uid="uid://dehul3kwvme5l" path="res://Models/barrel3.fbx" id="29_jn3mb"]
+[ext_resource type="PackedScene" uid="uid://bpnmdjk4hmqmw" path="res://Models/barrel.fbx" id="29_p36j5"]
 
 [sub_resource type="GDScript" id="GDScript_o23y2"]
 script/source = "extends Node3D
@@ -48,28 +51,28 @@ sky = SubResource("Sky_57qmd")
 ambient_light_color = Color(0.023529412, 0.22745098, 0.27058825, 1)
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="Resource" id="Resource_bq6f7"]
+[sub_resource type="Resource" id="Resource_ak4x0"]
 script = ExtResource("9_jn3mb")
 amount = 1875
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_wsxye"]
+[sub_resource type="Resource" id="Resource_jn3mb"]
 script = ExtResource("10_gdmyf")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_p36j5"]
+[sub_resource type="Resource" id="Resource_gdmyf"]
 script = ExtResource("11_34gk8")
 ray_direction = Vector3(0, 0, 0)
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_e3dts"]
+[sub_resource type="Resource" id="Resource_34gk8"]
 script = ExtResource("7_e3dts")
-stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_bq6f7"), SubResource("Resource_wsxye"), SubResource("Resource_p36j5")])
+stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_ak4x0"), SubResource("Resource_jn3mb"), SubResource("Resource_gdmyf")])
 
 [sub_resource type="Curve3D" id="Curve3D_3awjc"]
 closed = true
@@ -206,7 +209,8 @@ visible = false
 script = ExtResource("6_p36j5")
 enabled = false
 render_mode = 1
-modifier_stack = SubResource("Resource_e3dts")
+force_rebuild_on_load = false
+modifier_stack = SubResource("Resource_34gk8")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -5814,7 +5818,7 @@ navigation_mesh = SubResource("NavigationMesh_g4v7s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8185406, 0)
 
 [node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D" unique_id=1721418589]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.533638, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.769104, 1.9073486e-06, 0.026855469)
 mesh = SubResource("PlaneMesh_ogq8d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=2046810551]
@@ -5832,6 +5836,33 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 6.339042, 0.2, 6)
 
 [node name="PicketFence2" parent="Fence" unique_id=376780717 instance=ExtResource("16_xf2bf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.93, 0.2, 6)
+
+[node name="FenceEdge_WIP" type="Node3D" parent="." unique_id=875313365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 190.72842)
+
+[node name="PicketFence" parent="FenceEdge_WIP" unique_id=1670707628 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, 4.125, 0.2, 6)
+
+[node name="PicketFence2" parent="FenceEdge_WIP" unique_id=474212673 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -0.26564038, 0.2, 6)
+
+[node name="PicketFence3" parent="FenceEdge_WIP" unique_id=1925630686 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -4.6700234, 0.2, 6)
+
+[node name="PicketFence4" parent="FenceEdge_WIP" unique_id=212128442 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -9.060663, 0.2, 6)
+
+[node name="PicketFence5" parent="FenceEdge_WIP" unique_id=2064557891 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -13.4900055, 0.2, 6)
+
+[node name="PicketFence6" parent="FenceEdge_WIP" unique_id=425556404 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -17.880646, 0.2, 6)
+
+[node name="PicketFence7" parent="FenceEdge_WIP" unique_id=2076928474 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -22.285028, 0.2, 6)
+
+[node name="PicketFence8" parent="FenceEdge_WIP" unique_id=1999067747 instance=ExtResource("16_xf2bf")]
+transform = Transform3D(0.4, 0, 0, 0, 0.6, 0, 0, 0, 0.4, -26.675669, 0.2, 6)
 
 [node name="Areas" type="Node3D" parent="." unique_id=266000031]
 
@@ -5939,7 +5970,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9343739, 0, 0)
 mesh = SubResource("CylinderMesh_g4v7s")
 
 [node name="trailer3" parent="Areas/Trailer Park" unique_id=1170425239 instance=ExtResource("23_y0w7h")]
-transform = Transform3D(-0.9986441, 0, 0.05205724, 0, 1, 0, -0.05205724, 0, -0.9986441, -6.023224, 0, 6.56995)
+transform = Transform3D(-0.93371606, 0, -0.35801443, 0, 1, 0, 0.35801443, 0, -0.93371606, 4.8226852, -9.536743e-07, 12.054523)
 
 [node name="trailer2" parent="Areas/Trailer Park" unique_id=144394869 instance=ExtResource("23_y0w7h")]
 transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 3.6073208, 0, -5.644079)
@@ -5954,7 +5985,7 @@ transform = Transform3D(-0.12987839, 0, -0.99152994, 0, 1, 0, 0.99152994, 0, -0.
 script = ExtResource("2_l7iso")
 
 [node name="PumpkinLantern" parent="Areas/Trailer Park" unique_id=1337909228 instance=ExtResource("20_268du")]
-transform = Transform3D(-0.009174501, 0, 0.9999579, 0, 1, 0, -0.9999579, 0, -0.009174501, -3.7117004, -0.04407072, 4.2563415)
+transform = Transform3D(-0.4145025, 0, 0.91004837, 0, 1, 0, -0.91004837, 0, -0.4145025, 5.9953384, -0.044071674, 9.001522)
 
 [node name="PumpkinLantern3" parent="Areas/Trailer Park" unique_id=1945169434 instance=ExtResource("20_268du")]
 transform = Transform3D(0.22107239, 0, -0.9752574, 0, 1, 0, 0.9752574, 0, 0.22107239, -12.2085, 0.027861834, -5.7430563)
@@ -5962,13 +5993,31 @@ transform = Transform3D(0.22107239, 0, -0.9752574, 0, 1, 0, 0.9752574, 0, 0.2210
 [node name="Collectables" type="Node3D" parent="Areas/Trailer Park" unique_id=647824901]
 
 [node name="Collectable" parent="Areas/Trailer Park/Collectables" unique_id=75644203 instance=ExtResource("22_vyjbk")]
-transform = Transform3D(0.99939084, 0, -0.034899496, 0, 1, 0, 0.034899496, 0, 0.99939084, -4.921522, 1.640234, 4.795553)
+transform = Transform3D(0.92743015, 0, 0.37399668, 0, 1, 0, -0.37399668, 0, 0.92743015, 5.1087723, 1.640233, 9.985615)
 
 [node name="Collectable3" parent="Areas/Trailer Park/Collectables" unique_id=1014686012 instance=ExtResource("22_vyjbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.088699, 1.3435345, -6.083615)
 
 [node name="Collectable2" parent="Areas/Trailer Park/Collectables" unique_id=716306133 instance=ExtResource("22_vyjbk")]
 transform = Transform3D(0.9659258, 0, -0.25881907, 0, 1, 0, 0.25881907, 0, 0.9659258, 2.3862972, 1.6445925, -4.0719333)
+
+[node name="barrel" parent="Areas/Trailer Park" unique_id=950799928 instance=ExtResource("29_p36j5")]
+transform = Transform3D(0.4866429, 0, -0.11479841, 0, 0.5, 0, 0.11479841, 0, 0.4866429, 9.62516, -9.536743e-07, 8.200741)
+
+[node name="barrel6" parent="Areas/Trailer Park" unique_id=963241072 instance=ExtResource("29_p36j5")]
+transform = Transform3D(0.39807677, 0, -0.30254734, 0, 0.5, 0, 0.30254734, 0, 0.39807677, 7.402939, 0, -1.7836342)
+
+[node name="barrel2" parent="Areas/Trailer Park" unique_id=1965034196 instance=ExtResource("28_ak4x0")]
+transform = Transform3D(0.39807677, 0, -0.30254734, 0, 0.5, 0, 0.30254734, 0, 0.39807677, -4.9617233, -4.7683716e-07, -5.1498833)
+
+[node name="barrel3" parent="Areas/Trailer Park" unique_id=1823793983 instance=ExtResource("28_ak4x0")]
+transform = Transform3D(0.39807677, 0, -0.30254734, 0, 0.5, 0, 0.30254734, 0, 0.39807677, -6.4541855, -9.536743e-07, -4.7695503)
+
+[node name="barrel4" parent="Areas/Trailer Park" unique_id=113728756 instance=ExtResource("29_jn3mb")]
+transform = Transform3D(0.39807677, 0, -0.30254734, 0, 0.5, 0, 0.30254734, 0, 0.39807677, 9.214645, -4.7683716e-07, -1.8629341)
+
+[node name="barrel5" parent="Areas/Trailer Park" unique_id=1007409051 instance=ExtResource("29_jn3mb")]
+transform = Transform3D(0.4866429, 0, -0.11479841, 0, 0.5, 0, 0.11479841, 0, 0.4866429, 11.281029, -1.4305115e-06, 9.116489)
 
 [node name="777" type="Node3D" parent="Areas" unique_id=1046785872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.85998, -3.8146973e-06, 86.42641)
