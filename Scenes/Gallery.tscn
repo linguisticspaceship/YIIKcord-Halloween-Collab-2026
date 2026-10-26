@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dms5kdhkqb0qm"]
 
+[ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_y1ixw"]
+
 [sub_resource type="GDScript" id="GDScript_16w0o"]
 script/source = "@tool
 extends Control
@@ -17,9 +19,13 @@ func _ready() -> void:
 		
 		var GalleryPicture_temp = GalleryPicture.instantiate()
 		if Global.read(\"gallery_unlocked\",x) == false: # Pic locked
-			GalleryPicture_temp.texture = load(\"res://Sprites/Fanart/Null.png\") ### PLACEHOLDER
+			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(\"res://Sprites/Fanart/Null.png\") ### PLACEHOLDER
+			GalleryPicture_temp.get_node(\"RichTextLabel\").text = \"?????\"
 		else: # Pic unlocked
-			GalleryPicture_temp.texture = load(PictureData.list[x][\"path\"])
+			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(PictureData.list[x][\"path\"])
+			var author = PictureData.list[x][\"author\"]
+			var link = PictureData.list[x].get(\"link\",\"\")
+			GalleryPicture_temp.get_node(\"RichTextLabel\").text = \"Artist: \" + String(author) + \"\\n\" + String(link)
 		$\"ScrollContainer/BoxContainer\".add_child(GalleryPicture_temp)
 "
 
@@ -31,6 +37,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_16w0o")
+
+[node name="MainMenuBg" type="Sprite2D" parent="." unique_id=1492990095]
+position = Vector2(574, 328)
+texture = ExtResource("1_y1ixw")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1531912874]
 layout_mode = 0

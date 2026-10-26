@@ -20,7 +20,7 @@ func select_picture():
 			Global.gamecont.pictures_current.append(x)
 			return x
 	
-	### BUG??? THIS TRIGGERS EVEN WHEN NO PICS FOUND
+	### BUG!!! This can trigger still, I think when more than 1 pic is found.
 	print("ALL IMAGES FOUND! Using random picture.")
 	return PictureData.list.keys()[randi() % PictureData.list.size()] # Random picture
 
