@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="4_shmu5"]
 [ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_vxq8l"]
 [ext_resource type="Shader" uid="uid://be3f7et2tlod" path="res://Shaders/PSX.gdshader" id="7_javds"]
+[ext_resource type="Texture2D" uid="uid://fxhqyxebmgqr" path="res://Sprites/Cursor Hover.png" id="8_3ygst"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_javds"]
 render_priority = 0
@@ -237,6 +238,58 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="Mobile Controls" type="Control" parent="UI" unique_id=1606920108]
+z_index = -1
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 649.0
+
+[node name="Joystick_Move" type="VirtualJoystick" parent="UI/Mobile Controls" unique_id=2054744714]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(150, -150)
+
+[node name="Joystick_Look" type="VirtualJoystick" parent="UI/Mobile Controls" unique_id=2145154227]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-150, -150)
+
+[node name="Control" type="Control" parent="UI/Mobile Controls" unique_id=68636885]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-150, -150)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="UI/Mobile Controls/Control" unique_id=251258432]
+texture_normal = ExtResource("2_x3d5u")
+texture_pressed = ExtResource("8_3ygst")
+action = "Interact"
+visibility_mode = 1
 
 [node name="Container" type="Container" parent="UI" unique_id=647052690]
 layout_mode = 1

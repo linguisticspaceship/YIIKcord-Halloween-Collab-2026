@@ -112,6 +112,12 @@ func _ready() -> void:
 	
 	player_disable()
 	
+	# Toggle mobile controls
+	if OS.get_name() == "Android" or OS.get_name() == "iOS":
+		$"Player/UI/Mobile Controls".visible = true
+	else:
+		$"Player/UI/Mobile Controls".visible = false
+	
 func settings_reload():
 	setting_mouse_sensitivity = read("settings", "sensitivity", 0.01)
 	$"Player".mouse_sensitivity = setting_mouse_sensitivity

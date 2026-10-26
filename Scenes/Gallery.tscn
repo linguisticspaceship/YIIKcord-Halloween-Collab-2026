@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dms5kdhkqb0qm"]
 
 [ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_y1ixw"]
+[ext_resource type="Theme" uid="uid://n2cmyeehbjoi" path="res://ButtonTheme.tres" id="2_pylep"]
+[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="3_q2xtv"]
 
 [sub_resource type="GDScript" id="GDScript_16w0o"]
 script/source = "@tool
@@ -39,7 +41,8 @@ grow_vertical = 2
 script = SubResource("GDScript_16w0o")
 
 [node name="MainMenuBg" type="Sprite2D" parent="." unique_id=1492990095]
-position = Vector2(574, 328)
+position = Vector2(584, 339)
+scale = Vector2(0.6574074, 0.6574074)
 texture = ExtResource("1_y1ixw")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1531912874]
@@ -56,3 +59,12 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(288, 0)
 theme_override_constants/separation = 24
 alignment = 1
+
+[node name="Gallery" type="Button" parent="." unique_id=315819067]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 37.0
+theme = ExtResource("2_pylep")
+text = "Return"
+script = ExtResource("3_q2xtv")
+SceneGoto = "res://Scenes/MainMenu.tscn"

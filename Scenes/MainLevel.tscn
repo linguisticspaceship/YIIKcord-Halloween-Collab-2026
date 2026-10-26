@@ -47,28 +47,28 @@ sky = SubResource("Sky_57qmd")
 ambient_light_color = Color(0.023529412, 0.22745098, 0.27058825, 1)
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="Resource" id="Resource_78ltn"]
+[sub_resource type="Resource" id="Resource_bq6f7"]
 script = ExtResource("9_jn3mb")
 amount = 1875
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_l7iso"]
+[sub_resource type="Resource" id="Resource_wsxye"]
 script = ExtResource("10_gdmyf")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_ey455"]
+[sub_resource type="Resource" id="Resource_p36j5"]
 script = ExtResource("11_34gk8")
 ray_direction = Vector3(0, 0, 0)
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_bq6f7"]
+[sub_resource type="Resource" id="Resource_e3dts"]
 script = ExtResource("7_e3dts")
-stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_78ltn"), SubResource("Resource_l7iso"), SubResource("Resource_ey455")])
+stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_bq6f7"), SubResource("Resource_wsxye"), SubResource("Resource_p36j5")])
 
 [sub_resource type="Curve3D" id="Curve3D_3awjc"]
 closed = true
@@ -170,6 +170,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6848984, 1, -7.1170683)
 [node name="Node3D2" type="Marker3D" parent="Player Spawnpoints" unique_id=420337754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.53763, 1, 21.392773)
 
+[node name="Node3D3" type="Marker3D" parent="Player Spawnpoints" unique_id=713117367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.41449, 1, -7.752367)
+
+[node name="Node3D4" type="Marker3D" parent="Player Spawnpoints" unique_id=235486176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.70845, 1, 78.77488)
+
+[node name="Node3D5" type="Marker3D" parent="Player Spawnpoints" unique_id=1027618086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.179298, 1.0000038, 74.24268)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=400971515]
 transform = Transform3D(0.48235592, -0.35980555, 0.79866946, 2.5241278e-08, 0.91174877, 0.41074854, -0.8759753, -0.19812693, 0.4397874, 3.8146973e-06, 93.73319, 28.718723)
 light_color = Color(0.7089021, 0.9999998, 0.9281398, 1)
@@ -194,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1318293, 0.9, -4.4921074)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.00914, -0.048688814, -18.959396)
 script = ExtResource("6_p36j5")
 render_mode = 1
-modifier_stack = SubResource("Resource_bq6f7")
+modifier_stack = SubResource("Resource_e3dts")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -403,10 +412,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1158905, 0.027999524, -9.5
 [node name="Collectables" type="Node3D" parent="Areas/777" unique_id=1404532782]
 
 [node name="Collectable" parent="Areas/777/Collectables" unique_id=952493027 instance=ExtResource("22_vyjbk")]
-transform = Transform3D(0.35312846, 0, 0.9355749, 0, 1, 0, -0.9355749, 0, 0.35312846, 4.052368, 1.9449525, 3.4725952)
+transform = Transform3D(0.35312846, 0, 0.9355749, 0, 1, 0, -0.9355749, 0, 0.35312846, 4.052368, 1.4771595, 3.4725952)
 
 [node name="Collectable2" parent="Areas/777/Collectables" unique_id=1247196015 instance=ExtResource("22_vyjbk")]
-transform = Transform3D(0.9225708, 0, -0.3858279, 0, 1, 0, 0.3858279, 0, 0.9225708, -3.082672, 2.1562371, -0.79499054)
+transform = Transform3D(0.9225708, 0, -0.3858279, 0, 1, 0, 0.3858279, 0, 0.9225708, -3.082672, 1.472342, -0.79499054)
 
 [node name="Overpass" type="Node3D" parent="Areas" unique_id=744932030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.638763, -3.8146973e-06, 72.658165)

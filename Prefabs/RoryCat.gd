@@ -15,6 +15,8 @@ var in_sight = false
 var stare_meter = 0
 var stare_max = 5 # How many seconds before GAME OVER!
 
+var jumpscare_play_sfx = true
+
 # When not in sight, slowly moves towards player.
 var speed = 0
 var speed_desired = 0
@@ -28,7 +30,9 @@ var dist_max = 12
 @onready var player_cam = $"/root/Global/Player/Camera3D"
 
 func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
-	Global.play_sound("jumpscare")
+	if jumpscare_play_sfx:
+		Global.play_sound("jumpscare")
+		jumpscare_play_sfx = false
 	in_sight = true
 	
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
@@ -57,6 +61,8 @@ func staring_mechanics():
 		player.kill_me()
 
 func spawn():
+	jumpscare_play_sfx = true
+	
 	dist = randf_range(dist_min,dist_max)
 		
 	var angle = player.rotation.y + 180 # 180 offset makes it so that rorycat teleports (mostly) behind
