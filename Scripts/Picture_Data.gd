@@ -35,8 +35,9 @@ var list : Dictionary = {
 		"author": "cowonmars",
 		"link": "https://www.tumblr.com/cowonmars", ### ADD ME TO GAME
 	},
-	"Example 8": {
-		"path": "res://Sprites/Fanart/xenanu final shot.png",
-		"author": "linguisticspaceship"
+	"fleshsmoothie_2": {
+		"path": "res://Sprites/Fanart/Rori_Fanart_By_Lotte_2026_Yiikcord_Collab.png",
+		"author": "Flesh Smoothie",
+		"link": "https://fleshsmoothie.itch.io/",
 	},
 }
