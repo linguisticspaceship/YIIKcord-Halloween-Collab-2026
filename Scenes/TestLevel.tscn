@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cmhdp62q5p17a" path="res://Scripts/PlayerRandomSpawn.gd" id="3_oy2kj"]
 [ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="4_sa0i8"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="5_oy2kj"]
+[ext_resource type="Script" uid="uid://bwp0fqnki4xun" path="res://Scripts/ModelSprinkle.gd" id="6_sa0i8"]
+[ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="7_rdb2v"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ms4e"]
 vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
@@ -30,6 +32,9 @@ sky_material = SubResource("PanoramaSkyMaterial_rdb2v")
 background_mode = 2
 sky = SubResource("Sky_57qmd")
 ambient_light_sky_contribution = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(10, 1, 20)
 
 [node name="TestLevel" type="Node3D" unique_id=1264861514]
 
@@ -64,6 +69,7 @@ environment = SubResource("Environment_43uqb")
 
 [node name="Collectables" type="Node3D" parent="." unique_id=1493528475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.548937, 0, 0)
+visible = false
 
 [node name="Collectable6" parent="Collectables" unique_id=1879330903 instance=ExtResource("5_oy2kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5863619, 0.9798007, 0.50051224)
@@ -118,3 +124,87 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, -2.1177
 
 [node name="Collectable23" parent="Collectables" unique_id=1508513542 instance=ExtResource("5_oy2kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, -2.117721)
+
+[node name="Populate_Test1" type="Area3D" parent="." unique_id=1238759902]
+visible = false
+script = ExtResource("6_sa0i8")
+prefab = ExtResource("7_rdb2v")
+amount = 24
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Populate_Test1" unique_id=1757324708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -2.284)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Objects" type="Node3D" parent="Populate_Test1" unique_id=1165971972]
+
+[node name="SprinkledPrefab0" type="Node3D" parent="Populate_Test1/Objects" unique_id=253042511 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.015732, 0, -7.7193155)
+
+[node name="SprinkledPrefab1" type="Node3D" parent="Populate_Test1/Objects" unique_id=1106329322 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.217317, 0, 1.4784436)
+
+[node name="SprinkledPrefab2" type="Node3D" parent="Populate_Test1/Objects" unique_id=2004395995 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.096506, 0, 4.349475)
+
+[node name="SprinkledPrefab3" type="Node3D" parent="Populate_Test1/Objects" unique_id=1248582254 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8849428, 0, -8.486231)
+
+[node name="SprinkledPrefab4" type="Node3D" parent="Populate_Test1/Objects" unique_id=1357020533 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6419973, 0, -3.7528093)
+
+[node name="SprinkledPrefab5" type="Node3D" parent="Populate_Test1/Objects" unique_id=1254732988 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.500409, 0, 3.3468592)
+
+[node name="SprinkledPrefab6" type="Node3D" parent="Populate_Test1/Objects" unique_id=1613994703 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1187096, 0, 7.1101995)
+
+[node name="SprinkledPrefab7" type="Node3D" parent="Populate_Test1/Objects" unique_id=902601828 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.793908, 0, 8.667326)
+
+[node name="SprinkledPrefab8" type="Node3D" parent="Populate_Test1/Objects" unique_id=1374573807 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.647284, 0, 5.9988694)
+
+[node name="SprinkledPrefab9" type="Node3D" parent="Populate_Test1/Objects" unique_id=1616053430 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1910048, 0, 7.695713)
+
+[node name="SprinkledPrefab10" type="Node3D" parent="Populate_Test1/Objects" unique_id=575259455 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.120129, 0, -1.0464011)
+
+[node name="SprinkledPrefab11" type="Node3D" parent="Populate_Test1/Objects" unique_id=1024270730 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.339115, 0, 0.9888988)
+
+[node name="SprinkledPrefab12" type="Node3D" parent="Populate_Test1/Objects" unique_id=751676194 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.723672, 0, 5.8308654)
+
+[node name="SprinkledPrefab13" type="Node3D" parent="Populate_Test1/Objects" unique_id=546756138 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.468052, 0, 7.081684)
+
+[node name="SprinkledPrefab14" type="Node3D" parent="Populate_Test1/Objects" unique_id=204742363 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18125564, 0, 8.290453)
+
+[node name="SprinkledPrefab15" type="Node3D" parent="Populate_Test1/Objects" unique_id=1594654947 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7187722, 0, 9.383802)
+
+[node name="SprinkledPrefab16" type="Node3D" parent="Populate_Test1/Objects" unique_id=1874715870 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.764382, 0, -1.2969997)
+
+[node name="SprinkledPrefab17" type="Node3D" parent="Populate_Test1/Objects" unique_id=1874165384 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2259636, 0, -5.744978)
+
+[node name="SprinkledPrefab18" type="Node3D" parent="Populate_Test1/Objects" unique_id=162846480 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8350124, 0, 0.39642107)
+
+[node name="SprinkledPrefab19" type="Node3D" parent="Populate_Test1/Objects" unique_id=1285777854 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.93468, 0, 5.9666038)
+
+[node name="SprinkledPrefab20" type="Node3D" parent="Populate_Test1/Objects" unique_id=1811019081 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3798437, 0, 2.5747807)
+
+[node name="SprinkledPrefab21" type="Node3D" parent="Populate_Test1/Objects" unique_id=1745751117 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2971535, 0, 4.1839647)
+
+[node name="SprinkledPrefab22" type="Node3D" parent="Populate_Test1/Objects" unique_id=1262305858 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.983232, 0, -7.203523)
+
+[node name="SprinkledPrefab23" type="Node3D" parent="Populate_Test1/Objects" unique_id=1254964250 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5266958, 0, 0.37325618)
