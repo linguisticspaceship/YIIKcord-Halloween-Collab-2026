@@ -20,11 +20,11 @@ func select_picture():
 			Global.gamecont.pictures_current.append(x)
 			return x
 	
-	### BUG!!! THIS TRIGGERS EVEN WHEN 1 PIC IS FOUND. 0 PICS FOUND IS FINE.
+	### BUG??? THIS TRIGGERS EVEN WHEN NO PICS FOUND
 	print("ALL IMAGES FOUND! Using random picture.")
 	return PictureData.list.keys()[randi() % PictureData.list.size()] # Random picture
 
-func _ready() -> void:
+func init() -> void: ### THIS GETS EXECUTED BY RANDOMSPAWNS.GD
 	pic_selected = select_picture()
 	
 	if PictureData.list[pic_selected].get("animated",false) == false:

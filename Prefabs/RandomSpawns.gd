@@ -14,9 +14,10 @@ func _ready() -> void:
 	
 	for x in list:
 		if current >= pages_max:
-			print("Removing? ", x)
 			x.queue_free()
+		else:
+			x.init()
 		current += 1
 
 	### WIP
-	print ( "TEST: ", (PictureData.list[random_pic]["path"]) )
+	# print ( "TEST: ", (PictureData.list[random_pic]["path"]) )
