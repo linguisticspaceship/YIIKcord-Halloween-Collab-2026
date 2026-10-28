@@ -19,7 +19,7 @@ var list : Dictionary = {
 		"author": "carriemancer",
 	},
 	"lilbert_1": {
-		"path": "res://Sprites/Fanart/IMG_9211.jpg",
+		"path": "res://Sprites/Fanart/IMG_9300.png",
 		"author": "lilbert"
 	},
 	"jp24_1": {
@@ -44,5 +44,22 @@ var list : Dictionary = {
 		"path": "res://Sprites/Fanart/ale.png",
 		"author": "Rettspritee",
 		"link": "https://x.com/Rettsprite",
+	},
+	"jupiter_1": {
+		"path": "res://Sprites/Fanart/648_20261028005916.jpg",
+		"author": "U+2643",
+		"link": "https://x.com/Jupiternoonline",
+	},
+	"tooper_1": {
+		"path": "res://Sprites/Fanart/FANZINAX.png",
+		"author": "tooper",
+	},
+	"tooper_2": {
+		"path": "res://Sprites/Fanart/zombieRORY.png",
+		"author": "tooper",
+	},
+	"moray_1": {
+		"path": "res://Sprites/Fanart/moraytime.png",
+		"author": "MorayTime",
 	},
 }

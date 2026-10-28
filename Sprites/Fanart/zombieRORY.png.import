@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b13kqha8lnqu8"
-path="res://.godot/imported/IMG_9211.jpg-95f1648a1bb7739ecdb65771e4df69ee.ctex"
+uid="uid://xtkes8nsuagn"
+path="res://.godot/imported/zombieRORY.png-8f343f126fa32c23724828d032dae439.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fanart/IMG_9211.jpg"
-dest_files=["res://.godot/imported/IMG_9211.jpg-95f1648a1bb7739ecdb65771e4df69ee.ctex"]
+source_file="res://Sprites/Fanart/zombieRORY.png"
+dest_files=["res://.godot/imported/zombieRORY.png-8f343f126fa32c23724828d032dae439.ctex"]
 
 [params]
 
