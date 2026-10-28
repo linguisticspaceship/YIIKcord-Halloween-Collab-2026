@@ -2,28 +2,40 @@
 
 [ext_resource type="Texture2D" uid="uid://cpfpwb6enfhhx" path="res://Sprites/Fanart/Rory_Hallowiin_Costume_by_Flesh_Smoothie.png" id="1_52mac"]
 [ext_resource type="FontFile" uid="uid://dslxb6suh2s8y" path="res://Fonts/bloodcrow.ttf" id="2_16w0o"]
+[ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="3_3u02b"]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=1194228659]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 669.0
 theme_override_constants/separation = 0
 
 [node name="GalleryPicture" type="TextureRect" parent="." unique_id=373611981]
 custom_maximum_size = Vector2(576, 576)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_52mac")
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=831187356]
-custom_minimum_size = Vector2(0, 128)
+[node name="VBox" type="VBoxContainer" parent="." unique_id=1050868689]
+custom_minimum_size = Vector2(512, 0)
+custom_maximum_size = Vector2(512, -1)
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 0.34901962)
-theme_override_constants/shadow_offset_x = 2
-theme_override_constants/shadow_offset_y = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBox" unique_id=831187356]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0, 0, 0.34901962)
+theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("2_16w0o")
 theme_override_font_sizes/normal_font_size = 24
 text = "Line One
-Line Two
-Line Three"
+Line Two"
 scroll_active = false
 horizontal_alignment = 1
+
+[node name="LinkButton" parent="VBox" unique_id=1332201544 instance=ExtResource("3_3u02b")]
+layout_mode = 2
+text = "Visit Artist"

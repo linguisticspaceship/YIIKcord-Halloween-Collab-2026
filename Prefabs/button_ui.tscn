@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://j3vqr4o4m3u4"]
 
+[ext_resource type="Theme" uid="uid://n2cmyeehbjoi" path="res://ButtonTheme.tres" id="1_t66ys"]
 [ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="1_ykqm6"]
 
-[node name="ButtonUI" type="Button" unique_id=717818585 node_paths=PackedStringArray("KillNode")]
-text = "No"
+[node name="ButtonUI" type="Button" unique_id=1332201544]
+theme = ExtResource("1_t66ys")
+text = "Text"
 script = ExtResource("1_ykqm6")
-KillNode = NodePath("")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

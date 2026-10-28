@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dms5kdhkqb0qm"]
 
 [ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_y1ixw"]
-[ext_resource type="Theme" uid="uid://n2cmyeehbjoi" path="res://ButtonTheme.tres" id="2_pylep"]
-[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="3_q2xtv"]
+[ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="2_0m02d"]
 
 [sub_resource type="GDScript" id="GDScript_16w0o"]
 script/source = "@tool
@@ -22,12 +21,25 @@ func _ready() -> void:
 		var GalleryPicture_temp = GalleryPicture.instantiate()
 		if Global.read(\"gallery_unlocked\",x) == false: # Pic locked
 			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(\"res://Sprites/Fanart/Null.png\") ### PLACEHOLDER
-			GalleryPicture_temp.get_node(\"RichTextLabel\").text = \"?????\"
+			GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"?????\"
+			GalleryPicture_temp.get_node(\"VBox/LinkButton\").queue_free()
 		else: # Pic unlocked
 			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(PictureData.list[x][\"path\"])
+			
+			# HACKY FIX FOR WIDE IMAGES
+			if GalleryPicture_temp.get_node(\"GalleryPicture\").texture != null:
+				var texture_height = GalleryPicture_temp.get_node(\"GalleryPicture\").texture.get_height()
+				match x:
+					\"FleshSmoothie_1\":
+						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 4
+			
 			var author = PictureData.list[x][\"author\"]
 			var link = PictureData.list[x].get(\"link\",\"\")
-			GalleryPicture_temp.get_node(\"RichTextLabel\").text = \"Artist: \" + String(author) + \"\\n\" + String(link)
+			GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"Artist: \" + String(author)
+			if link == \"\":
+				GalleryPicture_temp.get_node(\"VBox/LinkButton\").queue_free()
+			if link != \"\":
+				GalleryPicture_temp.get_node(\"VBox/LinkButton\").Link = link
 		$\"ScrollContainer/BoxContainer\".add_child(GalleryPicture_temp)
 "
 
@@ -55,16 +67,15 @@ tile_scroll_hint = true
 
 [node name="BoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=894961337]
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(288, 0)
+size_flags_horizontal = 6
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Gallery" type="Button" parent="." unique_id=315819067]
+[node name="Return" parent="." unique_id=1332201544 instance=ExtResource("2_0m02d")]
 layout_mode = 0
-offset_right = 139.0
-offset_bottom = 37.0
-theme = ExtResource("2_pylep")
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 122.0
+offset_bottom = 40.0
 text = "Return"
-script = ExtResource("3_q2xtv")
 SceneGoto = "res://Scenes/MainMenu.tscn"

@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://du421n1o2rft3"]
 
-[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="2_853f1"]
 [ext_resource type="Texture2D" uid="uid://c253l4tni3cm0" path="res://Sprites/Logo.png" id="3_8saeu"]
-[ext_resource type="Theme" uid="uid://n2cmyeehbjoi" path="res://ButtonTheme.tres" id="3_df05h"]
+[ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="3_df05h"]
 [ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="3_ghw46"]
 
 [node name="MainMenu" type="Control" unique_id=591626068]
@@ -51,23 +50,17 @@ offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Start" type="Button" parent="Control/VBoxContainer" unique_id=1765661095]
+[node name="ButtonUI" parent="Control/VBoxContainer" unique_id=1332201544 instance=ExtResource("3_df05h")]
 layout_mode = 2
-theme = ExtResource("3_df05h")
 text = "Start"
-script = ExtResource("2_853f1")
 SceneGoto = "res://Scenes/MainLevel.tscn"
 
-[node name="Gallery" type="Button" parent="Control/VBoxContainer" unique_id=1450334786]
+[node name="ButtonUI2" parent="Control/VBoxContainer" unique_id=1432583081 instance=ExtResource("3_df05h")]
 layout_mode = 2
-theme = ExtResource("3_df05h")
 text = "Gallery"
-script = ExtResource("2_853f1")
 SceneGoto = "res://Scenes/Gallery.tscn"
 
-[node name="Quit" type="Button" parent="Control/VBoxContainer" unique_id=2003470873]
+[node name="ButtonUI3" parent="Control/VBoxContainer" unique_id=1848509263 instance=ExtResource("3_df05h")]
 layout_mode = 2
-theme = ExtResource("3_df05h")
 text = "Quit"
-script = ExtResource("2_853f1")
 QuitGame = true

@@ -33,7 +33,7 @@ var list : Dictionary = {
 	"cowonmars_1": {
 		"path": "res://Sprites/Fanart/IMG_0438.png",
 		"author": "cowonmars",
-		"link": "https://www.tumblr.com/cowonmars", ### ADD ME TO GAME
+		"link": "https://www.tumblr.com/cowonmars",
 	},
 	"fleshsmoothie_2": {
 		"path": "res://Sprites/Fanart/Rori_Fanart_By_Lotte_2026_Yiikcord_Collab.png",
