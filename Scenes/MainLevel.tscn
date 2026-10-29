@@ -52,28 +52,28 @@ sky = SubResource("Sky_57qmd")
 ambient_light_color = Color(0.023529412, 0.22745098, 0.27058825, 1)
 ambient_light_sky_contribution = 0.0
 
-[sub_resource type="Resource" id="Resource_ak4x0"]
+[sub_resource type="Resource" id="Resource_jn3mb"]
 script = ExtResource("9_jn3mb")
 amount = 1875
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jn3mb"]
+[sub_resource type="Resource" id="Resource_gdmyf"]
 script = ExtResource("10_gdmyf")
 offset_step = 0.2
 consecutive_step_multiplier = 0.75
 restrict_height = true
 
-[sub_resource type="Resource" id="Resource_gdmyf"]
+[sub_resource type="Resource" id="Resource_34gk8"]
 script = ExtResource("11_34gk8")
 ray_direction = Vector3(0, 0, 0)
 ray_length = 5.0
 ray_offset = 5.0
 remove_points_on_miss = false
 
-[sub_resource type="Resource" id="Resource_34gk8"]
+[sub_resource type="Resource" id="Resource_fctpv"]
 script = ExtResource("7_e3dts")
-stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_ak4x0"), SubResource("Resource_jn3mb"), SubResource("Resource_gdmyf")])
+stack = Array[ExtResource("8_ak4x0")]([SubResource("Resource_jn3mb"), SubResource("Resource_gdmyf"), SubResource("Resource_34gk8")])
 
 [sub_resource type="Curve3D" id="Curve3D_3awjc"]
 closed = true
@@ -211,7 +211,7 @@ script = ExtResource("6_p36j5")
 enabled = false
 render_mode = 1
 force_rebuild_on_load = false
-modifier_stack = SubResource("Resource_34gk8")
+modifier_stack = SubResource("Resource_fctpv")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

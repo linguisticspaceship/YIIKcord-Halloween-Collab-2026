@@ -26,6 +26,9 @@ var dist = 0
 var dist_min = 4
 var dist_max = 12
 
+var touch_timer = 0 # Gives some leeway before they kill you for real
+const touch_timer_goal = 1.5 # Touch this long, YOU DIE!
+
 @onready var player = $"/root/Global/Player"
 @onready var player_cam = $"/root/Global/Player/Camera3D"
 
@@ -117,6 +120,15 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if get_node_or_null("/root/Global/Player") == null:
 		return
+		
+	# Touching player logic
+	if touching_player:
+		touch_timer = move_toward(touch_timer, touch_timer_goal, get_process_delta_time())
+	if !touching_player:
+		touch_timer = move_toward(touch_timer, 0.0, get_process_delta_time())
+	if touch_timer >= touch_timer_goal:
+		player.kill_me()
+
 	
 	$MeshInstance3D.look_at(player.global_position, Vector3.UP, true)
 	# Prevents from looking up or down
@@ -132,9 +144,11 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 
 
-var touched_player = false
+var touching_player = false
 func _on_area_3d_killsphere_entered(area: Area3D) -> void:
-	if area.name == "PlayerHitbox" && !touched_player:
-		print("I TOUCHED PLAYER!")
-		touched_player = true
-		player.kill_me()
+	if area.name == "PlayerHitbox":
+		touching_player = true
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.name == "PlayerHitbox":
+		touching_player = false
