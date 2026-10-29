@@ -24,7 +24,7 @@ func _ready() -> void:
 			GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"?????\"
 			GalleryPicture_temp.get_node(\"VBox/LinkButton\").queue_free()
 		else: # Pic unlocked
-			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(PictureData.list[x][\"path\"])
+			GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(PictureData.list[x].get(\"path\",\"res://Sprites/Fanart/Null.png\"))
 			
 			# HACKY FIX FOR WIDE IMAGES
 			if GalleryPicture_temp.get_node(\"GalleryPicture\").texture != null:
@@ -36,6 +36,12 @@ func _ready() -> void:
 			var author = PictureData.list[x][\"author\"]
 			var link = PictureData.list[x].get(\"link\",\"\")
 			GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"Artist: \" + String(author)
+			
+			# SPECIAL CASE: CHCENO
+			if PictureData.list[x][\"author\"] == \"chceno31\":
+				GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"Blabalbababala by chceno31\"
+				GalleryPicture_temp.get_node(\"VBox/LinkButton\").text = \"Read Story\"
+			
 			if link == \"\":
 				GalleryPicture_temp.get_node(\"VBox/LinkButton\").queue_free()
 			if link != \"\":

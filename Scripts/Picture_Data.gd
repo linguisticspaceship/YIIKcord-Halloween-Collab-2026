@@ -62,4 +62,25 @@ var list : Dictionary = {
 		"path": "res://Sprites/Fanart/moraytime.png",
 		"author": "MorayTime",
 	},
+	"despair_1": {
+		"path": "res://Sprites/Fanart/The_Nubile_Qrow_n_Hxx_Pathetic_Scarecrow.png",
+		"author": "despair_ys",
+	},
+	"chceno_1": {
+		"writing": true, ### UNIMPLEMENTED
+		"path": "res://Sprites/Fanart/Note.png",
+		"link": "https://archiveofourown.org/works/95639156",
+		"author": "chceno31", ### CHECK
+	},
+	"chenichii_1": { ### UNADDED
+		"video": true, ### UNIMPLEMENTED
+		#"video_path": "res://Videos/hallowyiik_noncorrupted.mov",
+		"link": "https://x.com/chenichii_",
+		"author": "chenichii_", ### CHECK
+	},
+	"oyiiixenia_1": {
+		"path": "res://Sprites/Fanart/NamelessChildBadBrotherBalloons.png",
+		"author": "oyiiixenia",
+		"link": "https://bsky.app/profile/oyiiixenia.bsky.social",
+	}
 }

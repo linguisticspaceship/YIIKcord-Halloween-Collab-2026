@@ -3,6 +3,9 @@ extends Node3D
 @onready var material = $SubViewport/Sprite2D.texture
 @onready var material_anim = $SubViewport/AnimatedSprite2D.animation
 
+@export var manual = false # If manually placed, not random.
+@export var video = false
+
 var hovered = false # If mouse on me.
 
 var pic_selected = ""
@@ -28,7 +31,7 @@ func init() -> void: ### THIS GETS EXECUTED BY RANDOMSPAWNS.GD
 	pic_selected = select_picture()
 	
 	if PictureData.list[pic_selected].get("animated",false) == false:
-		$SubViewport/Sprite2D.texture = load(PictureData.list[pic_selected]["path"])
+		$SubViewport/Sprite2D.texture = load(PictureData.list[pic_selected].get("path","res://Sprites/Fanart/Null.png"))
 		# Resize mesh depending on image size
 		texture_width = float($SubViewport/Sprite2D.texture.get_width())
 		texture_height = float($SubViewport/Sprite2D.texture.get_height())
@@ -62,7 +65,13 @@ func _process(_delta: float) -> void:
 		
 		Global.play_sound("paper_pickup")
 		Global.gamecont.pages_collected += 1
-		Global.page_counter_show( PictureData.list[pic_selected]["author"] )
+		
+		var extra_text = ""
+		
+		if PictureData.list[pic_selected].get("writing",false):
+			extra_text = "\n(Check the gallery to read!)"
+		
+		Global.page_counter_show( PictureData.list[pic_selected]["author"] + extra_text )
 		queue_free()
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
