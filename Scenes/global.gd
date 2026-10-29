@@ -26,6 +26,7 @@ var sound_list = {
 	],
 	"forest": "res://Sounds/forest ambience.ogg",
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
+	"static": "res://Sounds/static.ogg",
 }
 
 var save_filepath = "user://yiikcord_halloween_2026.save"
@@ -207,7 +208,7 @@ func play_sound(sound="jumpscare",loop=false,volume_db=0.0):
 
 	node.name = sound
 	node.sound_name = sound
-	node.stream = load(sfx_filename)
-	node.loop = loop
+	node.stream = load(sfx_filename) 
+	node["parameters/looping"] = loop
 	node.volume_db = volume_db
 	node.play()

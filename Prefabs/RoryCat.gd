@@ -12,8 +12,8 @@ var respawn_goal = 5 # Seconds before respawn
 
 var in_sight = false
 
-var stare_meter = 0
-var stare_max = 5 # How many seconds before GAME OVER!
+var stare_meter = 0.0
+var stare_max = 5.0 # How many seconds before GAME OVER!
 
 var jumpscare_play_sfx = false
 
@@ -41,6 +41,9 @@ func _on_visible_on_screen_notifier_3d_screen_entered() -> void:
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	in_sight = false
 
+func _ready() -> void:
+	Global.play_sound("static",true,-64.0)
+
 func staring_mechanics():
 	
 	#print(stare_meter)
@@ -52,7 +55,7 @@ func staring_mechanics():
 		despawn_timer = 0
 		stare_meter = move_toward(stare_meter, stare_max, get_process_delta_time())
 		player.look_at_rorycat(1 + (page_percent * 0.1))
-		print(1 + (page_percent * 0.1))
+		#print(1 + (page_percent * 0.1))
 	if not in_sight:
 		# 60 is a slow speed.
 		speed_desired = spd_walk * page_percent # As pages go up, faster we go.
@@ -97,6 +100,17 @@ func spawn_and_despawn_timer():
 			spawn()
 
 func _process(delta: float) -> void:
+	var static_audio = get_node("/root/Global/Current Audio/static")
+	var static_vol_min = -64.0
+	var static_vol_max = 18.0
+	var static_vol_speed = 80
+	if in_sight:
+		static_audio.volume_db = move_toward(static_audio.volume_db, static_vol_max, delta * static_vol_speed * 4)
+	if not in_sight && stare_meter <= 1.0:
+		static_audio.volume_db = move_toward(static_audio.volume_db, static_vol_min, delta * static_vol_speed)
+	#print(static_audio.volume_db)
+	print(stare_meter)
+	
 	# Debug
 	Global.debug_respawntime = respawn_timer
 	Global.debug_despawntime = despawn_timer
