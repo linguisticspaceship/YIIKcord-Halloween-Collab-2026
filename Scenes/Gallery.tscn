@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="2_0m02d"]
 
 [sub_resource type="GDScript" id="GDScript_16w0o"]
-script/source = "@tool
+script/source = "#@tool
 extends Control
 
-@export_tool_button(\"Populate Container\",\"Callable\") var populate_container = _ready
+#@export_tool_button(\"Populate Container\",\"Callable\") var populate_container = _ready
 
 var GalleryPicture = preload(\"res://Prefabs/GalleryPicture.tscn\")
 

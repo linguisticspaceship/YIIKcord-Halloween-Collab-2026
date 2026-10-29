@@ -1,4 +1,4 @@
-extends Button
+extends Node
 
 @export var SceneGoto = ""
 @export var QuitGame = false
@@ -37,8 +37,9 @@ func _on_pressed() -> void:
 		OS.shell_open(Link)
 		
 	if SceneGoto != "":
-		for x in get_node("/root/Global/Current Audio").get_children():
-			x.queue_free()
+		if get_node_or_null("/root/Global/Current Audio") != null:
+			for x in get_node("/root/Global/Current Audio").get_children():
+				x.queue_free()
 		get_tree().change_scene_to_file(SceneGoto)
 		
 	if QuitGame:

@@ -3,7 +3,8 @@
 extends Node
 
 @export var prefab = load("res://Models/tree.tscn")
-@export var amount = 1 # DOESN'T DO SHIT ATM
+@export var amount = 1
+@export var random_rotation : bool = true 
 @onready var shape : Node = $CollisionShape3D
 
 @export_tool_button("Sprinkle Prefabs", "Callable") var sprinkle_prefabs = populate
@@ -30,6 +31,8 @@ func populate():
 		range_z = randf_range(-shape_z / 2, shape_z / 2) # IDK why this has to be divided, but it works
 		instance.position.x = range_x
 		instance.position.z = range_z
+		if random_rotation:
+			instance.rotation.y = randf_range(0.0, 360.0)
 		instance.name = "SprinkledPrefab" + str(x)
 		$Objects.add_child(instance)
 		instance.owner = get_tree().edited_scene_root

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://mqi6sbbiscni"]
+
+[ext_resource type="PackedScene" uid="uid://ljnvg21whrve" path="res://Models/Grave1.fbx" id="1_psbp6"]
+[ext_resource type="Script" uid="uid://cljgpkvb80b85" path="res://Scripts/GraveButton.gd" id="2_kybry"]
+[ext_resource type="FontFile" uid="uid://dslxb6suh2s8y" path="res://Fonts/bloodcrow.ttf" id="3_uj0xr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x60n5"]
+size = Vector3(2.1171875, 3.2735596, 2.2807617)
+
+[node name="GraveButton" type="Node3D" unique_id=1540007232]
+script = ExtResource("2_kybry")
+scene = "res://Scenes/MainMenu.tscn"
+
+[node name="Grave" parent="." unique_id=2117094711 instance=ExtResource("1_psbp6")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="Grave" unique_id=711778379]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.9999999, 0.004003048, 1.3270293, 0.26527166)
+text = "START"
+font = ExtResource("3_uj0xr")
+font_size = 90
+
+[node name="Area3D" type="Area3D" parent="Grave" unique_id=1503392085]
+transform = Transform3D(1.25, 0, 0, 0, 1.2499999, 0, 0, 0, 1.25, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grave/Area3D" unique_id=1323116804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3770002, 0)
+shape = SubResource("BoxShape3D_x60n5")
+debug_color = Color(0.63529414, 0.34117648, 1, 1)
+
+[connection signal="input_event" from="Grave/Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="Grave/Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Grave/Area3D" to="." method="_on_area_3d_mouse_exited"]

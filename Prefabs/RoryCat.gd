@@ -15,7 +15,7 @@ var in_sight = false
 var stare_meter = 0
 var stare_max = 5 # How many seconds before GAME OVER!
 
-var jumpscare_play_sfx = true
+var jumpscare_play_sfx = false
 
 # When not in sight, slowly moves towards player.
 var speed = 0

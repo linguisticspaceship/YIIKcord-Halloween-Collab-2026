@@ -35,6 +35,7 @@ func player_enable():
 	$"Player".process_mode = PROCESS_MODE_PAUSABLE
 	$"Player".visible = true
 	$"Player/UI".visible = true
+	$"Player/Camera3D".current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func player_disable():

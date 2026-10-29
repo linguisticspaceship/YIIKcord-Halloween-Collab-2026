@@ -7,13 +7,13 @@
 size = Vector3(10, 1, 20)
 
 [node name="Model Sprinkler" type="Area3D" unique_id=87343727]
-visible = false
 script = ExtResource("1_pavnb")
 prefab = ExtResource("2_salry")
 amount = 24
+random_rotation = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=246704380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -2.284)
 shape = SubResource("BoxShape3D_rakfd")
+debug_color = Color(0.9490196, 0, 0.5803922, 0.70980394)
 
 [node name="Objects" type="Node3D" parent="." unique_id=1699080449]

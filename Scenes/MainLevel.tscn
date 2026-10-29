@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dwwmwefm2048p" path="res://Models/barrel2.fbx" id="28_ak4x0"]
 [ext_resource type="PackedScene" uid="uid://dehul3kwvme5l" path="res://Models/barrel3.fbx" id="29_jn3mb"]
 [ext_resource type="PackedScene" uid="uid://bpnmdjk4hmqmw" path="res://Models/barrel.fbx" id="29_p36j5"]
+[ext_resource type="PackedScene" uid="uid://3wwtq4rc05et" path="res://Models/water tower.fbx" id="32_jn3mb"]
 
 [sub_resource type="GDScript" id="GDScript_o23y2"]
 script/source = "extends Node3D
@@ -6068,8 +6069,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.627884, -3.8146973e-06, 12
 [node name="Path" type="MeshInstance3D" parent="Areas/Water Tower" unique_id=1685785830]
 mesh = SubResource("CylinderMesh_g4v7s")
 
-[node name="PumpkinLantern" parent="Areas/Water Tower" unique_id=1698077098 instance=ExtResource("20_268du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028, -0.268)
+[node name="water tower" parent="Areas/Water Tower" unique_id=1256191138 instance=ExtResource("32_jn3mb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.60383606, 0.048688814, -0.40587616)
 
 [node name="Paths" type="Node3D" parent="." unique_id=1121556633]
 
