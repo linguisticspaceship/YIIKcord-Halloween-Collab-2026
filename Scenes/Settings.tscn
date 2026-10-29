@@ -79,6 +79,11 @@ transition_effect = false
 KillNode = NodePath("../..")
 EnablePlayer = true
 
+[node name="gallery" parent="VBoxContainer" unique_id=1505029187 instance=ExtResource("2_flfri")]
+layout_mode = 2
+text = "Gallery"
+SceneAppend = "res://Scenes/Gallery.tscn"
+
 [node name="ButtonUI2" parent="VBoxContainer" unique_id=1619729626 node_paths=PackedStringArray("KillNode") instance=ExtResource("2_flfri")]
 layout_mode = 2
 text = "Exit to Main Menu"

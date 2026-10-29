@@ -91,7 +91,7 @@ video = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=86875437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0811052, 1.247143)
 stream = ExtResource("3_76xm0")
-volume_db = -39.025
-unit_size = 2.0
+volume_db = -35.0
+unit_size = 3.0
 autoplay = true
 max_distance = 15.0

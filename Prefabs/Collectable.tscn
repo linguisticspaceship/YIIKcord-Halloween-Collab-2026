@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c3uuy47chdis8" path="res://Sprites/Fanart/JP24E2K/frame_17_delay-0.12s.png" id="20_34g30"]
 [ext_resource type="Texture2D" uid="uid://bs58tigjo6slc" path="res://Sprites/Fanart/JP24E2K/frame_18_delay-0.13s.png" id="21_5dy5g"]
 [ext_resource type="Texture2D" uid="uid://tkrfofbot2se" path="res://Sprites/Fanart/JP24E2K/frame_19_delay-0.13s.png" id="22_ar3aj"]
-[ext_resource type="Texture2D" uid="uid://d8mhhbknjvrv" path="res://Texture/TapeFront.png" id="23_6bjsi"]
+[ext_resource type="PackedScene" uid="uid://wxaakyc803o8" path="res://Models/vhs.fbx" id="24_rm7p6"]
 
 [sub_resource type="Animation" id="Animation_w51u4"]
 resource_name = "Pulse"
@@ -179,13 +179,6 @@ animations = [{
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_73gsa"]
 load_path = "res://.godot/imported/Null.png-1bdaed20f0c1ffcaa83d8c08af435337.s3tc.ctex"
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bjsi"]
-albedo_texture = ExtResource("23_6bjsi")
-
-[sub_resource type="BoxMesh" id="BoxMesh_73gsa"]
-material = SubResource("StandardMaterial3D_6bjsi")
-size = Vector3(0.557251, 0.2835083, 0.38146973)
-
 [node name="Collectable" type="Node3D" unique_id=1879330903 groups=["Collectable"]]
 script = ExtResource("1_w51u4")
 
@@ -224,10 +217,9 @@ centered = false
 texture = SubResource("CompressedTexture2D_73gsa")
 centered = false
 
-[node name="TAPE" type="MeshInstance3D" parent="." unique_id=1653421039]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00030517578, -0.023712158, 0.101867676)
+[node name="TAPE" parent="." unique_id=1083713647 instance=ExtResource("24_rm7p6")]
+transform = Transform3D(0.29999995, 0, 0, 0, 0.29999995, 0, 0, 0, 0.29999995, 0.0103212595, -0.17769031, 0.000395298)
 visible = false
-mesh = SubResource("BoxMesh_73gsa")
 
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

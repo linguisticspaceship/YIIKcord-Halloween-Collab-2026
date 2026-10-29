@@ -17,6 +17,13 @@
 [ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="16_n0k5y"]
 [ext_resource type="PackedScene" uid="uid://mqi6sbbiscni" path="res://Prefabs/GraveButton.tscn" id="18_cfa3y"]
 
+[sub_resource type="GDScript" id="GDScript_2x1g0"]
+script/source = "extends Node3D
+
+func _ready() -> void:
+	Global.in_game = false
+"
+
 [sub_resource type="Animation" id="Animation_riqfo"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -156,6 +163,7 @@ material = SubResource("StandardMaterial3D_2x1g0")
 size = Vector3(110, 0.989, 9.576)
 
 [node name="MainMenuTest" type="Node3D" unique_id=1137014926]
+script = SubResource("GDScript_2x1g0")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1946691982]
 transform = Transform3D(1, 0, 0, 0, 0.9947638, 0.10220098, 0, -0.10220098, 0.9947638, 0, 3.5, 7.541623)

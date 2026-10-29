@@ -6,6 +6,7 @@ var clicked = false
 @export var text_size = 24
 
 @export var SceneGoto = ""
+@export var SceneAppend = ""
 @export var QuitGame = false
 @export var Link = "" # Example: www.ONISM1999.com
 @export var Confirmation = false
@@ -57,6 +58,11 @@ func _process(_delta: float) -> void:
 			for x in get_node("/root/Global/Current Audio").get_children():
 				x.queue_free()
 		get_tree().change_scene_to_file(SceneGoto)
+		
+	if SceneAppend != "":
+		var prefab = load(SceneAppend)
+		var instance = prefab.instantiate()
+		get_node("/root/Global/").add_child(instance)
 		
 	if QuitGame:
 		get_tree().quit()

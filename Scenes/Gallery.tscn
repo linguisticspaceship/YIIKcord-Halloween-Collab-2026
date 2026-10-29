@@ -59,7 +59,18 @@ func _ready() -> void:
 		$\"ScrollContainer/BoxContainer\".add_child(GalleryPicture_temp)
 "
 
+[sub_resource type="GDScript" id="GDScript_0m02d"]
+script/source = "extends Control
+
+func _ready() -> void:
+	if Global.in_game:
+		$Return_KillNode.visible = true
+	else:
+		$Return_ToMain.visible = true
+"
+
 [node name="Gallery" type="Control" unique_id=1988902750]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,11 +98,26 @@ size_flags_horizontal = 6
 theme_override_constants/separation = 24
 alignment = 1
 
-[node name="Return" parent="." unique_id=1332201544 instance=ExtResource("2_0m02d")]
-layout_mode = 0
+[node name="Control" type="Control" parent="." unique_id=1232725156]
+anchors_preset = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 122.0
-offset_bottom = 40.0
+offset_right = 43.0
+offset_bottom = 43.0
+script = SubResource("GDScript_0m02d")
+
+[node name="Return_ToMain" parent="Control" unique_id=1332201544 instance=ExtResource("2_0m02d")]
+visible = false
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 37.0
 text = "Return"
 SceneGoto = "res://Scenes/MainMenu.tscn"
+
+[node name="Return_KillNode" parent="Control" unique_id=1897574510 node_paths=PackedStringArray("KillNode") instance=ExtResource("2_0m02d")]
+visible = false
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 37.0
+text = "Return"
+KillNode = NodePath("../..")
