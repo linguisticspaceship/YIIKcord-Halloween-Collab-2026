@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="4_uha0q"]
 [ext_resource type="PackedScene" uid="uid://cgbc8iq071gf3" path="res://Models/pumpkinlantern.tscn" id="5_jhqr3"]
 [ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="6_a3nw1"]
+[ext_resource type="PackedScene" uid="uid://5m7ugg44vhli" path="res://Prefabs/TVSet.tscn" id="7_poyp3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_11bs4"]
 panorama = ExtResource("2_srsft")
@@ -30,30 +31,6 @@ albedo_texture = ExtResource("3_3ns64")
 [sub_resource type="PlaneMesh" id="PlaneMesh_8nkii"]
 material = SubResource("StandardMaterial3D_m0mnl")
 size = Vector2(50, 100)
-
-[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_yf5fn"]
-file = "res://Videos/hallowyiik_noncorrupted.ogv"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhqr3"]
-albedo_texture = ExtResource("4_uha0q")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
-material = SubResource("StandardMaterial3D_jhqr3")
-top_radius = 1.2827148
-bottom_radius = 1.2827148
-height = 0.8364258
-
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
-size = Vector3(1.4779663, 1.4786377, 1.0249023)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_jhqr3"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_a3nw1"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uha0q"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_a3nw1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqfo"]
 albedo_texture = ExtResource("4_uha0q")
@@ -89,20 +66,8 @@ mesh = SubResource("PlaneMesh_8nkii")
 
 [node name="GraveButton" parent="." unique_id=1540007232 instance=ExtResource("4_cu08d")]
 transform = Transform3D(0.92373705, 0, 0.38302717, 0, 1, 0, -0.38302717, 0, 0.92373705, -4.504015, -1.1920929e-07, 2.846171)
+scene = "res://Scenes/Gallery.tscn"
 displaytext = "BACK"
-
-[node name="SubViewport" type="SubViewport" parent="." unique_id=680772306]
-handle_input_locally = false
-size = Vector2i(1280, 720)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="SubViewport" unique_id=145409358]
-offset_right = 1280.0
-offset_bottom = 720.0
-stream = SubResource("VideoStreamTheora_yf5fn")
-autoplay = true
-loop = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=830750039]
 transform = Transform3D(0.9299106, 0, -0.3677857, 0, 1, 0, 0.3677857, 0, 0.9299106, -2.1381598, 2.8231719, 7.5879054)
@@ -110,21 +75,6 @@ light_color = Color(1, 0.85896003, 0.62974393, 1)
 light_energy = 16.0
 spot_range = 29.640509
 spot_angle = 28.381632
-
-[node name="TVSet" type="Node3D" parent="." unique_id=542547081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009240374, -5.9604645e-07, 5.8689313)
-
-[node name="Log" type="MeshInstance3D" parent="TVSet" unique_id=666595218]
-mesh = SubResource("CylinderMesh_g4v7s")
-
-[node name="TV" type="MeshInstance3D" parent="TVSet" unique_id=1208369249]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1609963, 0)
-mesh = SubResource("BoxMesh_g4v7s")
-
-[node name="Screen" type="MeshInstance3D" parent="TVSet" unique_id=781387323]
-transform = Transform3D(0.7, -5.84631e-23, 2.5555033e-30, 0, -3.059797e-08, -0.7, 5.84631e-23, 0.7, -3.059797e-08, 0, 1.1609963, 0.51327276)
-mesh = SubResource("PlaneMesh_jhqr3")
-surface_material_override/0 = SubResource("StandardMaterial3D_uha0q")
 
 [node name="PumpkinLantern" parent="." unique_id=391079953 instance=ExtResource("5_jhqr3")]
 transform = Transform3D(-0.59463096, 0, -0.8039989, 0, 1, 0, 0.8039989, 0, -0.59463096, 2.2229514, -1.1920929e-07, 5.1149454)
@@ -148,3 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.904524, 0, 3.5854034)
 
 [node name="Tree3" parent="." unique_id=1342027562 instance=ExtResource("6_a3nw1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.528207, 0, 0.82707214)
+
+[node name="TVSet" parent="." unique_id=1083930186 instance=ExtResource("7_poyp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8)
+Audio3D = false

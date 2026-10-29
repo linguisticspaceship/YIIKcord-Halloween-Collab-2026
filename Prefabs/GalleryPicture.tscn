@@ -18,10 +18,10 @@ stretch_mode = 5
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1050868689]
 custom_minimum_size = Vector2(512, 0)
-custom_maximum_size = Vector2(512, -1)
+custom_maximum_size = Vector2(1024, -1)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 0
+theme_override_constants/separation = 2
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBox" unique_id=831187356]
@@ -31,8 +31,7 @@ theme_override_colors/font_outline_color = Color(1, 0, 0, 0.34901962)
 theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("2_16w0o")
 theme_override_font_sizes/normal_font_size = 32
-text = "Line One
-"
+fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
@@ -41,3 +40,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Visit Artist"
 transition_effect = false
+text_size = 32

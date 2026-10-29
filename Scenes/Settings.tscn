@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqd2ki3wluh3g"]
 
-[ext_resource type="Script" uid="uid://dj7h67vawqcol" path="res://Scripts/button_ui.gd" id="1_4hxq3"]
 [ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_flfri"]
+[ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="2_flfri"]
 
 [sub_resource type="GDScript" id="GDScript_fv8yg"]
 script/source = "extends HSlider
@@ -71,18 +71,18 @@ step = 0.01
 value = 0.015
 script = SubResource("GDScript_fv8yg")
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=689115864 node_paths=PackedStringArray("KillNode")]
+[node name="ButtonUI" parent="VBoxContainer" unique_id=1332201544 node_paths=PackedStringArray("KillNode") instance=ExtResource("2_flfri")]
 layout_mode = 2
 text = "Return to Game
 "
-script = ExtResource("1_4hxq3")
+transition_effect = false
 KillNode = NodePath("../..")
 EnablePlayer = true
 
-[node name="Exit to Main Menu" type="Button" parent="VBoxContainer" unique_id=1890983272]
+[node name="ButtonUI2" parent="VBoxContainer" unique_id=1619729626 node_paths=PackedStringArray("KillNode") instance=ExtResource("2_flfri")]
 layout_mode = 2
 text = "Exit to Main Menu"
-script = ExtResource("1_4hxq3")
 SceneGoto = "res://Scenes/MainMenu.tscn"
+KillNode = NodePath("../..")
 
 [connection signal="drag_ended" from="VBoxContainer/SensitivtySlider" to="VBoxContainer/SensitivtySlider" method="_on_drag_ended"]

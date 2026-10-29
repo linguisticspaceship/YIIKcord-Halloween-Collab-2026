@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cmhdp62q5p17a" path="res://Scripts/PlayerRandomSpawn.gd" id="3_oy2kj"]
 [ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="4_sa0i8"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="5_oy2kj"]
+[ext_resource type="PackedScene" uid="uid://5m7ugg44vhli" path="res://Prefabs/TVSet.tscn" id="6_sa0i8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ms4e"]
 vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
@@ -118,3 +119,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.562925, 0.9798007, -2.1177
 
 [node name="Collectable23" parent="Collectables" unique_id=1508513542 instance=ExtResource("5_oy2kj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, -2.117721)
+
+[node name="TVSet" parent="." unique_id=1083930186 instance=ExtResource("6_sa0i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.318978, 0.41821337, -2.7569075)

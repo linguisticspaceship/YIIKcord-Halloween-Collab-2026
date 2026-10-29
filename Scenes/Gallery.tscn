@@ -32,6 +32,8 @@ func _ready() -> void:
 				match x:
 					\"FleshSmoothie_1\":
 						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 4
+					\"oyiiixenia_1\":
+						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 8
 			
 			var author = PictureData.list[x][\"author\"]
 			var link = PictureData.list[x].get(\"link\",\"\")
@@ -39,8 +41,16 @@ func _ready() -> void:
 			
 			# SPECIAL CASE: CHCENO
 			if PictureData.list[x][\"author\"] == \"chceno31\":
-				GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"Blabalbababala by chceno31\"
+				GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"\\\"The Circles are Broken and\\n other spooky stories\\\" by chceno31\"
 				GalleryPicture_temp.get_node(\"VBox/LinkButton\").text = \"Read Story\"
+			# SPECIAL CASE: CHENICHII_ (VIDEO)
+			if PictureData.list[x][\"author\"] == \"chenichii_\":
+				var prefab = load(\"res://Prefabs/button_ui.tscn\")
+				var instance = prefab.instantiate()
+				instance.SceneGoto = \"res://Scenes/Movie.tscn\"
+				instance.text = \"Replay Video\"
+				instance.text_size = 32
+				GalleryPicture_temp.get_node(\"VBox\").add_child(instance)
 			
 			if link == \"\":
 				GalleryPicture_temp.get_node(\"VBox/LinkButton\").queue_free()

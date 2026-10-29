@@ -1,8 +1,9 @@
-extends Node
+extends Control
 
 var clicked = false
 
 @export var transition_effect = true
+@export var text_size = 24
 
 @export var SceneGoto = ""
 @export var QuitGame = false
@@ -15,6 +16,9 @@ var clicked = false
 @export var EnablePlayer = false
 
 var ConfirmPrefab = preload("res://Scenes/ButtonConfirmation.tscn")
+
+func _ready() -> void:
+	self["theme_override_font_sizes/font_size"] = text_size
 
 func _on_pressed() -> void:
 	# Prevents all buttons from being clicked during transition animation

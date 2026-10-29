@@ -69,14 +69,13 @@ var list : Dictionary = {
 	"chceno_1": {
 		"writing": true, ### UNIMPLEMENTED
 		"path": "res://Sprites/Fanart/Note.png",
-		"link": "https://archiveofourown.org/works/95639156",
-		"author": "chceno31", ### CHECK
+		"link": "https://onism1999.freeforums.net/thread/87/circles-broken-spooky-stories",
+		"author": "chceno31",
 	},
 	"chenichii_1": { ### UNADDED
 		"video": true, ### UNIMPLEMENTED
-		#"video_path": "res://Videos/hallowyiik_noncorrupted.mov",
 		"link": "https://x.com/chenichii_",
-		"author": "chenichii_", ### CHECK
+		"author": "chenichii_",
 	},
 	"oyiiixenia_1": {
 		"path": "res://Sprites/Fanart/NamelessChildBadBrotherBalloons.png",
