@@ -2,6 +2,8 @@ extends Node
 
 var clicked = false
 
+@export var transition_effect = true
+
 @export var SceneGoto = ""
 @export var QuitGame = false
 @export var Link = "" # Example: www.ONISM1999.com
@@ -20,7 +22,9 @@ func _on_pressed() -> void:
 		return
 	
 	clicked = true
-	Global.transition_show()
+	
+	if transition_effect:
+		Global.transition_show()
 			
 func _process(_delta: float) -> void:
 	if !clicked or Global.transition_any_check():
@@ -61,5 +65,7 @@ func _process(_delta: float) -> void:
 			Global.player_enable()
 			
 	### PART 2: Hide transition effect
-	Global.transition_hide()
+	clicked = false
+	if transition_effect:
+		Global.transition_hide()
 	
