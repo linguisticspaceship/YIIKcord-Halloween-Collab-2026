@@ -6,6 +6,7 @@ extends Node3D
 @export var displaytext_size = 90
 
 var hovered = false
+var clicked = false
 
 var button_prefab = load("res://Prefabs/button_ui.tscn") # Hacky
 
@@ -14,17 +15,23 @@ func _ready() -> void:
 	$Grave/Label3D.font_size = displaytext_size
 
 func _process(_delta: float) -> void:
+	if Global.transition_any_check():
+		$Grave/Label3D.modulate = "3D3D3D"
+		return
+
 	if hovered:
 		$Grave/Label3D.modulate = "FF0000"
 	else:
 		$Grave/Label3D.modulate = "FFFFFF"
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	
 	if event is InputEventMouseButton:
 		if quit:
 			get_tree().quit()
 		
 		var instance = button_prefab.instantiate()
+		instance.visible = false
 		if scene != "":
 			instance.SceneGoto = scene
 		add_child(instance)

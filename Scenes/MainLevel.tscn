@@ -6055,7 +6055,7 @@ transform = Transform3D(0.3624811, 0, -0.16913737, 0, 0.6, 0, 0.16913737, 0, 0.3
 [node name="Collectables" type="Node3D" parent="Areas/Overpass" unique_id=581054623]
 
 [node name="Collectable2" parent="Areas/Overpass/Collectables" unique_id=492142146 instance=ExtResource("22_vyjbk")]
-transform = Transform3D(0.6972316, 0, 0.7168459, 0, 1, 0, -0.7168459, 0, 0.6972316, 6.887043, 2.2513013, 12.206055)
+transform = Transform3D(0.6972316, 0, 0.7168459, 0, 1, 0, -0.7168459, 0, 0.6972316, 6.887043, 1.6218569, 12.206055)
 
 [node name="Collectable" parent="Areas/Overpass/Collectables" unique_id=1423701807 instance=ExtResource("22_vyjbk")]
 transform = Transform3D(0.6814582, 0, -0.73185706, 0, 1, 0, 0.73185706, 0, 0.6814582, 37.22136, 1.3262194, 21.514008)

@@ -122,6 +122,21 @@ func _ready() -> void:
 func settings_reload():
 	setting_mouse_sensitivity = read("settings", "sensitivity", 0.01)
 	$"Player".mouse_sensitivity = setting_mouse_sensitivity
+
+func transition_show():
+	$Transition/AnimationPlayer.play("show")
+func transition_hide():
+	$Transition/AnimationPlayer.play("hide")
+func transition_between_check(): # If completely black (right time to execute code)
+	if $Transition/ColorRect.modulate.a == 1.0:
+		return true
+	else:
+		return false
+func transition_any_check(): # If transition playing at all
+	if $Transition/AnimationPlayer.is_playing():
+		return true
+	else:
+		return false
 	
 func _process(_delta: float) -> void:
 	if debug_mode:

@@ -13,8 +13,89 @@
 [ext_resource type="PackedScene" uid="uid://dehul3kwvme5l" path="res://Models/barrel3.fbx" id="14_73sgq"]
 [ext_resource type="PackedScene" uid="uid://b0eejihb0nwd1" path="res://Prefabs/ModelSprinkle.tscn" id="15_73sgq"]
 [ext_resource type="PackedScene" uid="uid://3wwtq4rc05et" path="res://Models/water tower.fbx" id="15_7467j"]
+[ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="16_2x1g0"]
 [ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="16_n0k5y"]
 [ext_resource type="PackedScene" uid="uid://mqi6sbbiscni" path="res://Prefabs/GraveButton.tscn" id="18_cfa3y"]
+
+[sub_resource type="Animation" id="Animation_riqfo"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(5.2416673, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_2x1g0"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(5.756514, -0.25, 0, 0.25, 0, 5.6, -0.25, 0, 0.25, 0, 5.756514, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_riqfo"]
+_data = {
+&"RESET": SubResource("Animation_riqfo"),
+&"move": SubResource("Animation_2x1g0")
+}
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_11bs4"]
 panorama = ExtResource("3_8nkii")
@@ -25,14 +106,20 @@ sky_material = SubResource("PanoramaSkyMaterial_11bs4")
 [sub_resource type="Environment" id="Environment_42krv"]
 background_mode = 2
 sky = SubResource("Sky_57qmd")
+sky_rotation = Vector3(0, 2.5481808, 0)
 ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_light_color = Color(0.12156863, 0.3529412, 0.44705883, 1)
+fog_light_energy = 2.2
+fog_aerial_perspective = 0.584
+fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0mnl"]
 albedo_texture = ExtResource("2_gohau")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8nkii"]
 material = SubResource("StandardMaterial3D_m0mnl")
-size = Vector2(50, 50)
+size = Vector2(50, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31avd"]
 albedo_texture = ExtResource("11_2qhrf")
@@ -40,15 +127,41 @@ albedo_texture = ExtResource("11_2qhrf")
 [sub_resource type="BoxShape3D" id="BoxShape3D_n0k5y"]
 size = Vector3(85.471054, 1, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqfo"]
+albedo_texture = ExtResource("16_2x1g0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_riqfo")
+size = Vector3(51.41635, 7.9295654, 9.575928)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x1g0"]
+albedo_texture = ExtResource("2_gohau")
+
+[sub_resource type="BoxMesh" id="BoxMesh_riqfo"]
+material = SubResource("StandardMaterial3D_2x1g0")
+size = Vector3(51.41635, 0.9890747, 9.575928)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2x1g0"]
+material = SubResource("StandardMaterial3D_riqfo")
+size = Vector3(111.56177, 25.940098, 9.576)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yxkem"]
+material = SubResource("StandardMaterial3D_2x1g0")
+size = Vector3(110, 0.989, 9.576)
+
 [node name="MainMenuTest" type="Node3D" unique_id=1137014926]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1946691982]
 transform = Transform3D(1, 0, 0, 0, 0.9947638, 0.10220098, 0, -0.10220098, 0.9947638, 0, 3.5, 7.541623)
 current = true
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1771142999]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.756514, 0)
+[node name="Logo" type="Sprite3D" parent="." unique_id=1771142999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2416673, 0)
 texture = ExtResource("1_64tik")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Logo" unique_id=1569773382]
+libraries/ = SubResource("AnimationLibrary_riqfo")
+autoplay = &"move"
 
 [node name="Fullbright" type="DirectionalLight3D" parent="." unique_id=1913050945]
 transform = Transform3D(0.9835164, -0.07427145, 0.1648623, 1.3746994e-08, 0.9117489, 0.4107483, -0.18081981, -0.4039776, 0.8967198, 2.0530763, 27.070969, 20.621977)
@@ -59,283 +172,8 @@ shadow_enabled = true
 environment = SubResource("Environment_42krv")
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=2138154921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.608265)
 mesh = SubResource("PlaneMesh_8nkii")
-
-[node name="PumpkinLantern" parent="." unique_id=391079953 instance=ExtResource("7_8607w")]
-transform = Transform3D(0.4671587, 0, -0.8841735, 0, 1, 0, 0.8841735, 0, 0.4671587, -3.365384, 0, 2.5358129)
-
-[node name="PumpkinLantern2" parent="." unique_id=914249032 instance=ExtResource("7_8607w")]
-transform = Transform3D(0.28463694, 0, -0.9586354, 0, 1, 0, 0.9586354, 0, 0.28463694, -13.548271, 4.7683716e-07, -4.0246058)
-
-[node name="Props" type="Node3D" parent="." unique_id=657320115]
-
-[node name="trailer2" parent="Props" unique_id=1170425239 instance=ExtResource("8_55e58")]
-transform = Transform3D(0.8889852, 0, 0.14037533, 0, 0.9, 0, -0.14037533, 0, 0.8889852, -11.884662, 0, -6.848872)
-
-[node name="trailer3" parent="Props" unique_id=1089609800 instance=ExtResource("9_h1gke")]
-transform = Transform3D(0.34036022, 0, -0.8331596, 0, 0.9, 0, 0.8331596, 0, 0.34036022, 8.988754, 9.536743e-07, -7.2130423)
-
-[node name="Rory Cat" type="MeshInstance3D" parent="Props" unique_id=1505955984]
-transform = Transform3D(0.38558897, 0, -0.10640073, 0, 0.39999998, 0, 0.10640073, 0, 0.38558897, 6.0359306, 0.030033886, -11.475034)
-mesh = ExtResource("10_yb1kl")
-surface_material_override/0 = SubResource("StandardMaterial3D_31avd")
-
-[node name="Fences" type="Node3D" parent="." unique_id=984530094]
-
-[node name="PicketFence" parent="Fences" unique_id=625159929 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.1670978, 0, -12.366941)
-
-[node name="PicketFence2" parent="Fences" unique_id=623269974 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.95242214, 0, -12.366941)
-
-[node name="PicketFence3" parent="Fences" unique_id=1742013405 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.2782891, 0, -12.366941)
-
-[node name="PicketFence4" parent="Fences" unique_id=1305705804 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.4929647, 0, -12.366941)
-
-[node name="PicketFence5" parent="Fences" unique_id=1678898939 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.69086, 0, -12.366941)
-
-[node name="PicketFence6" parent="Fences" unique_id=1324365400 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -7.9055357, 0, -12.366941)
-
-[node name="PicketFence7" parent="Fences" unique_id=358001399 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -10.136247, 0, -12.366941)
-
-[node name="PicketFence8" parent="Fences" unique_id=289033878 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -12.350923, 0, -12.366941)
-
-[node name="PicketFence9" parent="Fences" unique_id=1329394482 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 20.892864, 0, -12.366941)
-
-[node name="PicketFence10" parent="Fences" unique_id=2039824955 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 18.678188, 0, -12.366941)
-
-[node name="PicketFence11" parent="Fences" unique_id=1091513669 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.447477, 0, -12.366941)
-
-[node name="PicketFence12" parent="Fences" unique_id=563598579 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.232802, 0, -12.366941)
-
-[node name="PicketFence13" parent="Fences" unique_id=814047639 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 12.034907, 0, -12.366941)
-
-[node name="PicketFence14" parent="Fences" unique_id=1369060882 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.820231, 0, -12.366941)
-
-[node name="PicketFence15" parent="Fences" unique_id=1141811261 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.5895205, 0, -12.366941)
-
-[node name="PicketFence22" parent="Fences" unique_id=824050546 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 36.39005, 0, -12.366941)
-
-[node name="PicketFence23" parent="Fences" unique_id=1601974755 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 34.175373, 0, -12.366941)
-
-[node name="PicketFence24" parent="Fences" unique_id=1617221895 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 31.944662, 0, -12.366941)
-
-[node name="PicketFence33" parent="Fences" unique_id=1793514437 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 29.729988, 0, -12.366941)
-
-[node name="PicketFence34" parent="Fences" unique_id=715975420 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 27.532093, 0, -12.366941)
-
-[node name="PicketFence35" parent="Fences" unique_id=1332353622 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 25.317417, 0, -12.366941)
-
-[node name="PicketFence36" parent="Fences" unique_id=781492465 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 23.086704, 0, -12.366941)
-
-[node name="PicketFence16" parent="Fences" unique_id=995844981 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.3748446, 0, -12.366941)
-
-[node name="PicketFence17" parent="Fences" unique_id=2112732909 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -32.23028, 0, -12.366941)
-
-[node name="PicketFence18" parent="Fences" unique_id=898049855 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -34.444958, 0, -12.366941)
-
-[node name="PicketFence19" parent="Fences" unique_id=1419200375 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -36.67567, 0, -12.366941)
-
-[node name="PicketFence20" parent="Fences" unique_id=941156917 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -38.890347, 0, -12.366941)
-
-[node name="PicketFence21" parent="Fences" unique_id=99913121 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -41.088245, 0, -12.366941)
-
-[node name="PicketFence25" parent="Fences" unique_id=1402652484 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -14.5045185, 0, -12.366941)
-
-[node name="PicketFence26" parent="Fences" unique_id=514308481 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -16.719194, 0, -12.366941)
-
-[node name="PicketFence27" parent="Fences" unique_id=1326201649 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -18.949905, 0, -12.366941)
-
-[node name="PicketFence28" parent="Fences" unique_id=678450977 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -21.16458, 0, -12.366941)
-
-[node name="PicketFence29" parent="Fences" unique_id=1727711016 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -23.362474, 0, -12.366941)
-
-[node name="PicketFence30" parent="Fences" unique_id=732398693 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.57715, 0, -12.366941)
-
-[node name="PicketFence31" parent="Fences" unique_id=1137145805 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -27.807863, 0, -12.366941)
-
-[node name="PicketFence32" parent="Fences" unique_id=985329189 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -30.02254, 0, -12.366941)
-
-[node name="barrel2" parent="." unique_id=1965034196 instance=ExtResource("13_k6mc3")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.51524, -7.1525574e-07, -5.1784725)
-
-[node name="barrel3" parent="." unique_id=113728756 instance=ExtResource("14_73sgq")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.746073, 2.3841858e-07, -3.6266525)
-
-[node name="Model Sprinkler" parent="." unique_id=87343727 instance=ExtResource("15_73sgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.319185, 0, -24.364632)
-amount = 48
-random_rotation = true
-
-[node name="CollisionShape3D" parent="Model Sprinkler" index="0" unique_id=246704380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.868065, 0, 0)
-shape = SubResource("BoxShape3D_n0k5y")
-
-[node name="SprinkledPrefab0" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="0" unique_id=253042511 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.34384218, 0, 0.9390274, 0, 1, 0, -0.9390274, 0, -0.34384218, 32.360462, 0, 8.699035)
-
-[node name="SprinkledPrefab1" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="1" unique_id=1038534396 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.55793995, 0, 0.8298813, 0, 1, 0, -0.8298813, 0, 0.55793995, 49.78996, 0, 7.3323126)
-
-[node name="SprinkledPrefab2" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="2" unique_id=2138570695 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.96622545, 0, 0.2576983, 0, 1, 0, -0.2576983, 0, 0.96622545, 56.554123, 0, -2.922792)
-
-[node name="SprinkledPrefab3" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="3" unique_id=232903533 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.13245621, 0, -0.9911889, 0, 1, 0, 0.9911889, 0, 0.13245621, 70.65377, 0, 5.145779)
-
-[node name="SprinkledPrefab4" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="4" unique_id=106675444 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.45257106, 0, -0.89172834, 0, 1, 0, 0.89172834, 0, 0.45257106, 35.480507, 0, 2.201638)
-
-[node name="SprinkledPrefab5" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="5" unique_id=43270226 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.524484, 0, 0.8514203, 0, 1, 0, -0.8514203, 0, -0.524484, 5.483014, 0, -3.6851823)
-
-[node name="SprinkledPrefab6" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="6" unique_id=914834847 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.9029768, 0, 0.42968935, 0, 1, 0, -0.42968935, 0, -0.9029768, 45.57362, 0, 6.8336873)
-
-[node name="SprinkledPrefab7" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="7" unique_id=619111666 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.96208805, 0, -0.27273905, 0, 1, 0, 0.27273905, 0, -0.96208805, 84.252556, 0, -4.9513373)
-
-[node name="SprinkledPrefab8" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="8" unique_id=2065086117 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.9410402, 0, -0.3382947, 0, 1, 0, 0.3382947, 0, 0.9410402, 24.24212, 0, 1.0664154)
-
-[node name="SprinkledPrefab9" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="9" unique_id=266791163 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.33274737, 0, 0.943016, 0, 1, 0, -0.943016, 0, 0.33274737, 18.360977, 0, -4.5546436)
-
-[node name="SprinkledPrefab10" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="10" unique_id=277290452 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.5280063, 0, -0.8492404, 0, 1, 0, 0.8492404, 0, 0.5280063, 37.503136, 0, -9.28102)
-
-[node name="SprinkledPrefab11" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="11" unique_id=1751720317 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.6410226, 0, -0.767522, 0, 1, 0, 0.767522, 0, -0.6410226, 73.699974, 0, -7.143037)
-
-[node name="SprinkledPrefab12" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="12" unique_id=1229159997 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.5542676, 0, 0.8323385, 0, 1, 0, -0.8323385, 0, -0.5542676, 43.537586, 0, -2.0055091)
-
-[node name="SprinkledPrefab13" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="13" unique_id=2086854613 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.95765823, 0, 0.28790748, 0, 1, 0, -0.28790748, 0, 0.95765823, 53.864605, 0, 7.614931)
-
-[node name="SprinkledPrefab14" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="14" unique_id=512855098 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.43004614, 0, -0.9028069, 0, 1, 0, 0.9028069, 0, 0.43004614, 46.493137, 0, 9.537028)
-
-[node name="SprinkledPrefab15" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="15" unique_id=618758011 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.4854834, 0, -0.8742459, 0, 1, 0, 0.8742459, 0, 0.4854834, 75.5692, 0, -7.2598867)
-
-[node name="SprinkledPrefab17" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="16" unique_id=1416411893 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.9493683, 0, -0.31416532, 0, 1, 0, 0.31416532, 0, 0.9493683, 38.004364, 0, -3.2013378)
-
-[node name="SprinkledPrefab19" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="17" unique_id=2057122903 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.7775746, 0, -0.62879074, 0, 1, 0, 0.62879074, 0, -0.7775746, 58.31501, 0, 0.11703078)
-
-[node name="SprinkledPrefab21" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="18" unique_id=1855550699 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.13164896, 0, -0.9912964, 0, 1, 0, 0.9912964, 0, -0.13164896, 1.8233918, 0, -3.0735943)
-
-[node name="SprinkledPrefab22" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="19" unique_id=917083911 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.81117195, 0, -0.5848077, 0, 1, 0, 0.5848077, 0, -0.81117195, 8.646145, 0, -1.028527)
-
-[node name="SprinkledPrefab24" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="20" unique_id=1700109707 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.76414615, 0, -0.64504313, 0, 1, 0, 0.64504313, 0, -0.76414615, 39.77652, 0, -3.1534326)
-
-[node name="SprinkledPrefab25" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="21" unique_id=276408990 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.9294115, 0, 0.36904514, 0, 1, 0, -0.36904514, 0, -0.9294115, 33.98158, 0, -1.0914026)
-
-[node name="SprinkledPrefab26" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="22" unique_id=1358522699 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.8565407, 0, 0.51607955, 0, 1, 0, -0.51607955, 0, -0.8565407, 58.95579, 0, 5.820474)
-
-[node name="SprinkledPrefab27" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="23" unique_id=1764723227 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.23171064, 0, 0.97278476, 0, 1, 0, -0.97278476, 0, 0.23171064, 9.046828, 0, 7.767243)
-
-[node name="SprinkledPrefab28" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="24" unique_id=1287319668 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.8555389, 0, 0.5177385, 0, 1, 0, -0.5177385, 0, -0.8555389, 10.662594, 0, -1.8415974)
-
-[node name="SprinkledPrefab30" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="25" unique_id=260946695 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.60254437, 0, 0.7980854, 0, 1, 0, -0.7980854, 0, -0.60254437, 48.224216, 0, 0.6689682)
-
-[node name="SprinkledPrefab31" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="26" unique_id=991439305 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.5000938, 0, 0.8659712, 0, 1, 0, -0.8659712, 0, 0.5000938, 45.444492, 0, -2.9292777)
-
-[node name="SprinkledPrefab32" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="27" unique_id=2047962473 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.74187756, 0, 0.6705354, 0, 1, 0, -0.6705354, 0, 0.74187756, 24.563189, 0, -2.7724254)
-
-[node name="SprinkledPrefab33" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="28" unique_id=557600486 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.6242912, 0, -0.78119177, 0, 1, 0, 0.78119177, 0, 0.6242912, 22.869032, 0, 5.7426558)
-
-[node name="SprinkledPrefab34" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="29" unique_id=145590980 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.9594503, 0, 0.28187788, 0, 1, 0, -0.28187788, 0, 0.9594503, 8.360039, 0, 4.46996)
-
-[node name="SprinkledPrefab35" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="30" unique_id=927586036 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.9928707, 0, -0.119196706, 0, 1, 0, 0.119196706, 0, -0.9928707, 7.712076, 0, -9.652947)
-
-[node name="SprinkledPrefab36" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="31" unique_id=1690626701 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.5519704, 0, -0.8338637, 0, 1, 0, 0.8338637, 0, 0.5519704, 2.5984073, 0, 8.904948)
-
-[node name="SprinkledPrefab37" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="32" unique_id=1141058265 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.5382105, 0, -0.84281045, 0, 1, 0, 0.84281045, 0, -0.5382105, 82.05102, 0, -0.36864746)
-
-[node name="SprinkledPrefab38" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="33" unique_id=1972224947 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.6621506, 0, -0.74937075, 0, 1, 0, 0.74937075, 0, -0.6621506, 26.78475, 0, -5.6463127)
-
-[node name="SprinkledPrefab39" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="34" unique_id=1865702244 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.4326889, 0, -0.9015433, 0, 1, 0, 0.9015433, 0, -0.4326889, 42.516365, 0, -3.0333672)
-
-[node name="SprinkledPrefab40" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="35" unique_id=2017373223 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.0046681357, 0, -0.9999891, 0, 1, 0, 0.9999891, 0, 0.0046681357, 68.24742, 0, -2.1066408)
-
-[node name="SprinkledPrefab41" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="36" unique_id=1603447909 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.9521353, 0, 0.30567685, 0, 1, 0, -0.30567685, 0, 0.9521353, 68.714134, 0, -4.8366)
-
-[node name="SprinkledPrefab42" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="37" unique_id=974706812 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.8051859, 0, 0.5930225, 0, 1, 0, -0.5930225, 0, -0.8051859, 70.634705, 0, -5.9754333)
-
-[node name="SprinkledPrefab43" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="38" unique_id=1907701064 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.09919304, 0, -0.9950682, 0, 1, 0, 0.9950682, 0, 0.09919304, 74.13212, 0, -8.417714)
-
-[node name="SprinkledPrefab45" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="39" unique_id=1566786002 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(0.8572266, 0, 0.51493937, 0, 1, 0, -0.51493937, 0, 0.8572266, 0.5350974, 0, 9.739494)
-
-[node name="SprinkledPrefab46" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="40" unique_id=1904950975 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.9956804, 0, -0.092847176, 0, 1, 0, 0.092847176, 0, -0.9956804, 52.68347, 0, 9.453456)
-
-[node name="SprinkledPrefab47" parent="Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="41" unique_id=1523444558 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(-0.95720255, 0, 0.28941894, 0, 1, 0, -0.28941894, 0, -0.95720255, 17.509392, 0, 7.030346)
-
-[node name="Tree2" parent="." unique_id=2010129422 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.509842, 0, -6.7668695)
-
-[node name="Tree3" parent="." unique_id=1439452349 instance=ExtResource("16_n0k5y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7424965, 0, -1.0551023)
 
 [node name="GraveButton" parent="." unique_id=1540007232 instance=ExtResource("18_cfa3y")]
 transform = Transform3D(0.92373705, 0, 0.38302717, 0, 1, 0, -0.38302717, 0, 0.92373705, -4.9189267, 0, 2.248344)
@@ -354,7 +192,307 @@ scene = ""
 quit = true
 displaytext = "QUIT"
 
-[node name="water tower" parent="." unique_id=1256191138 instance=ExtResource("15_7467j")]
+[node name="Props" type="Node3D" parent="." unique_id=657320115]
+
+[node name="trailer2" parent="Props" unique_id=1170425239 instance=ExtResource("8_55e58")]
+transform = Transform3D(0.8889852, 0, 0.14037533, 0, 0.9, 0, -0.14037533, 0, 0.8889852, -11.884662, 0, -6.848872)
+
+[node name="trailer3" parent="Props" unique_id=1089609800 instance=ExtResource("9_h1gke")]
+transform = Transform3D(0.34036022, 0, -0.8331596, 0, 0.9, 0, 0.8331596, 0, 0.34036022, 8.988754, 9.536743e-07, -7.2130423)
+
+[node name="Rory Cat" type="MeshInstance3D" parent="Props" unique_id=1505955984]
+transform = Transform3D(0.31489655, 0, -0.24665788, 0, 0.4, 0, 0.24665788, 0, 0.31489655, 6.0359306, 0.030033886, -11.475034)
+mesh = ExtResource("10_yb1kl")
+surface_material_override/0 = SubResource("StandardMaterial3D_31avd")
+
+[node name="Tree2" parent="Props" unique_id=2010129422 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.509842, 0, -6.7668695)
+
+[node name="Tree4" parent="Props" unique_id=253042511 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.487091, 0, -37.76142)
+
+[node name="Tree5" parent="Props" unique_id=1750104453 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7852097, 0, -44.93331)
+
+[node name="Tree6" parent="Props" unique_id=168389239 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.701889, 0, -57.82161)
+
+[node name="Tree6" parent="Props/Tree6" unique_id=1518300065 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.046926, 16.829836, -28.525177)
+
+[node name="Tree7" parent="Props/Tree6" unique_id=339213327 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.7849519, 0, 0.61955667, 0, 1, 0, -0.61955667, 0, 0.7849519, 22.278465, 16.829836, -34.78775)
+
+[node name="Tree8" parent="Props/Tree6" unique_id=1420364293 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.7849519, 0, 0.61955667, 0, 1, 0, -0.61955667, 0, 0.7849519, 14.330275, 16.829838, -36.994003)
+
+[node name="Tree9" parent="Props/Tree6" unique_id=2006013027 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.7849519, 0, 0.61955667, 0, 1, 0, -0.61955667, 0, 0.7849519, 52.32695, 16.829838, -9.642532)
+
+[node name="Tree7" parent="Props" unique_id=282230199 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5802517, 0, -51.67022)
+
+[node name="Tree8" parent="Props" unique_id=180731431 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.265139, 0, -47.441483)
+
+[node name="Tree9" parent="Props" unique_id=30239610 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7978344, 0, -72.007675)
+
+[node name="Tree3" parent="Props" unique_id=1439452349 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7424965, 0, -1.0551023)
+
+[node name="barrel2" parent="Props" unique_id=1965034196 instance=ExtResource("13_k6mc3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -7.51524, -7.1525574e-07, -5.1784725)
+
+[node name="barrel3" parent="Props" unique_id=113728756 instance=ExtResource("14_73sgq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.746073, 2.3841858e-07, -3.6266525)
+
+[node name="Fences" type="Node3D" parent="Props" unique_id=984530094]
+
+[node name="PicketFence" parent="Props/Fences" unique_id=625159929 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.1670978, 0, -12.366941)
+
+[node name="PicketFence2" parent="Props/Fences" unique_id=623269974 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.95242214, 0, -12.366941)
+
+[node name="PicketFence3" parent="Props/Fences" unique_id=1742013405 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.2782891, 0, -12.366941)
+
+[node name="PicketFence4" parent="Props/Fences" unique_id=1305705804 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.4929647, 0, -12.366941)
+
+[node name="PicketFence5" parent="Props/Fences" unique_id=1678898939 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -5.69086, 0, -12.366941)
+
+[node name="PicketFence6" parent="Props/Fences" unique_id=1324365400 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -7.9055357, 0, -12.366941)
+
+[node name="PicketFence7" parent="Props/Fences" unique_id=358001399 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -10.136247, 0, -12.366941)
+
+[node name="PicketFence8" parent="Props/Fences" unique_id=289033878 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -12.350923, 0, -12.366941)
+
+[node name="PicketFence9" parent="Props/Fences" unique_id=1329394482 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 20.892864, 0, -12.366941)
+
+[node name="PicketFence10" parent="Props/Fences" unique_id=2039824955 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 18.678188, 0, -12.366941)
+
+[node name="PicketFence11" parent="Props/Fences" unique_id=1091513669 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.447477, 0, -12.366941)
+
+[node name="PicketFence12" parent="Props/Fences" unique_id=563598579 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 14.232802, 0, -12.366941)
+
+[node name="PicketFence13" parent="Props/Fences" unique_id=814047639 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 12.034907, 0, -12.366941)
+
+[node name="PicketFence14" parent="Props/Fences" unique_id=1369060882 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.820231, 0, -12.366941)
+
+[node name="PicketFence15" parent="Props/Fences" unique_id=1141811261 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.5895205, 0, -12.366941)
+
+[node name="PicketFence22" parent="Props/Fences" unique_id=824050546 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 36.39005, 0, -12.366941)
+
+[node name="PicketFence23" parent="Props/Fences" unique_id=1601974755 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 34.175373, 0, -12.366941)
+
+[node name="PicketFence24" parent="Props/Fences" unique_id=1617221895 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 31.944662, 0, -12.366941)
+
+[node name="PicketFence33" parent="Props/Fences" unique_id=1793514437 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 29.729988, 0, -12.366941)
+
+[node name="PicketFence34" parent="Props/Fences" unique_id=715975420 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 27.532093, 0, -12.366941)
+
+[node name="PicketFence35" parent="Props/Fences" unique_id=1332353622 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 25.317417, 0, -12.366941)
+
+[node name="PicketFence36" parent="Props/Fences" unique_id=781492465 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 23.086704, 0, -12.366941)
+
+[node name="PicketFence16" parent="Props/Fences" unique_id=995844981 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.3748446, 0, -12.366941)
+
+[node name="PicketFence17" parent="Props/Fences" unique_id=2112732909 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -32.23028, 0, -12.366941)
+
+[node name="PicketFence18" parent="Props/Fences" unique_id=898049855 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -34.444958, 0, -12.366941)
+
+[node name="PicketFence19" parent="Props/Fences" unique_id=1419200375 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -36.67567, 0, -12.366941)
+
+[node name="PicketFence20" parent="Props/Fences" unique_id=941156917 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -38.890347, 0, -12.366941)
+
+[node name="PicketFence21" parent="Props/Fences" unique_id=99913121 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -41.088245, 0, -12.366941)
+
+[node name="PicketFence25" parent="Props/Fences" unique_id=1402652484 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -14.5045185, 0, -12.366941)
+
+[node name="PicketFence26" parent="Props/Fences" unique_id=514308481 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -16.719194, 0, -12.366941)
+
+[node name="PicketFence27" parent="Props/Fences" unique_id=1326201649 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -18.949905, 0, -12.366941)
+
+[node name="PicketFence28" parent="Props/Fences" unique_id=678450977 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -21.16458, 0, -12.366941)
+
+[node name="PicketFence29" parent="Props/Fences" unique_id=1727711016 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -23.362474, 0, -12.366941)
+
+[node name="PicketFence30" parent="Props/Fences" unique_id=732398693 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.57715, 0, -12.366941)
+
+[node name="PicketFence31" parent="Props/Fences" unique_id=1137145805 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -27.807863, 0, -12.366941)
+
+[node name="PicketFence32" parent="Props/Fences" unique_id=985329189 instance=ExtResource("12_2qhrf")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -30.02254, 0, -12.366941)
+
+[node name="Model Sprinkler" parent="Props" unique_id=87343727 instance=ExtResource("15_73sgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.319185, 0, -24.364632)
+amount = 48
+random_rotation = true
+
+[node name="CollisionShape3D" parent="Props/Model Sprinkler" index="0" unique_id=246704380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.868065, 0, 0)
+shape = SubResource("BoxShape3D_n0k5y")
+
+[node name="SprinkledPrefab0" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="0" unique_id=2125481204 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.34384218, 0, 0.9390274, 0, 1, 0, -0.9390274, 0, -0.34384218, 32.360462, 0, 8.699035)
+
+[node name="SprinkledPrefab1" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="1" unique_id=1038534396 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.55793995, 0, 0.8298813, 0, 1, 0, -0.8298813, 0, 0.55793995, 49.78996, 0, 7.3323126)
+
+[node name="SprinkledPrefab2" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="2" unique_id=2138570695 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.96622545, 0, 0.2576983, 0, 1, 0, -0.2576983, 0, 0.96622545, 56.554123, 0, -2.922792)
+
+[node name="SprinkledPrefab4" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="3" unique_id=106675444 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.45257106, 0, -0.89172834, 0, 1, 0, 0.89172834, 0, 0.45257106, 35.480507, 0, 2.201638)
+
+[node name="SprinkledPrefab5" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="4" unique_id=43270226 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.524484, 0, 0.8514203, 0, 1, 0, -0.8514203, 0, -0.524484, 5.483014, 6.6971283, -3.6851826)
+
+[node name="SprinkledPrefab6" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="5" unique_id=914834847 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.9029768, 0, 0.42968935, 0, 1, 0, -0.42968935, 0, -0.9029768, 45.57362, 0, 6.8336873)
+
+[node name="SprinkledPrefab8" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="6" unique_id=2065086117 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.9410402, 0, -0.3382947, 0, 1, 0, 0.3382947, 0, 0.9410402, 24.24212, 0, 1.0664154)
+
+[node name="SprinkledPrefab9" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="7" unique_id=266791163 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.33274737, 0, 0.943016, 0, 1, 0, -0.943016, 0, 0.33274737, 18.360977, 0, -4.5546436)
+
+[node name="SprinkledPrefab10" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="8" unique_id=277290452 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.5280063, 0, -0.8492404, 0, 1, 0, 0.8492404, 0, 0.5280063, 37.503136, 0, -9.28102)
+
+[node name="SprinkledPrefab12" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="9" unique_id=1229159997 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.5542676, 0, 0.8323385, 0, 1, 0, -0.8323385, 0, -0.5542676, 43.537586, 0, -2.0055091)
+
+[node name="SprinkledPrefab13" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="10" unique_id=2086854613 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.95765823, 0, 0.28790748, 0, 1, 0, -0.28790748, 0, 0.95765823, 53.864605, 0, 7.614931)
+
+[node name="SprinkledPrefab14" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="11" unique_id=512855098 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.43004614, 0, -0.9028069, 0, 1, 0, 0.9028069, 0, 0.43004614, 46.493137, 0, 9.537028)
+
+[node name="SprinkledPrefab17" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="12" unique_id=1416411893 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.9493683, 0, -0.31416532, 0, 1, 0, 0.31416532, 0, 0.9493683, 38.004364, 0, -3.2013378)
+
+[node name="SprinkledPrefab19" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="13" unique_id=2057122903 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.7775746, 0, -0.62879074, 0, 1, 0, 0.62879074, 0, -0.7775746, 58.31501, 0, 0.11703078)
+
+[node name="SprinkledPrefab21" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="14" unique_id=1855550699 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.13164896, 0, -0.9912964, 0, 1, 0, 0.9912964, 0, -0.13164896, -0.225214, 6.333541, -1.1418629)
+
+[node name="SprinkledPrefab22" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="15" unique_id=917083911 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.81117195, 0, -0.5848077, 0, 1, 0, 0.5848077, 0, -0.81117195, 8.646145, 0, -1.028527)
+
+[node name="SprinkledPrefab24" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="16" unique_id=1700109707 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.76414615, 0, -0.64504313, 0, 1, 0, 0.64504313, 0, -0.76414615, 39.77652, 0, -3.1534326)
+
+[node name="SprinkledPrefab25" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="17" unique_id=276408990 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.9294115, 0, 0.36904514, 0, 1, 0, -0.36904514, 0, -0.9294115, 33.98158, 0, -1.0914026)
+
+[node name="SprinkledPrefab26" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="18" unique_id=1358522699 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.8565407, 0, 0.51607955, 0, 1, 0, -0.51607955, 0, -0.8565407, 58.95579, 0, 5.820474)
+
+[node name="SprinkledPrefab27" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="19" unique_id=1764723227 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.23171064, 0, 0.97278476, 0, 1, 0, -0.97278476, 0, 0.23171064, 9.046828, 0, 7.767243)
+
+[node name="SprinkledPrefab28" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="20" unique_id=1287319668 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.8555389, 0, 0.5177385, 0, 1, 0, -0.5177385, 0, -0.8555389, 10.662594, 0, -1.8415974)
+
+[node name="SprinkledPrefab30" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="21" unique_id=260946695 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.60254437, 0, 0.7980854, 0, 1, 0, -0.7980854, 0, -0.60254437, 48.224216, 0, 0.6689682)
+
+[node name="SprinkledPrefab31" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="22" unique_id=991439305 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.5000938, 0, 0.8659712, 0, 1, 0, -0.8659712, 0, 0.5000938, 45.444492, 0, -2.9292777)
+
+[node name="SprinkledPrefab32" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="23" unique_id=2047962473 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.74187756, 0, 0.6705354, 0, 1, 0, -0.6705354, 0, 0.74187756, 24.563189, 0, -2.7724254)
+
+[node name="SprinkledPrefab33" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="24" unique_id=557600486 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.6242912, 0, -0.78119177, 0, 1, 0, 0.78119177, 0, 0.6242912, 22.869032, 0, 5.7426558)
+
+[node name="SprinkledPrefab34" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="25" unique_id=145590980 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.9594503, 0, 0.28187788, 0, 1, 0, -0.28187788, 0, 0.9594503, 8.360039, 0, 4.46996)
+
+[node name="SprinkledPrefab35" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="26" unique_id=927586036 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.9928707, 0, -0.119196706, 0, 1, 0, 0.119196706, 0, -0.9928707, -11.797781, 6.619877, 1.3821926)
+
+[node name="SprinkledPrefab36" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="27" unique_id=1690626701 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.5519704, 0, -0.8338637, 0, 1, 0, 0.8338637, 0, 0.5519704, 2.5984073, 0, 8.904948)
+
+[node name="SprinkledPrefab38" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="28" unique_id=1972224947 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.6621506, 0, -0.74937075, 0, 1, 0, 0.74937075, 0, -0.6621506, 26.78475, 0, -5.6463127)
+
+[node name="SprinkledPrefab39" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="29" unique_id=1865702244 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.4326889, 0, -0.9015433, 0, 1, 0, 0.9015433, 0, -0.4326889, 42.516365, 0, -3.0333672)
+
+[node name="SprinkledPrefab45" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="30" unique_id=1566786002 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(0.8572266, 0, 0.51493937, 0, 1, 0, -0.51493937, 0, 0.8572266, 0.5350974, 0, 9.739494)
+
+[node name="SprinkledPrefab46" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="31" unique_id=1904950975 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.9956804, 0, -0.092847176, 0, 1, 0, 0.092847176, 0, -0.9956804, 52.68347, 0, 9.453456)
+
+[node name="SprinkledPrefab47" parent="Props/Model Sprinkler/Objects" parent_id_path=PackedInt32Array(87343727, 1699080449) index="32" unique_id=1523444558 instance=ExtResource("16_n0k5y")]
+transform = Transform3D(-0.95720255, 0, 0.28941894, 0, 1, 0, -0.28941894, 0, -0.95720255, 17.509392, 0, 7.030346)
+
+[node name="water tower" parent="Props" unique_id=1256191138 instance=ExtResource("15_7467j")]
 transform = Transform3D(0.4929773, 0, 0.083506875, 0, 0.5, 0, -0.083506875, 0, 0.4929773, 28.202286, -10.465187, -58.73445)
 
-[editable path="Model Sprinkler"]
+[node name="PumpkinLantern" parent="Props" unique_id=391079953 instance=ExtResource("7_8607w")]
+transform = Transform3D(0.4671587, 0, -0.8841735, 0, 1, 0, 0.8841735, 0, 0.4671587, -3.365384, 0, 2.5358129)
+
+[node name="PumpkinLantern2" parent="Props" unique_id=914249032 instance=ExtResource("7_8607w")]
+transform = Transform3D(0.28463694, 0, -0.9586354, 0, 1, 0, 0.9586354, 0, 0.28463694, -13.548271, 4.7683716e-07, -4.0246058)
+
+[node name="Cliff" type="Node3D" parent="." unique_id=1360111909]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cliff" unique_id=1036628709]
+transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, 2.1612034, -25.880266)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cliff" unique_id=173945411]
+transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, 6.4794827, -25.880266)
+mesh = SubResource("BoxMesh_riqfo")
+
+[node name="Cliff2" type="Node3D" parent="." unique_id=122368677]
+transform = Transform3D(0.5484964, 0, -0.8361529, 0, 1, 0, 0.8361529, 0, 0.5484964, 22.946987, -3.8146973e-06, -30.35422)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cliff2" unique_id=327858176]
+transform = Transform3D(0.9474626, 0, 0.3198673, 0, 1, 0, -0.3198673, 0, 0.9474626, -41.666485, 2.9628277, -36.053932)
+mesh = SubResource("BoxMesh_2x1g0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Cliff2" unique_id=2080990812]
+transform = Transform3D(0.9474626, 0, 0.3198673, 0, 1, 0, -0.3198673, 0, 0.9474626, -41.78979, 16.286156, -36.01229)
+mesh = SubResource("BoxMesh_yxkem")
+
+[editable path="Props/Model Sprinkler"]

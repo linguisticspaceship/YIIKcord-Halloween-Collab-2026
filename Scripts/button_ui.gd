@@ -1,5 +1,7 @@
 extends Node
 
+var clicked = false
+
 @export var SceneGoto = ""
 @export var QuitGame = false
 @export var Link = "" # Example: www.ONISM1999.com
@@ -12,14 +14,20 @@ extends Node
 
 var ConfirmPrefab = preload("res://Scenes/ButtonConfirmation.tscn")
 
-func _process(_delta: float) -> void:
-	pass
-
 func _on_pressed() -> void:
-
-	#if !button_pressed:
-	#	return
+	# Prevents all buttons from being clicked during transition animation
+	if Global.transition_any_check():
+		return
 	
+	clicked = true
+	Global.transition_show()
+			
+func _process(_delta: float) -> void:
+	if !clicked or Global.transition_any_check():
+		return
+		
+	### PART 1: Execute button code
+
 	# This is stupid, doesn't work anyway
 	if Confirmation:
 		var instance = ConfirmPrefab.instantiate()
@@ -51,3 +59,7 @@ func _on_pressed() -> void:
 		
 		if EnablePlayer:
 			Global.player_enable()
+			
+	### PART 2: Hide transition effect
+	Global.transition_hide()
+	
