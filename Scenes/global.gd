@@ -27,6 +27,7 @@ var sound_list = {
 		"res://Sounds/footstep_dirt_6.ogg",
 	],
 	"forest": "res://Sounds/forest ambience.ogg",
+	"windtown": "res://Sounds/windtown_ambience_short.ogg",
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
 	"static": "res://Sounds/static.ogg",
 }

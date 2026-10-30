@@ -22,6 +22,8 @@ script/source = "extends Node3D
 
 func _ready() -> void:
 	Global.in_game = false
+
+	Global.play_sound(\"windtown\",true,-12.0)
 "
 
 [sub_resource type="Animation" id="Animation_riqfo"]

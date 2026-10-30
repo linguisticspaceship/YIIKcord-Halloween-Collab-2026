@@ -50,7 +50,7 @@ func _ready() -> void:
 func staring_mechanics():
 	# Stare meter increase with page count
 	if page_percent != 0:
-		stare_max = stare_max_default - (page_percent * 0.03)
+		stare_max = stare_max_default - (page_percent * 0.02)
 	
 	#print(stare_meter)
 	
