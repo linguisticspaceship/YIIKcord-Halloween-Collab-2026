@@ -139,14 +139,14 @@ albedo_texture = ExtResource("16_2x1g0")
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 material = SubResource("StandardMaterial3D_yxkem")
-size = Vector3(51.41635, 7.9295654, 9.575928)
+size = Vector3(205.664, 31.72, 38.304)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v4os"]
 albedo_texture = ExtResource("2_gohau")
 
 [sub_resource type="BoxMesh" id="BoxMesh_riqfo"]
 material = SubResource("StandardMaterial3D_7v4os")
-size = Vector3(51.41635, 0.9890747, 9.575928)
+size = Vector3(205.664, 3.956, 38.304)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqfo"]
 albedo_texture = ExtResource("16_2x1g0")
