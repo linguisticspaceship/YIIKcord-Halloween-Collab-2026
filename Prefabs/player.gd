@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 			set_static(0.0)
 			get_tree().change_scene_to_file("res://Scenes/GameOverCutscene.tscn")
 			alive = true
+			Global.gamecont.reset()
 			Global.player_disable()
 
 func set_static(opacity=0.0):

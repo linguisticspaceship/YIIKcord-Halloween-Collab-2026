@@ -107,6 +107,7 @@ func spawn_and_despawn_timer():
 			spawn()
 
 func _process(delta: float) -> void:
+	# Static SFX
 	var static_audio = get_node("/root/Global/Current Audio/static")
 	var static_vol_min = -64.0
 	var static_vol_max = 18.0
@@ -115,8 +116,6 @@ func _process(delta: float) -> void:
 		static_audio.volume_db = move_toward(static_audio.volume_db, static_vol_max, delta * static_vol_speed * 4)
 	if not in_sight && stare_meter <= 1.0:
 		static_audio.volume_db = move_toward(static_audio.volume_db, static_vol_min, delta * static_vol_speed)
-	#print(static_audio.volume_db)
-	print(stare_meter)
 	
 	# Debug
 	Global.debug_respawntime = respawn_timer
