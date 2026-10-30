@@ -13,7 +13,8 @@ var respawn_goal = 5 # Seconds before respawn
 var in_sight = false
 
 var stare_meter = 0.0
-var stare_max = 5.0 # How many seconds before GAME OVER!
+var stare_max = 4.0 # How many seconds before GAME OVER!
+var stare_max_default = 4.0 # Default value
 
 var jumpscare_play_sfx = false
 
@@ -47,6 +48,10 @@ func _ready() -> void:
 	Global.play_sound("static",true,-64.0)
 
 func staring_mechanics():
+	#Global.gamecont.pages_collected
+	if page_percent != 0:
+		stare_max = stare_max_default - (page_percent * 0.03)
+		print(stare_max)
 	
 	#print(stare_meter)
 	
