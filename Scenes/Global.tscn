@@ -3,6 +3,14 @@
 [ext_resource type="Script" uid="uid://dj00dvgldmxny" path="res://Scenes/global.gd" id="1_qm544"]
 [ext_resource type="Script" uid="uid://dni0egj0tmtjl" path="res://Scripts/game_controller.gd" id="1_uavi6"]
 [ext_resource type="PackedScene" uid="uid://cvn6o2b7kwa64" path="res://Prefabs/Player.tscn" id="3_qm544"]
+[ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_ybmq8"]
+[ext_resource type="Texture2D" uid="uid://cuyppkvy0hx6w" path="res://Sprites/BG LOOP.png" id="5_ybmq8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jolqt"]
+shader = ExtResource("4_ybmq8")
+shader_parameter/motion = Vector2(32, 32)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="Animation" id="Animation_22hhr"]
 length = 0.001
@@ -111,6 +119,16 @@ offset_right = 2000.0
 offset_bottom = 2000.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Transition/ColorRect" unique_id=1372838028]
+modulate = Color(1, 1, 1, 0.39607844)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jolqt")
+layout_mode = 0
+offset_right = 1490.0
+offset_bottom = 793.0
+mouse_filter = 2
+texture = ExtResource("5_ybmq8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition" unique_id=798745932]
 libraries/ = SubResource("AnimationLibrary_22hhr")

@@ -43,8 +43,8 @@ func player_enable():
 	$"Player/Camera3D".current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# RoryCat
-	if get_node_or_null("/root/TestArea/RoryCat") != null:
-		$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_PAUSABLE
+	#if get_node_or_null("/root/TestArea/RoryCat") != null:
+	#	$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_PAUSABLE
 	
 func player_disable():
 	$"Player".process_mode = PROCESS_MODE_DISABLED
