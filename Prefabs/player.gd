@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var speed = 0 # Current speed
-const speed_walk = 4
-const speed_sprint = 8
+const speed_walk = 5
+const speed_sprint = 7
 var sprinting = false
 const fall_acceleration = 30
 
