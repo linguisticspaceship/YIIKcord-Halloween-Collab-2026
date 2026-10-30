@@ -61,8 +61,12 @@ func look_at_rorycat(strength=40):
 	self.transform = self.transform.interpolate_with(trans, strength * get_process_delta_time())
 	
 func _input(event: InputEvent) -> void:
-	if (Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) and event is InputEventMouseButton: 
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if !Global.mobile:
+		if (Input.mouse_mode != Input.MOUSE_MODE_CAPTURED) and event is InputEventMouseButton: 
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Global.mobile:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	movement_rot(event)
 	

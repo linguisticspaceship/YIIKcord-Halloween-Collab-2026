@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://iodraetkg1f3" path="res://Prefabs/player.gd" id="1_um8lo"]
 [ext_resource type="ArrayMesh" uid="uid://bq7te88vjt02l" path="res://Models/FBX Source/RoryCat.obj" id="2_b43ah"]
 [ext_resource type="Texture2D" uid="uid://b1hctqcoow7rg" path="res://Sprites/Cursor.png" id="2_x3d5u"]
+[ext_resource type="Texture2D" uid="uid://c5hse02ecc1ck" path="res://Sprites/MobileSprint_Normal.png" id="3_3ygst"]
 [ext_resource type="PackedScene" uid="uid://do5li8fqmlfs1" path="res://Prefabs/SpinningPicture.tscn" id="4_gg3t4"]
+[ext_resource type="Texture2D" uid="uid://b0kyyg0gnx1k7" path="res://Sprites/MobileSprint_Pressed.png" id="4_lhekp"]
 [ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="4_shmu5"]
 [ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="4_vxq8l"]
-[ext_resource type="Texture2D" uid="uid://fxhqyxebmgqr" path="res://Sprites/Cursor Hover.png" id="8_3ygst"]
+[ext_resource type="Theme" uid="uid://n2cmyeehbjoi" path="res://ButtonTheme.tres" id="5_lhekp"]
 
 [sub_resource type="Shader" id="Shader_javds"]
 code = "shader_type spatial;
@@ -220,6 +222,15 @@ height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(0.2, 0.15, 2.5633926)
+
+[sub_resource type="GDScript" id="GDScript_lhekp"]
+resource_name = "pausebutton"
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	if get_node_or_null(\"/root/Global/Settings\") == null:
+		Global.create_pause_menu()
+"
 
 [sub_resource type="Animation" id="Animation_3ygst"]
 resource_name = "Hide"
@@ -441,22 +452,13 @@ offset_right = 40.0
 grow_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(150, -150)
+offset_transform_visual_only = false
+action_left = &"MoveLeft"
+action_right = &"MoveRight"
+action_up = &"MoveForward"
+action_down = &"MoveBackward"
 
 [node name="Joystick_Look" type="VirtualJoystick" parent="UI/Mobile Controls" unique_id=2145154227]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-offset_transform_enabled = true
-offset_transform_position = Vector2(-150, -150)
-
-[node name="Control" type="Control" parent="UI/Mobile Controls" unique_id=68636885]
 visible = false
 layout_mode = 1
 anchors_preset = 3
@@ -470,12 +472,23 @@ grow_horizontal = 0
 grow_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-150, -150)
+offset_transform_visual_only = false
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="UI/Mobile Controls/Control" unique_id=251258432]
-texture_normal = ExtResource("2_x3d5u")
-texture_pressed = ExtResource("8_3ygst")
-action = "Interact"
+[node name="SprintButton" type="TouchScreenButton" parent="UI/Mobile Controls" unique_id=251258432]
+modulate = Color(1, 1, 1, 0.35686275)
+position = Vector2(941, 429)
+texture_normal = ExtResource("3_3ygst")
+texture_pressed = ExtResource("4_lhekp")
+action = "Sprint"
 visibility_mode = 1
+
+[node name="PauseButton" type="Button" parent="UI/Mobile Controls" unique_id=1131268255]
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 44.0
+theme = ExtResource("5_lhekp")
+text = "Pause Menu"
+script = SubResource("GDScript_lhekp")
 
 [node name="Container" type="Container" parent="UI" unique_id=647052690]
 layout_mode = 1
@@ -490,6 +503,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Pointer" type="TextureRect" parent="UI/Container" unique_id=1157071435]
 layout_mode = 2
@@ -498,6 +512,7 @@ texture = ExtResource("2_x3d5u")
 [node name="DEBUGINFO" type="Control" parent="UI/Container" unique_id=1507742002]
 visible = false
 layout_mode = 2
+mouse_filter = 2
 
 [node name="DebugText" type="RichTextLabel" parent="UI/Container/DEBUGINFO" unique_id=1571568335]
 layout_mode = 1
@@ -505,6 +520,7 @@ offset_left = -544.0
 offset_top = -292.0
 offset_right = 32.0
 offset_bottom = 172.0
+mouse_filter = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 24
 text = "Weekend Woman"
@@ -514,6 +530,7 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="PageCounter" type="RichTextLabel" parent="UI/Collect" unique_id=1914774933]
 layout_mode = 1
@@ -528,6 +545,7 @@ offset_right = 751.0
 offset_bottom = 160.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 24
 theme_override_font_sizes/normal_font_size = 64
@@ -549,6 +567,7 @@ offset_right = 944.0
 offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_font_sizes/normal_font_size = 24
@@ -565,6 +584,7 @@ offset_left = 885.0
 offset_top = 380.0
 offset_right = 1591.0
 offset_bottom = 1032.0
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="UI/Collect/SubViewportContainer" unique_id=2076672255]
 transparent_bg = true
@@ -584,6 +604,7 @@ material = SubResource("ShaderMaterial_gg3t4")
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 657.0
+mouse_filter = 2
 texture = ExtResource("4_shmu5")
 
 [node name="FootstepSFXTimer" type="Timer" parent="." unique_id=1059493894]
@@ -592,4 +613,5 @@ one_shot = true
 
 [connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
 [connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]
+[connection signal="pressed" from="UI/Mobile Controls/PauseButton" to="UI/Mobile Controls/PauseButton" method="_on_pressed"]
 [connection signal="timeout" from="UI/Collect/Timer" to="." method="_on_pagecounter_timer_timeout"]

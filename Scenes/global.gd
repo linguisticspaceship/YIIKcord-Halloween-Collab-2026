@@ -34,6 +34,7 @@ var sound_list = {
 
 var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
+var mobile = false
 
 func player_enable():
 	settings_reload()
@@ -114,9 +115,12 @@ func read(group="test_group",key="test_key",default=false):
 func _input(_event: InputEvent) -> void:
 	if $"Player".visible:
 		if Input.is_action_just_pressed("Menu") && !get_node_or_null("/root/Global/Settings"):
-			var instance = settings_prefab.instantiate()
-			add_child(instance)
-			player_disable()
+			create_pause_menu()
+
+func create_pause_menu():
+	var instance = settings_prefab.instantiate()
+	add_child(instance)
+	player_disable()
 
 func _ready() -> void:
 	
@@ -127,7 +131,10 @@ func _ready() -> void:
 	player_disable()
 	
 	# Toggle mobile controls
-	if OS.get_name() == "Android" or OS.get_name() == "iOS":
+	if OS.has_feature("web_android") or OS.has_feature("web_ios") or 1+1==2:
+		mobile = true
+		
+	if mobile:
 		$"Player/UI/Mobile Controls".visible = true
 	else:
 		$"Player/UI/Mobile Controls".visible = false
