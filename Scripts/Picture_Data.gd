@@ -67,13 +67,14 @@ var list : Dictionary = {
 		"author": "despair_ys",
 	},
 	"chceno_1": {
-		"writing": true, ### UNIMPLEMENTED
+		"writing": true,
 		"path": "res://Sprites/Fanart/Note.png",
 		"link": "https://onism1999.freeforums.net/thread/87/circles-broken-spooky-stories",
 		"author": "chceno31",
 	},
-	"chenichii_1": { ### UNADDED
-		"video": true, ### UNIMPLEMENTED
+	"chenichii_1": {
+		"video": true,
+		"path": "res://Sprites/Fanart/chenichii_freezeframe.png",
 		"link": "https://x.com/chenichii_",
 		"author": "chenichii_",
 	},

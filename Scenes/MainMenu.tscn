@@ -137,16 +137,16 @@ size = Vector3(85.471054, 1, 20)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxkem"]
 albedo_texture = ExtResource("16_2x1g0")
 
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+[sub_resource type="BoxMesh" id="BoxMesh_riqfo"]
 material = SubResource("StandardMaterial3D_yxkem")
-size = Vector3(205.664, 31.72, 38.304)
+size = Vector3(51.416, 31.72, 9.576)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7v4os"]
 albedo_texture = ExtResource("2_gohau")
 
-[sub_resource type="BoxMesh" id="BoxMesh_riqfo"]
+[sub_resource type="BoxMesh" id="BoxMesh_7v4os"]
 material = SubResource("StandardMaterial3D_7v4os")
-size = Vector3(205.664, 3.956, 38.304)
+size = Vector3(51.416, 0.989, 9.576)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_riqfo"]
 albedo_texture = ExtResource("16_2x1g0")
@@ -308,12 +308,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.820231, 0, -12.366941
 [node name="PicketFence15" parent="Props/Fences" unique_id=1141811261 instance=ExtResource("12_2qhrf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 7.5895205, 0, -12.366941)
 
-[node name="PicketFence22" parent="Props/Fences" unique_id=824050546 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 36.39005, 0, -12.366941)
-
-[node name="PicketFence23" parent="Props/Fences" unique_id=1601974755 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 34.175373, 0, -12.366941)
-
 [node name="PicketFence24" parent="Props/Fences" unique_id=1617221895 instance=ExtResource("12_2qhrf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 31.944662, 0, -12.366941)
 
@@ -331,21 +325,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 23.086704, 0, -12.36694
 
 [node name="PicketFence16" parent="Props/Fences" unique_id=995844981 instance=ExtResource("12_2qhrf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 5.3748446, 0, -12.366941)
-
-[node name="PicketFence17" parent="Props/Fences" unique_id=2112732909 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -32.23028, 0, -12.366941)
-
-[node name="PicketFence18" parent="Props/Fences" unique_id=898049855 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -34.444958, 0, -12.366941)
-
-[node name="PicketFence19" parent="Props/Fences" unique_id=1419200375 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -36.67567, 0, -12.366941)
-
-[node name="PicketFence20" parent="Props/Fences" unique_id=941156917 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -38.890347, 0, -12.366941)
-
-[node name="PicketFence21" parent="Props/Fences" unique_id=99913121 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -41.088245, 0, -12.366941)
 
 [node name="PicketFence25" parent="Props/Fences" unique_id=1402652484 instance=ExtResource("12_2qhrf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -14.5045185, 0, -12.366941)
@@ -367,9 +346,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.57715, 0, -12.36694
 
 [node name="PicketFence31" parent="Props/Fences" unique_id=1137145805 instance=ExtResource("12_2qhrf")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -27.807863, 0, -12.366941)
-
-[node name="PicketFence32" parent="Props/Fences" unique_id=985329189 instance=ExtResource("12_2qhrf")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -30.02254, 0, -12.366941)
 
 [node name="Model Sprinkler" parent="Props" unique_id=87343727 instance=ExtResource("15_73sgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.319185, 0, -24.364632)
@@ -491,12 +467,12 @@ transform = Transform3D(0.28463694, 0, -0.9586354, 0, 1, 0, 0.9586354, 0, 0.2846
 [node name="Cliff" type="Node3D" parent="." unique_id=1360111909]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cliff" unique_id=1036628709]
-transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, 2.1612034, -25.880266)
-mesh = SubResource("BoxMesh_g4v7s")
+transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, -10.036182, -25.880266)
+mesh = SubResource("BoxMesh_riqfo")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Cliff" unique_id=173945411]
-transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, 6.4794827, -25.880266)
-mesh = SubResource("BoxMesh_riqfo")
+transform = Transform3D(0.9474624, 0, 0.31986716, 0, 1, 0, -0.31986716, 0, 0.9474624, -27.059456, 6.284685, -25.880266)
+mesh = SubResource("BoxMesh_7v4os")
 
 [node name="Cliff2" type="Node3D" parent="." unique_id=122368677]
 transform = Transform3D(0.5484964, 0, -0.8361529, 0, 1, 0, 0.8361529, 0, 0.5484964, 22.946987, -3.8146973e-06, -30.35422)

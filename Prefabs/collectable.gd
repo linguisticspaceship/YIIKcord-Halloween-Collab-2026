@@ -14,8 +14,11 @@ var texture_width
 var texture_height
 
 func _ready() -> void:
+	# HARDCODED.
 	if manual and video:
-		pic_selected = "chenichii_1" # HARDCODED.
+		if Global.read("gallery_unlocked","chenichii_1",false) == true:
+			queue_free()
+		pic_selected = "chenichii_1"
 		$MeshInstance3DFront.visible = false
 		$MeshInstance3DBack.visible = false
 		$TAPE.visible = true

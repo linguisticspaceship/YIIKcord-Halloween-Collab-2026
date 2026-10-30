@@ -34,6 +34,8 @@ func _ready() -> void:
 						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 4
 					\"oyiiixenia_1\":
 						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 8
+					\"chenichii_1\":
+						GalleryPicture_temp.get_node(\"GalleryPicture\").custom_maximum_size.y = texture_height / 2
 			
 			var author = PictureData.list[x][\"author\"]
 			var link = PictureData.list[x].get(\"link\",\"\")
