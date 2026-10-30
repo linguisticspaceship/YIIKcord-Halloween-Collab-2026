@@ -16,7 +16,8 @@ var in_game = false # Set to false in Main Menu
 # If multiple filenames are listed, one will be selected randomly.
 var sound_list = {
 	"jumpscare": "res://Sounds/Jumpscare.ogg",
-	"evil_meow": "res://Sounds/evil_meow.ogg",
+	"evil_meow": "res://Sounds/evil meow.ogg",
+	"game_over": "res://Sounds/deathsound.ogg",
 	"footstep_dirt": [
 		"res://Sounds/footstep_dirt_1.ogg",
 		"res://Sounds/footstep_dirt_2.ogg",

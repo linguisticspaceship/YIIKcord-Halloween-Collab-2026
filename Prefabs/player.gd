@@ -15,6 +15,9 @@ var godmode = false # DEBUG
 
 var SpawnScript : Node
 
+var gameover_timer = 0.0
+const gameover_timer_goal = 2.0
+
 func _process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -23,6 +26,14 @@ func _process(delta: float) -> void:
 	if alive:
 		movement_pos()
 	pointer_change()
+	
+	if !alive:
+		gameover_timer = move_toward(gameover_timer, gameover_timer_goal, get_process_delta_time())
+	
+		if gameover_timer >= gameover_timer_goal:
+			set_static(0.0)
+			get_tree().change_scene_to_file("res://Scenes/GameOverCutscene.tscn")
+			Global.player_disable()
 
 func set_static(opacity=0.0):
 	if godmode:
@@ -39,7 +50,7 @@ func kill_me(): # Executed by RoryCat object
 	alive = false
 	speed = 0
 	look_at_rorycat(40)
-	
+		
 func look_at_rorycat(strength=40):
 	var rory_cat = get_node("/root/TestArea/RoryCat")
 	#look_at(Vector3(rory_cat.position.x, rory_cat.position.y, rory_cat.position.z))

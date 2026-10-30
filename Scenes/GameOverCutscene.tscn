@@ -4,11 +4,42 @@
 [ext_resource type="Texture2D" uid="uid://mejruoul0ij0" path="res://Texture/RoryCatEvil.png" id="2_0fi14"]
 [ext_resource type="Texture2D" uid="uid://cigxhl8pdcj4r" path="res://Texture/Static.png" id="3_ll0s1"]
 
+[sub_resource type="GDScript" id="GDScript_javds"]
+script/source = "extends Node3D
+
+var timer = 0.0
+@export var timer_goal = 1.8
+@export var scene = \"res://Scenes/MainMenu.tscn\"
+var timer_has_met_goal = false
+
+func _ready() -> void:
+	Global.play_sound(\"game_over\", true, 0.0)
+	Global.play_sound(\"static\", true, 0.0)
+
+func _process(delta: float) -> void:
+	if timer_has_met_goal:
+		return
+	
+	timer = move_toward(timer, timer_goal, delta)
+	
+	if timer >= timer_goal:
+		# Hacky
+		timer_has_met_goal = true
+		var button_prefab = load(\"res://Prefabs/button_ui.tscn\")
+		var instance = button_prefab.instantiate()
+		instance.visible = false
+		if scene != \"\":
+			instance.SceneGoto = scene
+		add_child(instance)
+		instance._on_pressed()
+"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv32y"]
 albedo_texture = ExtResource("2_0fi14")
 
 [sub_resource type="Animation" id="Animation_3yy54"]
 resource_name = "shake"
+length = 0.7
 loop_mode = 1
 tracks/0/type = "bezier"
 tracks/0/imported = false
@@ -19,7 +50,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0.7, -0.25, 0, 0.25, 0, 0.75, -0.25, 0, 0.25, 0, 0.7, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"times": PackedFloat32Array(0, 0.33333334, 0.7)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0fi14"]
@@ -46,6 +77,7 @@ func _process(delta: float) -> void:
 "
 
 [node name="GameOverCutscene" type="Node3D" unique_id=1313380107]
+script = SubResource("GDScript_javds")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1822997745]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.8052848, 0)
@@ -53,7 +85,7 @@ mesh = ExtResource("1_3yy54")
 surface_material_override/0 = SubResource("StandardMaterial3D_sv32y")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2049246909]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42030144, 0.74972874)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42030144, 0.7)
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D" unique_id=427677872]
