@@ -11,7 +11,7 @@ extends Node
 @export_tool_button("Clear Objects", "Callable") var clear_objs = clear_objects
 
 
-func populate():	
+func populate():
 	# Part 1 - Init Variables
 	var shape_x = shape.get_shape().get_size().x
 	var shape_z = shape.get_shape().get_size().z

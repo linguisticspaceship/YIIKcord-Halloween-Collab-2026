@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="4_sa0i8"]
 [ext_resource type="PackedScene" uid="uid://bwf52j2nnq843" path="res://Prefabs/Collectable.tscn" id="5_oy2kj"]
 [ext_resource type="PackedScene" uid="uid://5m7ugg44vhli" path="res://Prefabs/TVSet.tscn" id="6_sa0i8"]
+[ext_resource type="Script" uid="uid://cj7ipxp8plwmk" path="res://Scripts/RandomPrefabs.gd" id="7_43uqb"]
+[ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="7_rdb2v"]
+[ext_resource type="PackedScene" uid="uid://b1vyou5sqcwsw" path="res://Models/tree2.tscn" id="8_5q7gb"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ms4e"]
 vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
@@ -122,3 +125,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, -2.1177
 
 [node name="TVSet" parent="." unique_id=1083930186 instance=ExtResource("6_sa0i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.318978, 0.41821337, -2.7569075)
+
+[node name="TESTGROUP" type="Node3D" parent="." unique_id=983174220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.104522705, 0)
+script = ExtResource("7_43uqb")
+nodes = Array[String](["res://Models/tree.tscn", "res://Models/tree2.tscn"])
+
+[node name="@Node3D@30636" type="Node3D" parent="TESTGROUP" unique_id=253042511 instance=ExtResource("8_5q7gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.978409, 0, 9.294757)
+
+[node name="@Node3D@30637" type="Node3D" parent="TESTGROUP" unique_id=167414816 instance=ExtResource("8_5q7gb")]
+
+[node name="Tree" type="Node3D" parent="TESTGROUP" unique_id=290117269 instance=ExtResource("7_rdb2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1372781, 0, 9.037432)

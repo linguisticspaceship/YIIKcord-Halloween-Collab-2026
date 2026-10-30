@@ -95,3 +95,7 @@ volume_db = -35.0
 unit_size = 3.0
 autoplay = true
 max_distance = 15.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="AudioStreamPlayer3D" unique_id=1455201104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13195038, 0.31121826, 0.6479144)
+light_color = Color(0.7607843, 1, 1, 1)
