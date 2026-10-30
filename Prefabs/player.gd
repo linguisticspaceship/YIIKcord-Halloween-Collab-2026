@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 		if gameover_timer >= gameover_timer_goal:
 			set_static(0.0)
 			get_tree().change_scene_to_file("res://Scenes/GameOverCutscene.tscn")
+			alive = true
 			Global.player_disable()
 
 func set_static(opacity=0.0):
