@@ -2,7 +2,7 @@
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
-var debug_mode = false
+var debug_mode = true
 @onready var gamecont = $"Game Controller"
 
 var setting_mouse_sensitivity = 0.01
@@ -10,6 +10,8 @@ var setting_mouse_sensitivity = 0.01
 var settings_prefab = load("res://Scenes/Settings.tscn")
 
 var in_game = false # Set to false in Main Menu
+
+var rorycat_threat = true # If Rory Cat is active or not
 
 # TODO: Whenever the scene changes, delete all of the sounds in Current Audio. (Or maybe just the sounds that are set in loop mode)
 

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c1mxogrtejnkw"]
+
+[ext_resource type="FontFile" uid="uid://dslxb6suh2s8y" path="res://Fonts/bloodcrow.ttf" id="1_s74s8"]
+
+[sub_resource type="GDScript" id="GDScript_s74s8"]
+script/source = "extends Node3D
+
+var threat = true
+
+@onready var pullpart = $\"Model/PullyPart\"
+
+func _ready() -> void:
+	threat = Global.rorycat_threat
+
+func _process(delta: float) -> void:
+	if threat:
+		$Label3D2.text = \"ON\"
+		$Label3D2.modulate = \"#00a300\"
+		pullpart.position.x = 0.123
+		pullpart.rotation.z = deg_to_rad(-20.0)
+	if !threat:
+		$Label3D2.text = \"OFF\"
+		$Label3D2.modulate = \"#ff0000\"
+		pullpart.position.x = -0.089
+		pullpart.rotation.z = deg_to_rad(20.0)
+
+func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			threat = !threat
+			Global.rorycat_threat = threat
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s74s8"]
+albedo_color = Color(0.7989192, 0.5176405, 0.20786783, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_s74s8")
+size = Vector3(0.5, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40ymh"]
+albedo_color = Color(0.93663067, 0, 0.15410948, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+material = SubResource("StandardMaterial3D_40ymh")
+size = Vector3(0.1, 0.77, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_me6cb"]
+albedo_color = Color(0.5900005, 0, 0.08011564, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_40ymh"]
+material = SubResource("StandardMaterial3D_me6cb")
+size = Vector3(0.12, 0.05, 0.14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40ymh"]
+size = Vector3(0.8, 1.4, 0.6)
+
+[node name="Lever" type="Node3D" unique_id=188663861]
+script = SubResource("GDScript_s74s8")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1783052535]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.9999999, 0.004003048, 1.9075464, 0.26527166)
+text = "Threat"
+font = ExtResource("1_s74s8")
+font_size = 90
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=738202385]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.99999964, 0, 0, 0, 0.9999999, 0.004003048, 1.4777309, 0.26527166)
+text = "ON"
+font = ExtResource("1_s74s8")
+font_size = 70
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=942165383]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="PullyPart" type="MeshInstance3D" parent="Model" unique_id=1439723249]
+transform = Transform3D(0.93969256, -0.3420201, 0, 0.3420201, 0.93969256, 0, 0, 0, 1, -0.08913845, 0.3581794, 0.0012722015)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="Top" type="MeshInstance3D" parent="Model/PullyPart" unique_id=1861046422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37256998, 0)
+mesh = SubResource("BoxMesh_40ymh")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1722027453]
+transform = Transform3D(1.25, 0, 0, 0, 1.2499999, 0, 0, 0, 1.25, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1625703111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036623472, 0.44338462, 0.025817843)
+shape = SubResource("BoxShape3D_40ymh")
+debug_color = Color(0.9438116, 0.2057628, 0.30701146, 1)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

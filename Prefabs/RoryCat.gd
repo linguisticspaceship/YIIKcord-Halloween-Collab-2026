@@ -46,6 +46,9 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 
 func _ready() -> void:
 	Global.play_sound("static",true,-64.0)
+	
+	if !Global.rorycat_threat:
+		queue_free()
 
 func staring_mechanics():
 	# Stare meter increase with page count
@@ -74,7 +77,7 @@ func staring_mechanics():
 			return
 		
 		player_killed = true
-		Global.play_sound("evil_meow")
+		Global.play_sound("evil_meow",false,-4.0)
 		player.kill_me()
 
 func spawn():

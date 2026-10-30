@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c253l4tni3cm0" path="res://Sprites/Logo.png" id="1_64tik"]
 [ext_resource type="Texture2D" uid="uid://caepn1vpkre7a" path="res://Texture/Grass.png" id="2_gohau"]
 [ext_resource type="Texture2D" uid="uid://cbxc1mmwps2am" path="res://Texture/Skybox/Cubemap.hdr" id="3_8nkii"]
+[ext_resource type="PackedScene" uid="uid://c1mxogrtejnkw" path="res://Prefabs/lever.tscn" id="5_riqfo"]
 [ext_resource type="PackedScene" uid="uid://cgbc8iq071gf3" path="res://Models/pumpkinlantern.tscn" id="7_8607w"]
 [ext_resource type="PackedScene" uid="uid://fba2ad1hx0wa" path="res://Models/trailer2.fbx" id="8_55e58"]
 [ext_resource type="PackedScene" uid="uid://d2wqjohegiu5w" path="res://Models/trailer3.fbx" id="9_h1gke"]
@@ -204,9 +205,13 @@ displaytext_size = 75
 
 [node name="GraveButton3" parent="." unique_id=1929888587 instance=ExtResource("18_cfa3y")]
 transform = Transform3D(0.9313477, 0, -0.36413118, 0, 1, 0, 0.36413118, 0, 0.9313477, 4.558193, 0, 2.51846)
+visible = false
 scene = ""
 quit = true
 displaytext = "QUIT"
+
+[node name="Lever" parent="." unique_id=188663861 instance=ExtResource("5_riqfo")]
+transform = Transform3D(0.962124, 0, -0.27261224, 0, 1, 0, 0.27261224, 0, 0.962124, 3.9710584, 0.11017892, 2.1826167)
 
 [node name="Props" type="Node3D" parent="." unique_id=657320115]
 
