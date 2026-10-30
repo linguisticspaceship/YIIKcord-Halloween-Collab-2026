@@ -2,7 +2,7 @@
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
-var debug_mode = true
+var debug_mode = false
 @onready var gamecont = $"Game Controller"
 
 var setting_mouse_sensitivity = 0.01
@@ -131,7 +131,7 @@ func _ready() -> void:
 	player_disable()
 	
 	# Toggle mobile controls
-	if OS.has_feature("web_android") or OS.has_feature("web_ios") or 1+1==2:
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		mobile = true
 		
 	if mobile:
