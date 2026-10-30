@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dms5kdhkqb0qm"]
 
-[ext_resource type="Texture2D" uid="uid://cm4q1nqt72ub4" path="res://Sprites/MainMenu BG.png" id="1_y1ixw"]
+[ext_resource type="Texture2D" uid="uid://bt8x7pugj01ir" path="res://Sprites/MainMenu BG_Gradient.png" id="1_0m02d"]
 [ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="2_0m02d"]
+[ext_resource type="Texture2D" uid="uid://c0su6quttlr31" path="res://Sprites/GalleryLOOP.png" id="2_pylep"]
+[ext_resource type="Shader" uid="uid://dw26ylnidms58" path="res://Shaders/TextureScroll.gdshader" id="2_q2xtv"]
 
 [sub_resource type="GDScript" id="GDScript_16w0o"]
 script/source = "#@tool
@@ -65,6 +67,12 @@ func _ready() -> void:
 		$\"ScrollContainer/BoxContainer\".add_child(GalleryPicture_temp)
 "
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qmsb"]
+shader = ExtResource("2_q2xtv")
+shader_parameter/motion = Vector2(4, 6)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+
 [sub_resource type="GDScript" id="GDScript_0m02d"]
 script/source = "extends Control
 
@@ -88,7 +96,14 @@ script = SubResource("GDScript_16w0o")
 [node name="MainMenuBg" type="Sprite2D" parent="." unique_id=1492990095]
 position = Vector2(584, 339)
 scale = Vector2(0.6574074, 0.6574074)
-texture = ExtResource("1_y1ixw")
+texture = ExtResource("1_0m02d")
+
+[node name="MainMenuBg2" type="Sprite2D" parent="." unique_id=1174465108]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_1qmsb")
+position = Vector2(584, 339)
+scale = Vector2(0.6574074, 0.6574074)
+texture = ExtResource("2_pylep")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1531912874]
 layout_mode = 0
