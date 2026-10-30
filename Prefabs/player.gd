@@ -6,7 +6,7 @@ const speed_sprint = 8
 var sprinting = false
 const fall_acceleration = 30
 
-var mouse_sensitivity = 0.01 # MOVE TO SETTINGS
+var mouse_sensitivity = 0.01
 enum { MOUSE_IDLE, MOUSE_HOVER }
 var mouse_state = MOUSE_IDLE
 

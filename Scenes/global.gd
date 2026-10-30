@@ -42,12 +42,19 @@ func player_enable():
 	$"Player/UI".visible = true
 	$"Player/Camera3D".current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	# RoryCat
+	if get_node_or_null("/root/TestArea/RoryCat") != null:
+		$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_PAUSABLE
 	
 func player_disable():
 	$"Player".process_mode = PROCESS_MODE_DISABLED
 	$"Player".visible = false
 	$"Player/UI".visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	# RoryCat
+	if get_node_or_null("/root/TestArea/RoryCat") != null:
+		$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_DISABLED
+	
 
 # Maybe move this to player script? idk
 func page_counter_show(author=""):

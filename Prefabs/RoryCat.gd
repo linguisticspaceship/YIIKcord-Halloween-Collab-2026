@@ -48,10 +48,9 @@ func _ready() -> void:
 	Global.play_sound("static",true,-64.0)
 
 func staring_mechanics():
-	#Global.gamecont.pages_collected
+	# Stare meter increase with page count
 	if page_percent != 0:
 		stare_max = stare_max_default - (page_percent * 0.03)
-		print(stare_max)
 	
 	#print(stare_meter)
 	
@@ -111,7 +110,7 @@ func spawn_and_despawn_timer():
 			despawn_timer = 0
 			spawn()
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
 	# Static SFX
 	var static_audio = get_node("/root/Global/Current Audio/static")
 	var static_vol_min = -64.0
