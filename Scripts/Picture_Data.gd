@@ -42,7 +42,7 @@ var list : Dictionary = {
 	},
 	"ale_1": {
 		"path": "res://Sprites/Fanart/ale.png",
-		"author": "Rettspritee",
+		"author": "Rettsprite",
 		"link": "https://x.com/Rettsprite",
 	},
 	"jupiter_1": {

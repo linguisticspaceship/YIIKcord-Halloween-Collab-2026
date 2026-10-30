@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uytbptu3a34s"
-path="res://.godot/imported/select_all.svg-791a69a69cd2b6a9baadee0215a94edb.ctex"
+uid="uid://s28fnvx703os"
+path="res://.godot/imported/JP_FRAME_REFERENCE.png-1c522ec4aa41d6bf7398ade7e66de2fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/proton_scatter/icons/select_all.svg"
-dest_files=["res://.godot/imported/select_all.svg-791a69a69cd2b6a9baadee0215a94edb.ctex"]
+source_file="res://Sprites/Fanart/JP_FRAME_REFERENCE.png"
+dest_files=["res://.godot/imported/JP_FRAME_REFERENCE.png-1c522ec4aa41d6bf7398ade7e66de2fa.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

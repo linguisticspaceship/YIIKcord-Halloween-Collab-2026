@@ -128,13 +128,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.318978, 0.41821337, -2.756
 
 [node name="TESTGROUP" type="Node3D" parent="." unique_id=983174220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.104522705, 0)
+visible = false
 script = ExtResource("7_43uqb")
 nodes = Array[String](["res://Models/tree.tscn", "res://Models/tree2.tscn"])
 
-[node name="@Node3D@30636" type="Node3D" parent="TESTGROUP" unique_id=253042511 instance=ExtResource("8_5q7gb")]
+[node name="@Node3D@30636" parent="TESTGROUP" unique_id=253042511 instance=ExtResource("8_5q7gb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.978409, 0, 9.294757)
 
-[node name="@Node3D@30637" type="Node3D" parent="TESTGROUP" unique_id=167414816 instance=ExtResource("8_5q7gb")]
+[node name="@Node3D@30637" parent="TESTGROUP" unique_id=167414816 instance=ExtResource("8_5q7gb")]
 
-[node name="Tree" type="Node3D" parent="TESTGROUP" unique_id=290117269 instance=ExtResource("7_rdb2v")]
+[node name="Tree" parent="TESTGROUP" unique_id=290117269 instance=ExtResource("7_rdb2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1372781, 0, 9.037432)

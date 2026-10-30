@@ -43,6 +43,10 @@ func _ready() -> void:
 			if PictureData.list[x][\"author\"] == \"chceno31\":
 				GalleryPicture_temp.get_node(\"VBox/RichTextLabel\").text = \"\\\"The Circles are Broken and\\n other spooky stories\\\" by chceno31\"
 				GalleryPicture_temp.get_node(\"VBox/LinkButton\").text = \"Read Story\"
+			# SPECIAL CASE: JP24 (ANIMATED)
+			if PictureData.list[x][\"author\"] == \"JP24\":
+				GalleryPicture_temp.get_node(\"GalleryPicture\").texture = load(\"res://Sprites/Fanart/JP_FRAME_REFERENCE.png\")
+				GalleryPicture_temp.get_node(\"GalleryPicture/SPECIAL_JP\").visible = true 
 			# SPECIAL CASE: CHENICHII_ (VIDEO)
 			if PictureData.list[x][\"author\"] == \"chenichii_\":
 				var prefab = load(\"res://Prefabs/button_ui.tscn\")

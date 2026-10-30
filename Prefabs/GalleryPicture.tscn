@@ -1,8 +1,105 @@
 [gd_scene format=3 uid="uid://c4tb83llc66id"]
 
 [ext_resource type="Texture2D" uid="uid://cpfpwb6enfhhx" path="res://Sprites/Fanart/Rory_Hallowiin_Costume_by_Flesh_Smoothie.png" id="1_52mac"]
+[ext_resource type="Texture2D" uid="uid://cu543iuhfbril" path="res://Sprites/Fanart/JP24E2K/frame_00_delay-0.13s.png" id="2_4y6qm"]
 [ext_resource type="FontFile" uid="uid://dslxb6suh2s8y" path="res://Fonts/bloodcrow.ttf" id="2_16w0o"]
+[ext_resource type="Texture2D" uid="uid://b1p546uemaigc" path="res://Sprites/Fanart/JP24E2K/frame_01_delay-0.12s.png" id="3_0fx1m"]
 [ext_resource type="PackedScene" uid="uid://j3vqr4o4m3u4" path="res://Prefabs/button_ui.tscn" id="3_3u02b"]
+[ext_resource type="Texture2D" uid="uid://bh54t8uhujvk8" path="res://Sprites/Fanart/JP24E2K/frame_02_delay-0.13s.png" id="4_v5t4g"]
+[ext_resource type="Texture2D" uid="uid://dxqbqbtdud5pk" path="res://Sprites/Fanart/JP24E2K/frame_03_delay-0.12s.png" id="5_fw7p4"]
+[ext_resource type="Texture2D" uid="uid://baw7ctwcxvns0" path="res://Sprites/Fanart/JP24E2K/frame_04_delay-0.13s.png" id="6_4nd5b"]
+[ext_resource type="Texture2D" uid="uid://cwiwsrnsydrcs" path="res://Sprites/Fanart/JP24E2K/frame_05_delay-0.12s.png" id="7_iob7x"]
+[ext_resource type="Texture2D" uid="uid://ckqk3ij7g46jt" path="res://Sprites/Fanart/JP24E2K/frame_06_delay-0.13s.png" id="8_4ee72"]
+[ext_resource type="Texture2D" uid="uid://cdcoev45yfove" path="res://Sprites/Fanart/JP24E2K/frame_07_delay-0.12s.png" id="9_1gg7o"]
+[ext_resource type="Texture2D" uid="uid://d31iqwliri804" path="res://Sprites/Fanart/JP24E2K/frame_08_delay-0.13s.png" id="10_djdyk"]
+[ext_resource type="Texture2D" uid="uid://cross456r8aug" path="res://Sprites/Fanart/JP24E2K/frame_09_delay-0.12s.png" id="11_upkde"]
+[ext_resource type="Texture2D" uid="uid://c8wk4e8olaxdc" path="res://Sprites/Fanart/JP24E2K/frame_10_delay-0.13s.png" id="12_7tp0v"]
+[ext_resource type="Texture2D" uid="uid://b28n11c5fu0eo" path="res://Sprites/Fanart/JP24E2K/frame_11_delay-0.12s.png" id="13_46o6m"]
+[ext_resource type="Texture2D" uid="uid://thislknu3mwy" path="res://Sprites/Fanart/JP24E2K/frame_12_delay-0.13s.png" id="14_3xx7r"]
+[ext_resource type="Texture2D" uid="uid://c4c37smcr7dvf" path="res://Sprites/Fanart/JP24E2K/frame_13_delay-0.12s.png" id="15_hd0tr"]
+[ext_resource type="Texture2D" uid="uid://cl35bupy7nxhl" path="res://Sprites/Fanart/JP24E2K/frame_14_delay-0.13s.png" id="16_3vlbg"]
+[ext_resource type="Texture2D" uid="uid://dg78xcslrcec0" path="res://Sprites/Fanart/JP24E2K/frame_15_delay-0.12s.png" id="17_hhoqd"]
+[ext_resource type="Texture2D" uid="uid://cbrr2fbowe5gd" path="res://Sprites/Fanart/JP24E2K/frame_16_delay-0.13s.png" id="18_ap8x5"]
+[ext_resource type="Texture2D" uid="uid://c3uuy47chdis8" path="res://Sprites/Fanart/JP24E2K/frame_17_delay-0.12s.png" id="19_wh7nt"]
+[ext_resource type="Texture2D" uid="uid://bs58tigjo6slc" path="res://Sprites/Fanart/JP24E2K/frame_18_delay-0.13s.png" id="20_6816g"]
+[ext_resource type="Texture2D" uid="uid://tkrfofbot2se" path="res://Sprites/Fanart/JP24E2K/frame_19_delay-0.13s.png" id="21_f4l45"]
+[ext_resource type="Texture2D" uid="uid://h8jha123rvn3" path="res://Sprites/Fanart/Null.png" id="22_bqvt7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o02p4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4y6qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0fx1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v5t4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fw7p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4nd5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iob7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4ee72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1gg7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_djdyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_upkde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7tp0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_46o6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_3xx7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hd0tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3vlbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hhoqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ap8x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wh7nt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6816g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_f4l45")
+}],
+"loop": 1,
+"name": &"JP24",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_bqvt7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="VBoxContainer" type="VBoxContainer" unique_id=1194228659]
 offset_right = 1152.0
@@ -15,6 +112,15 @@ layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("1_52mac")
 stretch_mode = 5
+
+[node name="SPECIAL_JP" type="AnimatedSprite2D" parent="GalleryPicture" unique_id=1836678375]
+visible = false
+position = Vector2(0, 49.999996)
+scale = Vector2(0.5642857, 0.5642857)
+sprite_frames = SubResource("SpriteFrames_o02p4")
+animation = &"JP24"
+autoplay = "JP24"
+centered = false
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1050868689]
 custom_minimum_size = Vector2(512, 0)
