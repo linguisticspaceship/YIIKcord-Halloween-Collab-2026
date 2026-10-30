@@ -29,6 +29,8 @@ var dist_max = 12
 var touch_timer = 0 # Gives some leeway before they kill you for real
 const touch_timer_goal = 1.5 # Touch this long, YOU DIE!
 
+var player_killed = false
+
 @onready var player = $"/root/Global/Player"
 @onready var player_cam = $"/root/Global/Player/Camera3D"
 
@@ -64,6 +66,11 @@ func staring_mechanics():
 		
 		
 	if stare_meter >= stare_max:
+		if player_killed:
+			return
+		
+		player_killed = true
+		Global.play_sound("evil_meow")
 		player.kill_me()
 
 func spawn():
@@ -141,6 +148,11 @@ func _physics_process(delta: float) -> void:
 	if !touching_player:
 		touch_timer = move_toward(touch_timer, 0.0, get_process_delta_time())
 	if touch_timer >= touch_timer_goal:
+		if player_killed:
+			return
+		
+		player_killed = true
+		Global.play_sound("evil_meow")
 		player.kill_me()
 
 	
