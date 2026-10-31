@@ -37,7 +37,7 @@ albedo_color = Color(0.7989192, 0.5176405, 0.20786783, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 material = SubResource("StandardMaterial3D_s74s8")
-size = Vector3(0.5, 0.2, 0.2)
+size = Vector3(0, 0, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_40ymh"]
 albedo_color = Color(0.93663067, 0, 0.15410948, 1)
@@ -52,6 +52,10 @@ albedo_color = Color(0.5900005, 0, 0.08011564, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_40ymh"]
 material = SubResource("StandardMaterial3D_me6cb")
 size = Vector3(0.12, 0.05, 0.14)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_s74s8")
+height = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_40ymh"]
 size = Vector3(0.8, 1.4, 0.6)
@@ -81,6 +85,10 @@ mesh = SubResource("BoxMesh_yf5fn")
 [node name="Top" type="MeshInstance3D" parent="Model/PullyPart" unique_id=1861046422]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37256998, 0)
 mesh = SubResource("BoxMesh_40ymh")
+
+[node name="BASE" type="MeshInstance3D" parent="Model" unique_id=1269702235]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.31678462, 0)
+mesh = SubResource("CylinderMesh_g4v7s")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1722027453]
 transform = Transform3D(1.25, 0, 0, 0, 1.2499999, 0, 0, 0, 1.25, 0, 0, 0)
