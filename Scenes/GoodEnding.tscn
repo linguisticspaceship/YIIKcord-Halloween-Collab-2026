@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d23mrghnpt1qw"]
+
+[ext_resource type="Texture2D" uid="uid://c6semnpglrlrd" path="res://Sprites/GoodEnding.png" id="1_15kgp"]
+
+[sub_resource type="GDScript" id="GDScript_15kgp"]
+script/source = "extends Node
+
+var timer = 0.0
+@export var timer_goal = 5.5
+@export var scene = \"res://Scenes/MainMenu.tscn\"
+var timer_has_met_goal = false
+
+func _ready() -> void:
+	Global.play_sound(\"cheer\",false,-28.0)
+
+func _process(delta: float) -> void:
+	if timer_has_met_goal:
+		return
+	
+	timer = move_toward(timer, timer_goal, delta)
+	
+	if timer >= timer_goal:
+		# Hacky
+		timer_has_met_goal = true
+		var button_prefab = load(\"res://Prefabs/button_ui.tscn\")
+		var instance = button_prefab.instantiate()
+		instance.visible = false
+		if scene != \"\":
+			instance.SceneGoto = scene
+		add_child(instance)
+		instance._on_pressed()
+"
+
+[node name="GoodEnding" type="Node2D" unique_id=1293519581]
+script = SubResource("GDScript_15kgp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1307208902]
+texture = ExtResource("1_15kgp")
+centered = false

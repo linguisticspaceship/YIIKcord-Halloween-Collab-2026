@@ -7,7 +7,15 @@ var pictures_current = [ ] # What pictures are currently in the scene?
 
 func _process(_delta: float) -> void:
 	if pages_collected == page_goal:
-		print("You win!")
+		if get_node_or_null("/root/TestArea/RoryCat") != null:
+			$"/root/TestArea/RoryCat".queue_free()
+			
+			var button_prefab = load("res://Prefabs/button_ui.tscn") # Hacky
+			var instance = button_prefab.instantiate()
+			instance.visible = false
+			instance.SceneGoto = "res://Scenes/GoodEnding.tscn"
+			add_child(instance)
+			instance._on_pressed()
 
 func reset():
 	pages_collected = 0

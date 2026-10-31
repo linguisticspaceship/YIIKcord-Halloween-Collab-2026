@@ -32,6 +32,7 @@ var sound_list = {
 	"windtown": "res://Sounds/windtown_ambience_short.ogg",
 	"paper_pickup": "res://Sounds/Text Box Appears.ogg",
 	"static": "res://Sounds/static.ogg",
+	"cheer": "res://Sounds/FF_HN_foley_children_cheer.ogg",
 }
 
 var save_filepath = "user://yiikcord_halloween_2026.save"
@@ -47,8 +48,8 @@ func player_enable():
 	$"Player/Camera3D".current = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	# RoryCat
-	#if get_node_or_null("/root/TestArea/RoryCat") != null:
-	#	$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_PAUSABLE
+	if get_node_or_null("/root/TestArea/RoryCat") != null:
+		$"/root/TestArea/RoryCat".process_mode = PROCESS_MODE_PAUSABLE
 	
 func player_disable():
 	$"Player".process_mode = PROCESS_MODE_DISABLED
