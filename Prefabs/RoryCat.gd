@@ -63,8 +63,9 @@ func staring_mechanics():
 		speed_desired = 0
 		despawn_timer = 0
 		stare_meter = move_toward(stare_meter, stare_max, get_process_delta_time())
-		player.look_at_rorycat(1 + (page_percent * 0.1))
-		#print(1 + (page_percent * 0.1))
+		if !Global.mobile:
+			player.look_at_rorycat(1 + (page_percent * 0.1))
+			#print(1 + (page_percent * 0.1))
 	if not in_sight:
 		# 60 is a slow speed.
 		speed_desired = spd_walk * page_percent # As pages go up, faster we go.
