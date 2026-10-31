@@ -34,9 +34,19 @@ func select_picture():
 	picdata_copy.shuffle()
 	
 	for x in picdata_copy:
-		if Global.read("gallery_unlocked",x) == false && x not in Global.gamecont.pictures_current:
-			Global.gamecont.pictures_current.append(x)
-			return x
+		if Global.read("gallery_unlocked",x) == true:
+			picdata_copy.erase(x)
+	
+	for x in picdata_copy:
+		if picdata_copy.size() != 0:
+			if Global.read("gallery_unlocked",x) == false && x not in Global.gamecont.pictures_current:
+				Global.gamecont.pictures_current.append(x)
+				picdata_copy.erase(x)
+				return x
+		
+		if picdata_copy.size() == 0:
+			print("ALL IMAGES FOUND! Using random picture.")
+			return PictureData.list.keys()[randi() % PictureData.list.size()] # Random picture
 	
 	### BUG!!! This can trigger still, I think when more than 1 pic is found.
 	print("ALL IMAGES FOUND! Using random picture.")
