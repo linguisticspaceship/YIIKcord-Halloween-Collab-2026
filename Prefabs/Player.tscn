@@ -477,6 +477,10 @@ offset_transform_position = Vector2(-150, -150)
 offset_transform_visual_only = false
 joystick_size = 225.0
 tip_size = 125.0
+action_left = &"MobileLook_Left"
+action_right = &"MobileLook_Right"
+action_up = &"MobileLook_Up"
+action_down = &"MobileLook_Down"
 
 [node name="SprintButton" type="TouchScreenButton" parent="UI/Mobile Controls" unique_id=251258432]
 modulate = Color(1, 1, 1, 0.35686275)
@@ -617,7 +621,5 @@ one_shot = true
 
 [connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
 [connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]
-[connection signal="pressed" from="UI/Mobile Controls/Joystick_Look" to="." method="_on_joystick_look_pressed"]
-[connection signal="released" from="UI/Mobile Controls/Joystick_Look" to="." method="_on_joystick_look_released"]
 [connection signal="pressed" from="UI/Mobile Controls/PauseButton" to="UI/Mobile Controls/PauseButton" method="_on_pressed"]
 [connection signal="timeout" from="UI/Collect/Timer" to="." method="_on_pagecounter_timer_timeout"]

@@ -2,7 +2,10 @@
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
+
 var debug_mode = false
+var mobile = true
+
 @onready var gamecont = $"Game Controller"
 
 var setting_mouse_sensitivity = 0.01
@@ -37,7 +40,6 @@ var sound_list = {
 
 var save_filepath = "user://yiikcord_halloween_2026.save"
 var save_current = { } # What is currently loaded in save data
-var mobile = false
 
 func player_enable():
 	settings_reload()

@@ -18,9 +18,6 @@ var SpawnScript : Node
 var gameover_timer = 0.0
 const gameover_timer_goal = 2.0
 
-# Mobile
-var look_stick_pressed = false
-
 func _process(delta: float) -> void:
 	# Gravity
 	if not is_on_floor():
@@ -39,6 +36,9 @@ func _process(delta: float) -> void:
 			alive = true
 			Global.gamecont.reset()
 			Global.player_disable()
+			
+	if Global.mobile:
+		movement_rot_mobile()
 
 func set_static(opacity=0.0):
 	if godmode:
@@ -71,7 +71,8 @@ func _input(event: InputEvent) -> void:
 	if Global.mobile:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	movement_rot(event)
+	if !Global.mobile:
+		movement_rot(event)
 	
 func movement_pos():
 	if Input.is_action_pressed("Sprint"):
@@ -97,26 +98,32 @@ func movement_pos():
 	#for i in get_slide_collision_count():
 	#	var collision = get_slide_collision(i)
 	
+func movement_rot_mobile():
+	var mobile_look = Input.get_vector("MobileLook_Left","MobileLook_Right","MobileLook_Up","MobileLook_Down") * 44
+	var mouse_sensitivity_multiplier = 0.05
+	#print(mobile_look)
+	# Horizontal
+	rotate_y(-mobile_look.x * (mouse_sensitivity * mouse_sensitivity_multiplier))
+	# Vertical
+	$Camera3D.rotate_x(-mobile_look.y * (mouse_sensitivity * mouse_sensitivity_multiplier))
+	var vertical_max = 55
+	$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(vertical_max), deg_to_rad(vertical_max))
+	
 func movement_rot(event: InputEvent):
 	if !Global.mobile:
 		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 			return
-			
-	if Global.mobile:
-		if !look_stick_pressed:
-			return
-	
-	if event is InputEventMouseMotion || event is InputEventScreenDrag:
-		var mouse_sensitivity_multiplier = 1
-		if event is InputEventScreenDrag:
-			mouse_sensitivity_multiplier = 0.05
-		
-		# Horizontal
-		rotate_y(-event.relative.x * (mouse_sensitivity * mouse_sensitivity_multiplier))
-		# Vertical
-		$Camera3D.rotate_x(-event.relative.y * (mouse_sensitivity * mouse_sensitivity_multiplier))
-		var vertical_max = 55
-		$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(vertical_max), deg_to_rad(vertical_max))
+
+
+
+	if event is InputEventMouseMotion: #|| event is InputEventScreenDrag:
+		if !Global.mobile:
+			# Horizontal
+			rotate_y(-event.relative.x * (mouse_sensitivity))
+			# Vertical
+			$Camera3D.rotate_x(-event.relative.y * (mouse_sensitivity))
+			var vertical_max = 55
+			$Camera3D.rotation.x = clampf($Camera3D.rotation.x, -deg_to_rad(vertical_max), deg_to_rad(vertical_max))
 		
 func footstep_sfx():
 	#var chance = 20 # Amount of numbers to be drawn in RNG
@@ -153,10 +160,3 @@ func _on_player_grab_area_exited(area: Area3D) -> void:
 func _on_pagecounter_timer_timeout() -> void:
 	$UI/Collect/AnimationPlayer.play("Hide")
 	$UI/Collect/Timer.stop()
-
-
-func _on_joystick_look_pressed() -> void:
-	look_stick_pressed = true
-
-func _on_joystick_look_released(input_vector: Vector2) -> void:
-	look_stick_pressed = false

@@ -125,6 +125,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.759033, 0.9798007, -2.1177
 
 [node name="TVSet" parent="." unique_id=1083930186 instance=ExtResource("6_sa0i8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.318978, 0.41821337, -2.7569075)
+visible = false
 
 [node name="TESTGROUP" type="Node3D" parent="." unique_id=983174220]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.104522705, 0)
