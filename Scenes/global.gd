@@ -4,7 +4,7 @@ extends Node
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
 
 var debug_mode = false
-var mobile = true
+var mobile = false
 
 @onready var gamecont = $"Game Controller"
 

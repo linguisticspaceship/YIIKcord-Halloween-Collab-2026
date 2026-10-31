@@ -77,7 +77,7 @@ func staring_mechanics():
 			return
 		
 		player_killed = true
-		Global.play_sound("evil_meow",false,-4.0)
+		Global.play_sound("evil_meow",false,-9.0)
 		player.kill_me()
 
 func spawn():
