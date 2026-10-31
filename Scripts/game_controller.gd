@@ -6,11 +6,11 @@ var page_goal = 8
 var pictures_current = [ ] # What pictures are currently in the scene?
 
 func _process(_delta: float) -> void:
-	if pages_collected == page_goal:
-		if get_node_or_null("/root/TestArea/RoryCat") != null:
+	if pages_collected >= page_goal:
+		print("YOU WIN")
+		if get_node_or_null("/root/TestArea/RoryCat") != null :
 			$"/root/TestArea/RoryCat".queue_free()
-		if get_node_or_null("/root/TestLevel/RoryCat") != null:
-			$"/root/TestLevel/RoryCat".queue_free()
+
 			
 			Global.player_disable()
 			
