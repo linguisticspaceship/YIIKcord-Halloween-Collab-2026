@@ -107,6 +107,7 @@ offset_bottom = 669.0
 theme_override_constants/separation = 0
 
 [node name="GalleryPicture" type="TextureRect" parent="." unique_id=373611981]
+z_index = 5
 custom_maximum_size = Vector2(576, 576)
 layout_mode = 2
 size_flags_horizontal = 4
