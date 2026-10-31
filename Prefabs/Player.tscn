@@ -453,15 +453,14 @@ grow_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(150, -150)
 offset_transform_visual_only = false
-joystick_size = 200.0
-tip_size = 100.0
+joystick_size = 225.0
+tip_size = 125.0
 action_left = &"MoveLeft"
 action_right = &"MoveRight"
 action_up = &"MoveForward"
 action_down = &"MoveBackward"
 
 [node name="Joystick_Look" type="VirtualJoystick" parent="UI/Mobile Controls" unique_id=2145154227]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -469,16 +468,19 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -40.0
+offset_top = -39.0
+offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-150, -150)
 offset_transform_visual_only = false
+joystick_size = 225.0
+tip_size = 125.0
 
 [node name="SprintButton" type="TouchScreenButton" parent="UI/Mobile Controls" unique_id=251258432]
 modulate = Color(1, 1, 1, 0.35686275)
-position = Vector2(927, 416)
+position = Vector2(760, 294)
 texture_normal = ExtResource("3_3ygst")
 texture_pressed = ExtResource("4_lhekp")
 action = "Sprint"
@@ -615,5 +617,7 @@ one_shot = true
 
 [connection signal="area_entered" from="PlayerGrab" to="." method="_on_player_grab_area_entered"]
 [connection signal="area_exited" from="PlayerGrab" to="." method="_on_player_grab_area_exited"]
+[connection signal="pressed" from="UI/Mobile Controls/Joystick_Look" to="." method="_on_joystick_look_pressed"]
+[connection signal="released" from="UI/Mobile Controls/Joystick_Look" to="." method="_on_joystick_look_released"]
 [connection signal="pressed" from="UI/Mobile Controls/PauseButton" to="UI/Mobile Controls/PauseButton" method="_on_pressed"]
 [connection signal="timeout" from="UI/Collect/Timer" to="." method="_on_pagecounter_timer_timeout"]
