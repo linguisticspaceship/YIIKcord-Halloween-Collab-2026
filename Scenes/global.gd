@@ -2,7 +2,7 @@
 extends Node
 
 var audio_generic = preload("res://Prefabs/audio generic.tscn")
-var debug_mode = true
+var debug_mode = false
 @onready var gamecont = $"Game Controller"
 
 var setting_mouse_sensitivity = 0.01
