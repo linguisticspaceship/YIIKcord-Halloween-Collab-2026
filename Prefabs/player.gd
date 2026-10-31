@@ -68,7 +68,11 @@ func _input(event: InputEvent) -> void:
 	if Global.mobile:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	movement_rot(event)
+	if !Global.mobile:
+		movement_rot(event)
+	if Global.mobile:
+		if Input.is_action_pressed("Interact"):
+			movement_rot(event)
 	
 func movement_pos():
 	if Input.is_action_pressed("Sprint"):

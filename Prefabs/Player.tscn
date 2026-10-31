@@ -453,6 +453,8 @@ grow_vertical = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(150, -150)
 offset_transform_visual_only = false
+joystick_size = 200.0
+tip_size = 100.0
 action_left = &"MoveLeft"
 action_right = &"MoveRight"
 action_up = &"MoveForward"
@@ -476,7 +478,7 @@ offset_transform_visual_only = false
 
 [node name="SprintButton" type="TouchScreenButton" parent="UI/Mobile Controls" unique_id=251258432]
 modulate = Color(1, 1, 1, 0.35686275)
-position = Vector2(941, 429)
+position = Vector2(927, 416)
 texture_normal = ExtResource("3_3ygst")
 texture_pressed = ExtResource("4_lhekp")
 action = "Sprint"
@@ -484,8 +486,8 @@ visibility_mode = 1
 
 [node name="PauseButton" type="Button" parent="UI/Mobile Controls" unique_id=1131268255]
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 44.0
+offset_right = 184.0
+offset_bottom = 59.0
 theme = ExtResource("5_lhekp")
 text = "Pause Menu"
 script = SubResource("GDScript_lhekp")
