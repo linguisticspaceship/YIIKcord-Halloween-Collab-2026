@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3wwtq4rc05et" path="res://Models/water tower.fbx" id="15_7467j"]
 [ext_resource type="Texture2D" uid="uid://cd2c7iyyqpqms" path="res://Texture/Path.png" id="16_2x1g0"]
 [ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="16_n0k5y"]
+[ext_resource type="FontFile" uid="uid://dslxb6suh2s8y" path="res://Fonts/bloodcrow.ttf" id="17_riqfo"]
 [ext_resource type="PackedScene" uid="uid://mqi6sbbiscni" path="res://Prefabs/GraveButton.tscn" id="18_cfa3y"]
 
 [sub_resource type="GDScript" id="GDScript_2x1g0"]
@@ -160,6 +161,14 @@ albedo_texture = ExtResource("2_gohau")
 [sub_resource type="BoxMesh" id="BoxMesh_yxkem"]
 material = SubResource("StandardMaterial3D_2x1g0")
 size = Vector3(110, 0.989, 9.576)
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "builddate"
+script/source = "extends RichTextLabel
+
+func _ready() -> void:
+	text = \"v\" + str(ProjectSettings.get(\"application/config/version\"))
+"
 
 [node name="MainMenuTest" type="Node3D" unique_id=1137014926]
 script = SubResource("GDScript_2x1g0")
@@ -481,3 +490,22 @@ mesh = SubResource("BoxMesh_2x1g0")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Cliff2" unique_id=2080990812]
 transform = Transform3D(0.9474626, 0, 0.3198673, 0, 1, 0, -0.3198673, 0, 0.9474626, -41.78979, 16.286156, -36.01229)
 mesh = SubResource("BoxMesh_yxkem")
+
+[node name="Control" type="Control" parent="." unique_id=310644802]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1079786970]
+layout_mode = 0
+offset_right = 1141.0
+offset_bottom = 93.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/normal_font = ExtResource("17_riqfo")
+theme_override_font_sizes/normal_font_size = 24
+text = "TEST TEXT"
+horizontal_alignment = 2
+script = SubResource("GDScript_g4v7s")
