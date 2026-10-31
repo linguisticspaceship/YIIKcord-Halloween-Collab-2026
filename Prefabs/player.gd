@@ -107,7 +107,7 @@ func movement_rot(event: InputEvent):
 			return
 	
 	if event is InputEventMouseMotion || event is InputEventScreenDrag:
-		var mouse_sensitivity_multiplier = 0
+		var mouse_sensitivity_multiplier = 1
 		if event is InputEventScreenDrag:
 			mouse_sensitivity_multiplier = 0.05
 		
