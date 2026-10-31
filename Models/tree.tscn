@@ -3,9 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://b8cvu5qs82b3g" path="res://Models/tree.fbx" id="1_qb3k0"]
 [ext_resource type="ArrayOccluder3D" uid="uid://cl5y8l1bj6gm3" path="res://Models/tree.occ" id="2_swxnt"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_swxnt"]
+radius = 1.3051758
+height = 19.737549
+
 [node name="Tree" type="Node3D" unique_id=253042511]
 
 [node name="Model" parent="." unique_id=1400228868 instance=ExtResource("1_qb3k0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Model" unique_id=1075289453]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/StaticBody3D" unique_id=257653662]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 3.54751, 0)
+shape = SubResource("CapsuleShape3D_swxnt")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=569047638]
 occluder = ExtResource("2_swxnt")

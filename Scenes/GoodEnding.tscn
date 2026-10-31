@@ -11,7 +11,7 @@ var timer = 0.0
 var timer_has_met_goal = false
 
 func _ready() -> void:
-	Global.play_sound(\"cheer\",false,-28.0)
+	Global.play_sound(\"cheer\",false,-19.0)
 
 func _process(delta: float) -> void:
 	if timer_has_met_goal:

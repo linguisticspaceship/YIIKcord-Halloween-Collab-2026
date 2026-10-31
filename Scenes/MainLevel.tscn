@@ -236,12 +236,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.293926, 0.048689052, 130.
 [node name="@Node3D@23692" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1030472658 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -166.52028, 0.048689052, 150.24283)
 
-[node name="@Node3D@23693" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=450983437 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80.495224, -5.9604645e-08, 62.02405)
-
-[node name="@Node3D@23694" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=864145214 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.468918, 0.048689052, 31.75348)
-
 [node name="@Node3D@23696" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=906675933 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.046555, 0.048689052, 188.30937)
 
@@ -383,9 +377,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -185.90024, -5.9604645e-08, 1
 [node name="@Node3D@23747" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=222792537 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.81926, -5.9604645e-08, 138.2453)
 
-[node name="@Node3D@23748" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1678417038 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.070961, 0.048689052, 145.49226)
-
 [node name="@Node3D@23749" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1028325714 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.157619, -5.9604645e-08, 198.4924)
 
@@ -476,9 +467,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.726692, -5.9604645e-08, 19
 [node name="@Node3D@23778" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=288942268 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0923, -5.9604645e-08, 24.402765)
 
-[node name="@Node3D@23779" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=520665552 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.322315, 0.048689052, 148.70636)
-
 [node name="@Node3D@23780" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=669238895 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.69445, 0.048689052, -23.456612)
 
@@ -514,9 +502,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.7406, -5.9604645e-08, -3
 
 [node name="@Node3D@23791" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=311077432 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -192.96822, -5.9604645e-08, 101.56518)
-
-[node name="@Node3D@23792" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1642315534 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.70873, 0.048689052, 181.8657)
 
 [node name="@Node3D@23793" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=713585467 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.16686, -5.9604645e-08, 19.9968)
@@ -641,9 +626,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.873814, 0.048689052, 84.200
 [node name="@Node3D@23823" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=111157231 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -207.53156, 0.048689052, 209.23215)
 
-[node name="@Node3D@23825" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=697821267 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182.03268, 0.048689052, 180.1709)
-
 [node name="@Node3D@23826" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1206666956 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.157166, 0.048689052, 85.64913)
 
@@ -655,9 +637,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.52157, 0.048689112, 151.33
 
 [node name="@Node3D@23829" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=622450057 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.464714, 0.048689052, 109.799934)
-
-[node name="@Node3D@23830" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1201918928 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.86258, -5.9604645e-08, 133.69337)
 
 [node name="@Node3D@23831" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1314995170 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.088276, 0.048689052, 26.631144)
@@ -686,9 +665,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.36429, 0.048689052, 100.23
 [node name="@Node3D@23839" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=367693286 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.7507, 0.048689052, 6.597357)
 
-[node name="@Node3D@23840" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2092384148 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.00612, -5.9604645e-08, 188.92223)
-
 [node name="@Node3D@23841" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1201837687 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.35292, 0.048689052, 201.33658)
 
@@ -713,9 +689,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.50763, -5.9604645e-08, -
 [node name="@Node3D@23848" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1899263433 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.050316, -5.9604645e-08, 197.3483)
 
-[node name="@Node3D@23849" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1330734497 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.436043, -5.9604645e-08, 158.76389)
-
 [node name="@Node3D@23850" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1005358954 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.334885, 0.048689052, 30.061611)
 
@@ -724,9 +697,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.74214, -5.9604645e-08, 32.
 
 [node name="@Node3D@23852" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2078417724 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7873, 0.048689052, 9.59032)
-
-[node name="@Node3D@23853" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=809816286 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.74734, 0.048689052, 68.901596)
 
 [node name="@Node3D@23854" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=885278351 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.279331, 0.048689052, 206.916)
@@ -742,9 +712,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.355042, 0.048689052, 175.4
 
 [node name="@Node3D@23858" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=561599804 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.653275, -5.9604645e-08, 189.82129)
-
-[node name="@Node3D@23859" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1027440490 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.71547, 0.048689052, 112.22209)
 
 [node name="@Node3D@23860" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=538924958 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.13419, 0.048689052, 168.49017)
@@ -764,14 +731,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.822693, -5.9604645e-08, 2
 [node name="_Node3D_23864" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=36673950 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.355885, -5.9604645e-08, 7.627433)
 
-[node name="@Node3D@23865" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=589958883 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.11865, 0.048689052, 166.84908)
-
 [node name="@Node3D@23866" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=631117465 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.675995, -5.9604645e-08, 147.71637)
-
-[node name="@Node3D@23867" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1963682394 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.036476, -5.9604645e-08, 65.89975)
 
 [node name="@Node3D@23868" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1849677134 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.963642, -5.9604645e-08, 73.8584)
@@ -890,12 +851,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.144867, 0.048689052, 208.6
 [node name="@Node3D@23910" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2115308203 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.8577, 0.048689052, 179.72449)
 
-[node name="@Node3D@23911" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1132929888 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.657974, 0.048689052, 70.436)
-
-[node name="@Node3D@23912" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=468236388 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.12845, -5.9604645e-08, 130.5091)
-
 [node name="@Node3D@23913" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1730593663 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.254601, 0.048689052, 1.8495712)
 
@@ -965,14 +920,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.740486, -5.9604645e-08, 1
 [node name="@Node3D@23935" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2133124331 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -193.62708, -5.9604645e-08, 171.18819)
 
-[node name="@Node3D@23936" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1058547904 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.679813, 0.048689052, 149.55348)
-
 [node name="@Node3D@23937" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1709605990 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.553654, -5.9604645e-08, -1.938839)
-
-[node name="@Node3D@23938" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2140481749 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.720097, 0.048689052, 63.371098)
 
 [node name="@Node3D@23939" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=321717640 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.208435, -5.9604645e-08, 38.398674)
@@ -1103,9 +1052,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.320274, 0.048689052, -13
 [node name="@Node3D@23988" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1735125871 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.72643, -5.9604645e-08, 154.03807)
 
-[node name="@Node3D@23989" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=419162798 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.334557, -5.9604645e-08, 155.6034)
-
 [node name="@Node3D@23990" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1519177047 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.34873, -5.9604645e-08, 75.201744)
 
@@ -1213,9 +1159,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.701599, 0.048689052, -3.749
 
 [node name="@Node3D@24028" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1313294581 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.210094, -5.9604645e-08, -37.79252)
-
-[node name="@Node3D@24029" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1566347133 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.324425, -5.9604645e-08, 127.02175)
 
 [node name="@Node3D@24030" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=335431358 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.99287, -5.9604645e-08, 119.68811)
@@ -1493,9 +1436,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.99527, 0.048689052, 172.35
 [node name="@Node3D@24124" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=259091093 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.47841, -5.9604645e-08, 192.4266)
 
-[node name="@Node3D@24125" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1547726049 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.087616, 0.048689052, 108.85695)
-
 [node name="@Node3D@24126" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=689970755 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9333954, 0.048689052, 207.89287)
 
@@ -1522,9 +1462,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.91084, -5.9604645e-08, 14
 
 [node name="@Node3D@24134" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2078904405 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.77702, -5.9604645e-08, 204.60324)
-
-[node name="@Node3D@24135" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1649809608 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.22337, 0.048689052, 193.48001)
 
 [node name="@Node3D@24136" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1292507475 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186.96715, 0.048689052, 86.052666)
@@ -1787,9 +1724,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.523914, 0.048689052, 83.2
 [node name="@Node3D@24226" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=876033514 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.01015, 0.048689052, -31.736176)
 
-[node name="@Node3D@24228" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=370818976 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.5643, 0.048689052, 183.0806)
-
 [node name="@Node3D@24229" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=522934047 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.19624, 0.048689052, 136.30083)
 
@@ -1882,9 +1816,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.78857, -5.9604645e-08, 16
 
 [node name="@Node3D@24259" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1049604524 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.47186, -5.9604645e-08, 140.37097)
-
-[node name="@Node3D@24260" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1496004592 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.638016, 0.048689052, 86.01738)
 
 [node name="@Node3D@24261" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1585521044 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.35764, -5.9604645e-08, 53.317)
@@ -2075,9 +2006,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1257057, 0.048689052, 143.
 [node name="@Node3D@24324" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1901371624 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.120995, 0.048689052, 155.81343)
 
-[node name="@Node3D@24325" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=462451728 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.980927, -5.9604645e-08, 59.311012)
-
 [node name="@Node3D@24327" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=486647832 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.25245, -5.9604645e-08, 97.71613)
 
@@ -2218,9 +2146,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.49068, -5.9604645e-08, 5
 
 [node name="@Node3D@24378" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=636701558 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.81882, -5.9604645e-08, 173.14714)
-
-[node name="@Node3D@24379" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1456427589 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.216362, -5.9604645e-08, 49.22973)
 
 [node name="@Node3D@24380" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1252446188 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.228893, 0.048689052, 149.15083)
@@ -2372,9 +2297,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.531075, -5.9604645e-08, 1
 [node name="@Node3D@24436" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1929322215 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.4537, 0.048689052, 7.544607)
 
-[node name="@Node3D@24437" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=508524512 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.559586, -5.9604645e-08, 184.89957)
-
 [node name="@Node3D@24438" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=911787125 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.55325, 0.048689052, 210.61781)
 
@@ -2446,9 +2368,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.690254, 0.048689052, 90.95
 
 [node name="@Node3D@24463" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=16292636 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.666176, -5.9604645e-08, 80.561935)
-
-[node name="@Node3D@24464" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1491761156 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.374237, 0.048689052, 162.10379)
 
 [node name="@Node3D@24465" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=583567232 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.589756, -5.9604645e-08, 196.68509)
@@ -2552,9 +2471,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.7769, 0.048689052, 202.42
 [node name="@Node3D@24497" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=662283124 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -189.926, 0.048689052, -32.60971)
 
-[node name="@Node3D@24498" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=406297786 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.2541, 0.048689052, 73.49645)
-
 [node name="@Node3D@24499" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1225275982 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.75258, -5.9604645e-08, 22.505016)
 
@@ -2615,9 +2531,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.80507, -5.9604645e-08, 8.1
 [node name="@Node3D@24519" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=260550258 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.47537, -5.9604645e-08, -16.748932)
 
-[node name="@Node3D@24520" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=352441438 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.37349, 0.048689052, 88.4433)
-
 [node name="@Node3D@24521" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1718603199 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.33706, 0.048689052, 49.310562)
 
@@ -2629,9 +2542,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.94053, 0.048689052, 123.8
 
 [node name="@Node3D@24524" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1157036283 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.06451, -5.9604645e-08, 157.083)
-
-[node name="@Node3D@24525" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2058090732 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.136375, -5.9604645e-08, 167.7441)
 
 [node name="@Node3D@24526" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=623942225 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -83.52364, -5.9604645e-08, 73.816)
@@ -2662,9 +2572,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.130974, 0.048689052, 80.0
 
 [node name="@Node3D@24538" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1737159472 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.789177, 0.048689052, 18.499922)
-
-[node name="@Node3D@24539" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=745515933 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.13184, -5.9604645e-08, 186.80782)
 
 [node name="@Node3D@24540" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=746112662 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -141.13586, -5.9604645e-08, 142.85448)
@@ -2752,9 +2659,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.478134, 0.048689052, 186.
 
 [node name="@Node3D@24570" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1572471590 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.38846, 0.048689052, 151.88576)
-
-[node name="@Node3D@24571" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1421163095 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.598404, 0.048689052, 184.40614)
 
 [node name="@Node3D@24572" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1275755211 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.12168, -5.9604645e-08, -24.118408)
@@ -2949,7 +2853,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.62967, -5.9604645e-08, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.122955, 0.048689052, 172.66742)
 
 [node name="@Node3D@24645" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1222703866 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.346542, -5.9604645e-08, 70.613045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.731396, -5.9604645e-08, 70.18428)
 
 [node name="@Node3D@24646" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2082059831 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.44363, 0.048689052, -24.481453)
@@ -2975,9 +2879,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.86369, -5.9604645e-08, 12
 [node name="@Node3D@24653" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=462386393 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.167557, 0.048689052, 15.147965)
 
-[node name="@Node3D@24654" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1003283884 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.960526, 0.048689052, 74.38594)
-
 [node name="@Node3D@24655" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1301762897 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.69503, 0.048689052, -9.01038)
 
@@ -3002,17 +2903,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.964745, -5.9604645e-08, 
 [node name="@Node3D@24663" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=280365608 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.433624, -5.9604645e-08, 130.38153)
 
-[node name="@Node3D@24664" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=12913660 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.88778, -5.9604645e-08, 160.8146)
-
 [node name="@Node3D@24665" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=291425127 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.48534, -5.9604645e-08, 120.03947)
 
 [node name="@Node3D@24666" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=325134429 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.54222, 0.048689052, 22.02103)
-
-[node name="@Node3D@24667" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1386346216 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.33505, 0.048689052, 66.25794)
 
 [node name="@Node3D@24668" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=595341174 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.64237, 0.048689052, -25.714188)
@@ -3150,7 +3045,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.028503, 0.048689052, 13.82
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.59896, -5.9604645e-08, 56.790043)
 
 [node name="@Node3D@24717" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=935409840 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.68446, -5.9604645e-08, 77.01704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.75864, -5.9604645e-08, 72.08795)
 
 [node name="@Node3D@24719" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1966563591 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0977325, 0.048689052, 136.15547)
@@ -3218,9 +3113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.998444, -5.9604645e-08, 37
 [node name="@Node3D@24736" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=775141495 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.473457, -5.9604645e-08, 39.246395)
 
-[node name="@Node3D@24737" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=712156050 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.853283, 0.048689052, 68.78172)
-
 [node name="@Node3D@24738" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1682436745 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.268738, -5.9604645e-08, -29.066513)
 
@@ -3229,9 +3121,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.554054, 0.048689052, 184.0
 
 [node name="@Node3D@24740" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1333770730 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.20478, 0.048689052, 115.54571)
-
-[node name="@Node3D@24742" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1679486066 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.14189, -5.9604645e-08, 190.78413)
 
 [node name="@Node3D@24743" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=959603061 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.12316, -5.9604645e-08, 187.374)
@@ -3247,9 +3136,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.605537, 0.048689052, 118.
 
 [node name="@Node3D@24747" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=169481711 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.79213, -5.9604645e-08, 131.09814)
-
-[node name="@Node3D@24748" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=332670568 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.3632, -5.9604645e-08, 172.67683)
 
 [node name="@Node3D@24749" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1551213296 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.452492, 0.048689052, -26.02353)
@@ -3295,9 +3181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.0113, -5.9604645e-08, -2
 
 [node name="@Node3D@24764" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=751711313 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.46635, -5.9604645e-08, 73.30847)
-
-[node name="@Node3D@24765" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=40721158 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -181.3507, -5.9604645e-08, 183.31476)
 
 [node name="@Node3D@24766" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1656999801 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.70544, 0.048689052, 92.48641)
@@ -3346,9 +3229,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.66405, -5.9604645e-08, 1
 
 [node name="@Node3D@24781" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1590613494 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97.64645, 0.048689052, 90.59035)
-
-[node name="@Node3D@24782" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1492388430 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -96.40481, -5.9604645e-08, 169.60136)
 
 [node name="@Node3D@24783" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1960937881 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.30872, 0.048689052, -15.662819)
@@ -3590,12 +3470,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.48272, 0.048689052, 54.37
 [node name="@Node3D@24868" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=675181049 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.797283, 0.048689052, -8.859219)
 
-[node name="@Node3D@24869" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2025166023 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -174.62077, -5.9604645e-08, 88.588776)
-
-[node name="@Node3D@24870" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1526405283 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.745598, -5.9604645e-08, 78.40893)
-
 [node name="@Node3D@24871" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1428214309 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.188267, -5.9604645e-08, 65.3979)
 
@@ -3677,9 +3551,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -154.86914, -5.9604645e-08, 2
 [node name="@Node3D@24901" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2085828240 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.13933, -5.9604645e-08, 162.99501)
 
-[node name="@Node3D@24902" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=777982295 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.35355, 0.048689052, 72.62585)
-
 [node name="@Node3D@24903" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=158694103 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.70346, 0.048689052, -6.215767)
 
@@ -3719,9 +3590,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.17936, 0.048689052, 35.324
 [node name="@Node3D@24916" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1772201568 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.424145, -5.9604645e-08, 65.059074)
 
-[node name="@Node3D@24917" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=761187862 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.5186, -5.9604645e-08, 62.91274)
-
 [node name="@Node3D@24918" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1499729559 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.467957, -5.9604645e-08, -19.271812)
 
@@ -3733,9 +3601,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -201.01094, 0.048689052, -13.
 
 [node name="@Node3D@24921" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=181764181 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.35464, -5.9604645e-08, -1.1551018)
-
-[node name="@Node3D@24922" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=198295372 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.887527, -5.9604645e-08, 175.81497)
 
 [node name="@Node3D@24924" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1515504482 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.2433, -5.9604645e-08, 129.08739)
@@ -3771,7 +3636,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9456863, -5.9604645e-08, -
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.387726, 0.048689052, 131.6195)
 
 [node name="@Node3D@24935" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1424773812 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.503475, -5.9604645e-08, 73.45416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.725258, -5.9604645e-08, 75.91484)
 
 [node name="@Node3D@24936" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2072541211 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.49873, 0.048689052, 190.0525)
@@ -3911,9 +3776,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.79755, 0.048689052, 138.
 [node name="@Node3D@24982" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1386056199 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.520485, -5.9604645e-08, 49.350174)
 
-[node name="@Node3D@24983" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=712539245 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.62437, -5.9604645e-08, 192.49174)
-
 [node name="@Node3D@24984" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1917765725 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1453, -5.9604645e-08, 182.72607)
 
@@ -3943,9 +3805,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.863415, 0.048689052, 180.
 
 [node name="@Node3D@24994" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1751169650 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -173.93898, 0.048689052, -18.849533)
-
-[node name="@Node3D@24995" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1228895266 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.66336, -5.9604645e-08, 6.947175)
 
 [node name="@Node3D@24996" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=675811309 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.55417, 0.048689052, -7.7957516)
@@ -3991,9 +3850,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.559235, -5.9604645e-08, 1
 
 [node name="@Node3D@25011" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=208033908 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.88444, 0.048689052, 4.2396593)
-
-[node name="@Node3D@25012" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1882008756 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6547, -5.9604645e-08, 66.988205)
 
 [node name="@Node3D@25014" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=330929380 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.69161, 0.048689052, 107.147)
@@ -4094,9 +3950,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.13069, -5.9604645e-08, 115
 [node name="@Node3D@25049" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=137061091 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.77294, -5.9604645e-08, 67.06712)
 
-[node name="@Node3D@25050" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=702358966 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -174.00717, -5.9604645e-08, 129.26941)
-
 [node name="@Node3D@25051" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1282985923 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.60074, 0.048689052, 206.78468)
 
@@ -4150,9 +4003,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.295996, -5.9604645e-08, -
 
 [node name="@Node3D@25070" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=242000586 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5675, 0.048689052, 36.861652)
-
-[node name="@Node3D@25071" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1304744387 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.558044, 0.048689052, 110.45651)
 
 [node name="@Node3D@25072" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1283106938 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.71904, 0.048689052, 64.76385)
@@ -4226,9 +4076,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.38762, -5.9604645e-08, 75.
 [node name="@Node3D@25099" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=501009153 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.63992, -5.9604645e-08, 116.12834)
 
-[node name="@Node3D@25100" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=774015865 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158.0522, 0.048689052, 103.957634)
-
 [node name="@Node3D@25101" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1985307435 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.887775, 0.048689052, 41.015198)
 
@@ -4258,9 +4105,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.6215, 0.048689052, -21.8
 
 [node name="@Node3D@25111" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=570774638 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.87183, 0.048689052, -30.306671)
-
-[node name="@Node3D@25112" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=561063147 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.71492, -5.9604645e-08, 132.85797)
 
 [node name="@Node3D@25113" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1670538248 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.94302, 0.048689052, -4.638756)
@@ -4421,9 +4265,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.74522, 0.048689052, -7.05
 [node name="@Node3D@25170" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=944400410 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.3954, 0.048689052, -5.954525)
 
-[node name="@Node3D@25171" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=120175663 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.427013, -5.9604645e-08, 63.449257)
-
 [node name="@Node3D@25172" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1116404589 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -187.80504, 0.048689052, 206.37244)
 
@@ -4513,9 +4354,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.41724, -5.9604645e-08, -
 
 [node name="@Node3D@25204" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=340274735 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0109863, -5.9604645e-08, 194.04567)
-
-[node name="@Node3D@25205" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1299664201 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -170.83873, 0.048689052, 135.00732)
 
 [node name="@Node3D@25206" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1040784302 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.50464, -5.9604645e-08, 154.77342)
@@ -4678,9 +4516,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.11219, -5.9604645e-08, 177
 
 [node name="@Node3D@25265" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2038891071 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.064362, -5.9604645e-08, 177.77097)
-
-[node name="@Node3D@25266" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=788077138 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.090965, 0.048689052, 160.96703)
 
 [node name="@Node3D@25267" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1280430276 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.05554, 0.048689052, 23.221647)
@@ -4931,9 +4766,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -133.9515, 0.048689052, 153.8
 [node name="@Node3D@25351" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1001566300 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.62091, -5.9604645e-08, 101.495026)
 
-[node name="@Node3D@25352" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1057666961 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.88182, 0.048689052, 49.293476)
-
 [node name="@Node3D@25354" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1473856705 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190.22311, -5.9604645e-08, 30.15313)
 
@@ -4942,9 +4774,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.36571, 0.048689052, 51.85
 
 [node name="@Node3D@25356" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1675490277 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.105835, -5.9604645e-08, 123.21058)
-
-[node name="@Node3D@25357" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=154039391 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.283554, 0.048689052, 162.83824)
 
 [node name="@Node3D@25358" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1014509053 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.549126, 0.048689052, 212.46982)
@@ -5039,14 +4868,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.90234, -5.9604645e-08, 87
 [node name="@Node3D@25393" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1962932745 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8415947, 0.048689052, 29.180046)
 
-[node name="@Node3D@25394" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=2049923673 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.09226, -5.9604645e-08, 66.33045)
-
 [node name="@Node3D@25396" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=202044478 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.499756, -5.9604645e-08, -21.154976)
-
-[node name="@Node3D@25397" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1611573464 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.16633, -5.9604645e-08, 73.12331)
 
 [node name="@Node3D@25399" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1925312922 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5928, 0.048689052, -10.921656)
@@ -5085,7 +4908,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.044971, -5.9604645e-08, -3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -188.71906, 0.048689052, 183.64316)
 
 [node name="@Node3D@25412" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=553872777 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.985611, -5.9604645e-08, 160.43796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.438293, -5.9604645e-08, 160.04697)
 
 [node name="@Node3D@25413" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1499202975 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.87933, 0.048689052, 123.134056)
@@ -5125,9 +4948,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.365395, -5.9604645e-08, 6
 
 [node name="@Node3D@25427" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1441953021 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.8924, 0.048689052, 121.74962)
-
-[node name="@Node3D@25428" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1211565807 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.529373, 0.048689052, 156.9565)
 
 [node name="@Node3D@25429" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1847172826 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.134647, 0.048689052, -33.445724)
@@ -5169,7 +4989,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.41515, 0.048689052, 197.28
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.56935, -5.9604645e-08, 54.37765)
 
 [node name="@Node3D@25442" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1324825298 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.01068, -5.9604645e-08, 79.397125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.19275, -5.9604645e-08, 60.869343)
 
 [node name="@Node3D@25443" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=279789140 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.282154, -5.9604645e-08, -37.569748)
@@ -5258,9 +5078,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.123856, 0.048689052, 204.
 [node name="@Node3D@25472" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1793407724 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -194.60779, 0.048689052, 72.386284)
 
-[node name="@Node3D@25473" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=547111767 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.4921, -5.9604645e-08, 176.56476)
-
 [node name="@Node3D@25474" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1279891709 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -154.65584, 0.048689052, -18.569168)
 
@@ -5279,9 +5096,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.37746, -5.9604645e-08, -
 [node name="@Node3D@25480" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1559945299 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.26806, -5.9604645e-08, 137.89633)
 
-[node name="@Node3D@25482" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=309635334 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.28091, -5.9604645e-08, 178.89696)
-
 [node name="@Node3D@25483" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1998448102 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.13566, -5.9604645e-08, 145.3528)
 
@@ -5296,9 +5110,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.895, 0.048689052, 77.2069
 
 [node name="@Node3D@25487" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1431425176 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.64833, 0.048689052, -39.744827)
-
-[node name="@Node3D@25488" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=297176349 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.957928, -5.9604645e-08, 166.08443)
 
 [node name="@Node3D@25489" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1889194382 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.810753, -5.9604645e-08, 196.36644)
@@ -5336,9 +5147,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.29947, 0.048689052, -10.
 [node name="@Node3D@25501" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1362709588 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.25061, -5.9604645e-08, 44.29672)
 
-[node name="@Node3D@25503" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1303452265 instance=ExtResource("16_fctpv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.205635, 0.048689052, 194.4689)
-
 [node name="@Node3D@25504" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1411038439 instance=ExtResource("15_wsxye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.096016, -5.9604645e-08, 74.09538)
 
@@ -5348,14 +5156,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.143414, -5.9604645e-08, -1
 [node name="@Node3D@25506" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=604261184 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.26941, 0.048689052, 96.55551)
 
-[node name="@Node3D@25507" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=527003582 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.43532, -5.9604645e-08, 174.92464)
-
 [node name="@Node3D@25508" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=487815787 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.61284, 0.048689052, 158.8696)
-
-[node name="@Node3D@25509" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1351206522 instance=ExtResource("15_wsxye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.67224, -5.9604645e-08, 146.67801)
 
 [node name="@Node3D@25510" parent="Trees/SCATTER_OUTPUT/ScatterItem" unique_id=1628595835 instance=ExtResource("16_fctpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169.12541, 0.048689052, 83.85651)

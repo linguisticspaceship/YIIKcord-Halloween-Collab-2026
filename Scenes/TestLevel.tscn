@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cj7ipxp8plwmk" path="res://Scripts/RandomPrefabs.gd" id="7_43uqb"]
 [ext_resource type="PackedScene" uid="uid://djw2srkg5rvxk" path="res://Models/tree.tscn" id="7_rdb2v"]
 [ext_resource type="PackedScene" uid="uid://b1vyou5sqcwsw" path="res://Models/tree2.tscn" id="8_5q7gb"]
+[ext_resource type="PackedScene" uid="uid://bxrjhqetmj6xo" path="res://Prefabs/roryCat.tscn" id="10_h2ngc"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5ms4e"]
 vertices = PackedVector3Array(-39.5, -4.3185406, -39.5, -39.5, -4.3185406, 39.5, 39.5, -4.3185406, 39.5, 39.5, -4.3185406, -39.5)
@@ -133,10 +134,13 @@ visible = false
 script = ExtResource("7_43uqb")
 nodes = Array[String](["res://Models/tree.tscn", "res://Models/tree2.tscn"])
 
-[node name="@Node3D@30636" parent="TESTGROUP" unique_id=253042511 instance=ExtResource("8_5q7gb")]
+[node name="_Node3D_30636" parent="TESTGROUP" unique_id=253042511 instance=ExtResource("8_5q7gb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.978409, 0, 9.294757)
 
-[node name="@Node3D@30637" parent="TESTGROUP" unique_id=167414816 instance=ExtResource("8_5q7gb")]
+[node name="_Node3D_30637" parent="TESTGROUP" unique_id=167414816 instance=ExtResource("8_5q7gb")]
 
 [node name="Tree" parent="TESTGROUP" unique_id=290117269 instance=ExtResource("7_rdb2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1372781, 0, 9.037432)
+
+[node name="RoryCat" parent="." unique_id=1903923049 instance=ExtResource("10_h2ngc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.514369, 1.9663796, 10.525276)
